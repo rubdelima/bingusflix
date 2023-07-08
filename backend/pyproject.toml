@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["Hugo Marques <43884516+hggmarks@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.100.0"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
+pydantic = "^2.0.2"
+pymongo = "^4.4.0"
+python-dotenv = "^1.0.0"
+pytest = "^7.4.0"
+pytest-mongodb = "^2.4.0"
+pytest-bdd = "^6.1.1"
+httpx = "^0.24.1"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.17.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
