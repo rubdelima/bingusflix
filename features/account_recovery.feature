@@ -5,7 +5,7 @@ So that eu posso alterar a senha e voltar a acessar o sistema
 
 Scenario: usuário solicita recuperação de conta
 	
-Given eu estou na página de "login"
+Given eu estou na página de "Login"
 When eu seleciono a opção "Esqueci minha senha"
 Then eu sou encaminhado para a página "Recuperação de conta"
 
