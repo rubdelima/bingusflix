@@ -8,7 +8,7 @@ Scenario: usuário solicita recuperação de conta
 Given eu não estou logado com nenhum usuário do sistema
 And eu estou na página de “Login”
 When eu clico no botão “Esqueci minha senha”
-Then eu sou encaminhado para a página “Recuperação de conta"
+Then eu sou encaminhado para a página “Recuperação de conta”
 
 Scenario: usuário altera sua senha por meio da recuperação de conta
 	
