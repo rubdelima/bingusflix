@@ -14,15 +14,13 @@ Scenario: usuário altera sua senha por meio da recuperação de conta
 	
 Given eu não estou logado com nenhum usuário do sistema
 And eu estou na página de “Recuperação de conta”
-And existe um usuário cadastrado no sistema com o e-mail “felipe@gmail.com” 
-e senha “netflix123”
+And existe um usuário cadastrado no sistema com o e-mail “felipe@gmail.com” e senha “netflix123”
 When eu preencho o campo “Email” com “felipe@gmail.com” 
 And eu preencho o campo “Nova senha” com “hbo123”
 And eu preencho o campo “Confirmar senha” com “hbo123”
 And eu clico no botão “Confirmar”
 Then eu recebo uma mensagem de confirmação informando que a senha foi alterada
-And existe um usuário cadastrado no sistema com o e-mail “felipe@gmail.com”
-e senha “hbo123”
+And existe um usuário cadastrado no sistema com o e-mail “felipe@gmail.com” e senha “hbo123”
 
 Scenario: e-mail inválido na recuperação de conta
 	
