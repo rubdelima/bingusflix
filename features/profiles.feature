@@ -52,7 +52,7 @@ And eu seleciono “salvar”
 Then eu vejo uma mensagem de “erro” 
 And eu vejo “2” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “adicionar perfil”
 
-Scenario: remoção de um perfil mal sucedida
+Scenario: remoção de um perfil má sucedida
 Given eu estou logado como “usuario comum” com login “rnl2” e senha “rubinho123”
 And eu estou na página “criação e manuntenção de perfis” 
 And eu vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Fred”
