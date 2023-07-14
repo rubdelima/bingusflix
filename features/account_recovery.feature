@@ -25,7 +25,7 @@ Scenario: e-mail inválido na recuperação de conta
 	
 Given eu estou na página "Recuperação de conta"
 And o sistema não tem um usuário cadastrado com o e-mail "frederick@gmail.com"
-When eu preencho o campo de "Email" com "felipe@gmail.com"
+When eu preencho o campo de "Email" com "frederick@gmail.com"
 And eu preencho o campo "Nova senha" com "hbo123"
 And eu preencho o campo "Confirmar senha" com "hbo123"
 Then eu recebo a mensagem de erro "Usuário não encontrado"
