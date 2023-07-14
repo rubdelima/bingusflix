@@ -61,4 +61,5 @@ When eu seleciono “gerenciar perfis”
 And eu seleciono “”
 And eu seleciono “remover” e “confirmar”
 Then eu vejo uma mensagem de “erro”
-And vejo “3” perfis criados: usuário “rnl2” com nome “Rubens”, usuário “rnl2” com nome “Fred” e usuário “rnl2” com nome “adicionar perfil”
+And eu vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Fred”
+And eu vejo a opção "gerenciar perfis"
