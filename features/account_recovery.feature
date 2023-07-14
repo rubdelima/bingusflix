@@ -28,7 +28,7 @@ And o sistema não tem um usuário cadastrado com o e-mail "frederick@gmail.com"
 When eu preencho o campo de "Email" com "frederick@gmail.com"
 And eu preencho o campo "Nova senha" com "hbo123"
 And eu preencho o campo "Confirmar senha" com "hbo123"
-Then eu recebo a mensagem de erro "Usuário não encontrado"
+Then eu recebo a mensagem de erro "As informações fornecidas são inválidas"
 And eu estou na página de "Recuperação de conta"
 
 Scenario: confirmação senha diferente da nova senha
@@ -38,6 +38,6 @@ And existe um usuário cadastrado no sistema com o e-mail "felipe@gmail.com" e a
 When eu preencho o campo de "Email" com "felipe@gmail.com"
 And eu preencho o campo "Nova senha" com "hbo123"
 And eu preencho o campo "Confirmar senha" com "amazon123"
-Then eu recebo a mensagem de erro "A senha e a confirmação de senha não correspondem"
+Then eu recebo a mensagem de erro "As informações fornecidas são inválidas"
 And eu estou na página de "Recuperação de conta"
 And existe um usuário cadastrado no sistema com o e-mail "felipe@gmail.com" e a senha "netflix123"
