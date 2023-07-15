@@ -1,5 +1,8 @@
-In this feature you can create profiles to your account, so each profile will have its own preferences, like age rating,
-language, favorite movies, among others.
+Feature: Profiles
+As a usuário
+I want to criar vários perfis
+So that eu possa dividir minha conta com amigos
+
 
 Scenario: criação bem sucedida de um perfil
 Given eu estou logado como “usuário comum” com login “rnl2” e senha “rubinho123”
