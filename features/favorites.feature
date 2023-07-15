@@ -18,3 +18,20 @@ And eu seleciono “Adicionar aos favoritos”
 Then eu vejo uma mensagem de “sucesso”
 And eu vejo a seção “Favoritos”
 And eu vejo “Breaking Bad”
+
+
+Scenario: Remover um filme/série dos favoritos com sucesso
+
+Given eu logado como “usuario comum” com login “rnl2”, senha “rubinho123” e nome “Fred”
+And estou na página “inicial” 
+And eu vejo a seção “Favoritos”
+And eu vejo “Breaking Bad”
+And eu vejo “O Justiceiro”
+And eu vejo “Alice in borderland”
+And em cada “obra cinematográfica” eu vejo a opção “opções”
+When eu seleciono ”opções” de “Alice in borderland”
+And eu seleciono “Remover dos favoritos”
+Then eu vejo uma mensagem de “sucesso”
+And eu vejo a seção “Favoritos”
+And eu vejo “Breaking Bad”
+And eu vejo “O Justiceiro”
