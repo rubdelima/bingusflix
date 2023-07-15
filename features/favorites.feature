@@ -5,6 +5,7 @@ So that eu sempre possa acessá-los rapidamente
 
 
 Scenario: Favoritar um filme/série com sucesso
+
 Given eu logado como “usuario comum” com login “rnl2”, senha “rubinho123” e nome “Fred”
 And estou na página “inicial” 
 And eu vejo a seção “assistidos recentemente”

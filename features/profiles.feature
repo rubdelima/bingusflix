@@ -5,6 +5,7 @@ So that eu possa dividir minha conta com amigos
 
 
 Scenario: criação bem sucedida de um perfil
+
 Given eu estou logado como “usuário comum” com login “rnl2” e senha “rubinho123”
 And eu estou na página “criação e manuntenção de perfis”
 And eu vejo “2” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “adicionar perfil”
@@ -17,7 +18,9 @@ And eu seleciono “salvar”
 Then eu vejo uma mensagem de “sucesso” 
 And vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Neiva”
 
+
 Scenario: edição de um perfil: 
+
 Given eu estou logado como “usuario comum” com login “rnl2” e senha “rubinho123”
 And eu estou na página “criação e manuntenção de perfis” 
 And eu vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Neiva”
@@ -31,7 +34,9 @@ And eu seleciono “salvar”
 Then eu vejo uma mensagem de “sucesso”
 And vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Fred”
 
+
 Scenario: remoção de um perfil bem sucedida
+
 Given eu estou logado como “usuario comum” com login “rnl2” e senha “rubinho123”
 And eu estou na página “criação e manuntenção de perfis” 
 And eu vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Fred”
@@ -42,7 +47,9 @@ And eu seleciono “remover” e “confirmar”
 Then eu vejo uma mensagem de “sucesso”
 And vejo “3” perfis criados: usuário “rnl2” com nome “Rubens”, usuário “rnl2” com nome “Fred” e usuário “rnl2” com nome “adicionar perfil”
 
+
 Scenario: criação má sucedida de um perfil
+
 Given eu estou logado como “usuário comum” com login “rnl2” e senha “rubinho123”
 And eu estou na página “criação e manuntenção de perfis”
 And eu vejo “2” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “adicionar perfil”
@@ -55,7 +62,9 @@ And eu seleciono “salvar”
 Then eu vejo uma mensagem de “erro” 
 And eu vejo “2” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “adicionar perfil”
 
+
 Scenario: remoção de um perfil má sucedida
+
 Given eu estou logado como “usuario comum” com login “rnl2” e senha “rubinho123”
 And eu estou na página “criação e manuntenção de perfis” 
 And eu vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Fred”
@@ -67,7 +76,9 @@ Then eu vejo uma mensagem de “erro”
 And eu vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Fred”
 And eu vejo a opção "gerenciar perfis"
 
+
 Scenario: alteração da língua de um perfil bem sucedida
+
 Given eu estou logado como “usuario comum” com login “rnl2” e senha “rubinho123”
 And eu estou na página “criação e manuntenção de perfis” 
 And eu vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Neiva”
