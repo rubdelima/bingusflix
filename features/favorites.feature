@@ -6,7 +6,7 @@ So that eu sempre possa acessá-los rapidamente
 
 Scenario: Favoritar um filme/série com sucesso
 
-Given eu logado como “usuario comum” com login “rnl2”, senha “rubinho123” e nome “Fred”
+Given eu logado como “usuario comum” com login "rnl2@gmail.com", senha “rubinho123” e nome “Fred”
 And estou na página “inicial” 
 And eu vejo a seção “assistidos recentemente”
 And eu vejo “The witcher 3”
@@ -22,7 +22,7 @@ And eu vejo “Breaking Bad”
 
 Scenario: Remover um filme/série dos favoritos com sucesso
 
-Given eu logado como “usuario comum” com login “rnl2”, senha “rubinho123” e nome “Fred”
+Given eu logado como “usuario comum” com login "rnl2@gmail.com", senha “rubinho123” e nome “Fred”
 And estou na página “inicial” 
 And eu vejo a seção “Favoritos”
 And eu vejo “Breaking Bad”
