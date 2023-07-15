@@ -1,5 +1,5 @@
 Scenario: Retomar série a partir do próximo episódio
-Given eu estou logado como "usuario comum" com login "rnl2" e senha "rubinho123"
+Given eu estou logado como "usuario comum" com e-mail "rnl2@cin.ufpe.br" e senha "rubinho123"
 And eu estou na página "Histórico"
 And eu estou na seção "Séries"
 And a série "Stranger Things" não está listada como "finalizada"
