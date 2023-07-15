@@ -72,7 +72,8 @@ And eu vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, u
 And eu vejo a opção “gerenciar perfis”
 When eu seleciono “gerenciar perfis”
 And eu seleciono “Neiva”
-And eu preencho “lingua” com “português”
+And eu preencho “lingua” com “inglês”
 And eu seleciono “salvar”
 Then eu vejo uma mensagem de “sucesso”
 And vejo “3” perfis criados: usuário “rnl2” com nome “Amanda”, usuário “rnl2” com nome “Rubens” e usuário “rnl2” com nome “Neiva”
+And eu vejo os textos em "inglês"
