@@ -4,5 +4,5 @@ Scenario: Encontrar uma série fora dos 10 primeiros itens
 	And eu vejo os 10 primeiros itens
 	And eu não encontro a série “The Mandalorian”
 	When eu seleciono a opção “Avançar Página”
-	Then 10 novos itens são carregados
+	Then 10 novos itens são exibidos
 	And eu vejo a série “The Mandalorian”.
