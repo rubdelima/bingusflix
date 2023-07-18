@@ -51,3 +51,4 @@ And eu preencho "Plano" com "comum"
 And eu seleciono "criar conta"
 Then eu vejo uma mensagem de "campo obrigatorio não preenchido"
 And eu continuo na página de "criação de conta"
+And o cadastro não foi realizado
