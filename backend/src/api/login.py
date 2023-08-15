@@ -15,7 +15,7 @@ async def get_logged_user(token: Annotated[str, Depends(oauth2_scheme)]):
             return user
 
 @router.post( # rota para realizar o login de um usuário
-        "/", status_code=201  , response_model=TokenResponse, tags=["login"]
+        "/", status_code=200  , response_model=TokenResponse, tags=["login"]
 ) 
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     for user in database: # procura um usuário com email e senha iguais ao do formulário
