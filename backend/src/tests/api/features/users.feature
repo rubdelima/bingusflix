@@ -27,11 +27,11 @@ Scenario: Create a user
 
   Scenario: Atualizar um usuario
     Given ha um usuario com id "1" e nome "Hugo" cadastrado no banco de dados
-	When uma requisição "PUT" for enviada para "/users/1" com o corpo da requisição sendo um JSON com o nome "Rubens"
-	And sobrenome "Nascimento"
+	When uma requisição "PUT" for enviada para "/users/1" com o corpo da requisição sendo um JSON com o nome "Hugo"
+	And sobrenome "Felix"
 	And email "hfm@email.com"
-	And senha "hfm321"
+	And senha "speedwagon"
 	And data de nascimento "01/02/2003"
 	And plano "comum"
 	Then o status da resposta deve ser "200"
-	And o JSON da resposta deve conter id "1" e nome "Rubens"
+	And o Usuario cadastrado no banco deve ter a senha "speedwagon"
