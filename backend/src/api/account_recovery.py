@@ -16,6 +16,6 @@ def change_password(account_recovery: AccountRecovery):
                 user.passwd = account_recovery.new_password
                 return user 
             else:
-                raise HTTPException(status_code=400, detail="Wrong password") # se as senhas digitadas forem diferentes: erro 400
+                raise HTTPException(status_code=400, detail="Passwords do not match") # se as senhas digitadas forem diferentes: erro 400
     
     raise HTTPException(status_code=404, detail="User not found") # se não encontrar o usuário: erro 404
