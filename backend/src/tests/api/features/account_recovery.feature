@@ -16,4 +16,4 @@ Scenario: Confirmação de senha diferente da nova senha
 Given que um usuário com email "felipe@gmail.com" e senha "senha123" está cadastrado no sistema
 When o usuário envia uma requisição "PUT" para "/account_recovery" com email "felipe@gmail.com", nova senha "senha456" e confirmação de senha "senha789"
 Then o status da resposta deve ser "400"
-And a mensagem de erro deve ser "Senha incorreta"
+And a mensagem de erro deve ser "Passwords do not match"
