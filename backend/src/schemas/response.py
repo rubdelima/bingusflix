@@ -1,10 +1,13 @@
 from typing import Optional
+
 from pydantic import BaseModel
+
 
 class HttpResponseModel(BaseModel):
     message: str
     status_code: int
     data: Optional[dict] | Optional[list] = None
+
 
 class HTTPResponses:
 
@@ -15,30 +18,37 @@ class HTTPResponses:
     @staticmethod
     def ITEM_NOT_FOUND() -> HttpResponseModel:
         return HttpResponseModel(
-            message="Item not found",
+            message='Item not found',
             status_code=404,
         )
 
     @staticmethod
     def ITEM_FOUND() -> HttpResponseModel:
         return HttpResponseModel(
-            message="Item found",
+            message='Item found',
             status_code=200,
         )
 
     @staticmethod
     def ITEM_CREATED() -> HttpResponseModel:
         return HttpResponseModel(
-            message="Item created",
+            message='Item created',
             status_code=201,
         )
 
     @staticmethod
     def SERVER_ERROR() -> HttpResponseModel:
         return HttpResponseModel(
-            message="Server error",
+            message='Server error',
             status_code=500,
         )
 
+    @staticmethod
+    def USER_DELETED() -> HttpResponseModel:
+        return HttpResponseModel(message='User deleted', status_code=200)
+
+    @staticmethod
+    def USER_NOT_FOUND() -> HttpResponseModel:
+        return HttpResponseModel(message='User not found', status_code=404)
 
     # TODO: implement other responses (item created, updated, deleted, etc)
