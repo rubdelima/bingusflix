@@ -6,13 +6,13 @@ So that eu possa ser capaz de atualizar e deletar minhas informações
 Scenario: Cadastro bem sucedido de um usuário
 Given eu estou na página "criação de conta"
 And não há contas criadas anteriormente com email "hfm@email.com"
-When eu preencho "Nome" com "Hugo"
-And eu preencho "Sobrenome" com "Felix"
-And eu preencho "Email" com "hfm@email.com"
-And eu preencho "Senha" com "hfm321"
-And eu preencho "Data de nascimento" com "01/02/2003"
-And eu preencho "Plano" com "comum"
-And eu seleciono "criar conta"
+When eu preencho nome com "Hugo"
+And eu preencho sobrenome com "Felix"
+And eu preencho email com "hfm@email.com"
+And eu preencho senha com "hfm321"
+And eu preencho data de nascimento com "01/02/2003"
+And eu preencho plano com "comum"
+And eu seleciono criar conta
 Then eu vejo uma mensagem de "conta criada com sucesso"
 And eu sou redirecionado para a página de "login"
 
@@ -43,20 +43,24 @@ Then eu recebo a mensagem de "Senhas não coincidentes"
 Scenario: Cadastro mal sucedido de usuário
 Given eu estou na pagina "criacão de conta"
 And não há contas criadas anteriormente com email "hfm@email.com"
-When eu preencho "Nome" com "Hugo"
-And eu preencho "Sobrenome" com "Felix"
-And eu preencho "Senha" com "hfm321"
-And eu preencho "Data de nascimento" com "01/02/2003"
-And eu preencho "Plano" com "comum"
+When eu preencho nome com "Hugo"
+And eu preencho sobrenome com "Felix"
+And eu preencho senha com "hfm321"
+And eu preencho data de nascimento com "01/02/2003"
+And eu preencho plano com "comum"
 And eu seleciono "criar conta"
 Then eu vejo uma mensagem de "campo obrigatorio não preenchido"
 And eu continuo na página de "criação de conta"
 And o cadastro não foi realizado
 
 Scenario: Alteração no nome do usuário
- Given eu estou logado como "usuário comum" com login "hfm@email.com" e senha "hfm321"
+Given eu estou logado como "usuário comum" com login "hfm@email.com" e senha "hfm321"
 And eu estou na página "configuracões da conta"
 When eu seleciono "Alterar nome"
 And eu preencho a senha com "hfm321"
-And eu preencho o "novo nome" com "Hugo" e "novo sobrenome" com "Marques"
+And eu preencho novo nome com "Hugo" e novo sobrenome com "Marques"
 Then eu recebo a mensagem de "Nome alterado com sucesso"
+
+Scenario: Criação de usuário no sistema
+Given não há contas criadas anteriormente com email "hfm@email.com"
+When uma requisicao "POST" for enviada para "/user"
