@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from schemas.user import UserDB, UserModelPublic
-from schemas.recovery import AccountRecovery
+from src.schemas.user import UserDB, UserModelPublic
+from src.schemas.recovery import AccountRecovery
 
 from .users import database
 

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
-from schemas.response import HttpResponseModel, HTTPResponses
-from schemas.user import UserDB, UserList, UserModel, UserModelPublic
+from src.schemas.response import HttpResponseModel, HTTPResponses
+from src.schemas.user import UserDB, UserList, UserModel, UserModelPublic
 
 router = APIRouter()
 

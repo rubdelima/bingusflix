@@ -1,8 +1,8 @@
 from typing import Annotated
 from fastapi import Depends, APIRouter, HTTPException
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from schemas.user import UserDB
-from schemas.tokenresponse import TokenResponse
+from src.schemas.user import UserDB
+from src.schemas.tokenresponse import TokenResponse
 from .users import database
 
 router = APIRouter()
