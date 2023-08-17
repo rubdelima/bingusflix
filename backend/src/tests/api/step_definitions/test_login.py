@@ -56,10 +56,6 @@ def check_login_response_token(context, user_id: str, token_type: str):
     assert context["response"].json() == expected_token_response
     return context
 
-from pytest_bdd import scenario, given, when, then, parsers
-from src.schemas.user import UserDB
-from src.api.users import database as db
-
 
 
 @scenario(
@@ -97,10 +93,6 @@ def check_login_response_status_code(context, status_code: str):
 def check_login_response_error_message(context, error_message: str):
     assert context["response"].json()["detail"] == error_message
     return context
-
-from pytest_bdd import scenario, given, when, then, parsers
-from src.schemas.user import UserDB
-from src.api.users import database as db
 
 
 
