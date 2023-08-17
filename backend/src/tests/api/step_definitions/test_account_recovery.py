@@ -64,7 +64,7 @@ def test_invalid_email_account_recovery():
     pass
 
 @given(parsers.cfparse('que nenhum usuário com email "{user_email}" está cadastrado no sistema')) 
-def clear_database(user_email: str): # para garantir que não exista nenhum usuário cadastrado no sistema
+def clear_database(): # para garantir que não exista nenhum usuário cadastrado no sistema
     db.clear()
 
 @when(
