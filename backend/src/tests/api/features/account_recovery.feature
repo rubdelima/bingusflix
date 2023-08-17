@@ -4,7 +4,7 @@ Scenario: Usuário altera sua senha por meio da recuperação de conta
 Given um usuário com email "felipe@gmail.com" e senha "senha123" está cadastrado no sistema
 When um usuário envia uma requisição PUT para "/account_recovery" com email "felipe@gmail.com" e nova senha "senha456" e confirmação de senha "senha456"
 Then o status da resposta deve ser "200"
-And o JSON da resposta deve conter as informações atualizadas do usuário
+And o JSON da resposta deve conter o usuário com email "felipe@gmail.com" e "senha456"
 
 Scenario: E-mail inválido na recuperação de conta
 Given que nenhum usuário com email "fred@gmail.com" está cadastrado no sistema
