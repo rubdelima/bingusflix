@@ -49,7 +49,8 @@ def check_account_recovery_response_status_code(context, status_code: str): # ve
     target_fixture="context"
 )
 def check_account_recovery_response_user(context, user_email: str, new_password: str):
-    expected_response = {"email": user_email, "new_password": new_password, "confirm_password": new_password} # verifica se o JSON da resposta contém o email do usuário, a nova senha e confirmação da senha
+    expected_response = {"email": user_email, "new_password": new_password} # verifica se o JSON da resposta contém o email do usuário, a nova senha e confirmação da senha
+    print(expected_response)
     assert context["response"].json() == expected_response
     return context
 

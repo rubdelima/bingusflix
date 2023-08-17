@@ -8,4 +8,3 @@ class AccountRecovery(BaseModel): # modelando a recuperação de senha
 class PasswordChangeResponse(BaseModel):
     email: EmailStr
     new_password: str
-    confirm_password: str

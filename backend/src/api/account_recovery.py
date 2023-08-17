@@ -14,7 +14,7 @@ def change_password(account_recovery: AccountRecovery):
         if user.email == account_recovery.email: # caso o email exista na base de dados e a senha seja igual a confirmação, atualiza a senha do usuário
             if account_recovery.new_password == account_recovery.confirm_password: 
                 user.passwd = account_recovery.new_password
-                return PasswordChangeResponse(email=user.email, new_password=user.passwd, confirm_password=user.passwd)
+                return PasswordChangeResponse(email=user.email, new_password=user.passwd)
             else:
                 raise HTTPException(status_code=400, detail="Passwords do not match") # se as senhas digitadas forem diferentes: erro 400
     
