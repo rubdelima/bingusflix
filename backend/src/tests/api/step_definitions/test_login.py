@@ -70,7 +70,7 @@ def test_email_not_registered():
         'nenhum usuário com e-mail "{user_email}" está cadastrado no sistema'
     )
 )
-def clear_database(user_email: str): # para garantir que não exista nenhum usuário cadastrado no sistema
+def clear_database(): # para garantir que não exista nenhum usuário cadastrado no sistema
     db.clear()
 
 @when(
