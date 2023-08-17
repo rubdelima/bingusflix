@@ -40,7 +40,6 @@ async def create_profile(
     
     profile_with_id = ProfileDB(**profile.model_dump(), id_profile=len(user_profiles) + 1, id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
     
-    
     database_profiles.append(profile_with_id)   # insere no banco de dados
     return profile_with_id
 
@@ -91,3 +90,22 @@ async def remove_profile(
     
     return database_profiles.pop(id-1) # remove o profile com o id passado
 
+# edita um perfil
+@router.put(
+    '/{id}', status_code=200, response_model=ProfileDB, tags=['profiles']
+)
+async def edit_profile(
+    id:int , profile: ProfileModel, current_user: Annotated[UserDB, Depends(get_logged_user)]
+):
+    profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
+
+    # garantir que esse profile existe
+    # TODO: modularizar essa checagem
+    if id < 1 and id > len(profile_list):
+        raise HTTPException(status_code=404, detail='Profile não encontrado')
+
+    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=id, id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
+
+    database_profiles[id-1] = profile_with_id # atualiza os dados desse profile
+
+    return database_profiles[id-1]
