@@ -50,7 +50,6 @@ def check_account_recovery_response_status_code(context, status_code: str): # ve
 )
 def check_account_recovery_response_user(context, user_email: str, new_password: str):
     expected_response = {"email": user_email, "new_password": new_password} # verifica se o JSON da resposta contém o email do usuário, a nova senha e confirmação da senha
-    print(expected_response)
     assert context["response"].json() == expected_response
     return context
 
@@ -64,7 +63,7 @@ def test_invalid_email_account_recovery():
     pass
 
 @given(parsers.cfparse('que nenhum usuário com email "{user_email}" está cadastrado no sistema')) 
-def clear_database(): # para garantir que não exista nenhum usuário cadastrado no sistema
+def clear_database(user_email: str): # para garantir que não exista nenhum usuário cadastrado no sistema
     db.clear()
 
 @when(
