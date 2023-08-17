@@ -15,6 +15,7 @@ def test_successful_login(): # testar o login bem sucedido de um usuário
     )
 )
 def mock_user_in_database(user_id: str, user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
+    db.clear()
     db.append(UserDB(
         id=int(user_id),
         name="Nome",
@@ -32,7 +33,6 @@ def mock_user_in_database(user_id: str, user_email: str, user_password: str): # 
     target_fixture="context"
 )
 def send_login_request(client, context, login_url: str, user_email: str, user_password: str):
-
     response = client.post(login_url, data={"username": user_email, "password": user_password}) # envia um post para a rota de login com o email e senha do usuário
     context["response"] = response
     return context
@@ -117,6 +117,7 @@ def test_wrong_password():
     )
 )
 def mock_user_in_database(user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
+    db.clear()
     db.append(UserDB(
         id=1,
         name="Nome",
