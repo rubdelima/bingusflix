@@ -7,10 +7,10 @@ class ProfileModel(BaseModel):
     language: str
 
 
-class ProfileList(BaseModel):
-    users: list[ProfileModel]
-
-
 class ProfileDB(ProfileModel):
     id_profile: int
     id_user: int
+
+
+class ProfileList(BaseModel):
+    profiles: list[ProfileDB]
