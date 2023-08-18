@@ -4,8 +4,9 @@ from src.schemas.response import HttpResponseModel, HTTPResponses
 
 from src.api.login import get_logged_user
 from src.api.users import database
-from src.schemas.user import UserDB, UserList, UserModel, UserModelPublic
+from src.schemas.user import UserDB
 from src.schemas.profile import ProfileModel, ProfileDB, ProfileList
+
 from typing import Annotated
 
 router = APIRouter()
@@ -24,6 +25,17 @@ def get_profiles_by_id(id_profile: int):
     return profile_list
 
 
+# retorna o primeiro id livre
+def choose_id(profile_list: list):
+    ids = []
+
+    for profile in profile_list:
+        ids.append(profile.id_profile)
+    
+    for i in range(1, len(profile_list) + 2):
+        if i not in ids:
+            return i
+
 # cria um novo profile
 @router.post(
     '/', status_code=201, response_model=ProfileDB, tags=['profiles']
@@ -38,7 +50,7 @@ async def create_profile(
     elif len(user_profiles) == 7 and current_user.plan == 1:
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (premium)')
     
-    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=len(user_profiles) + 1, id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
+    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=choose_id(user_profiles), id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
     
     database_profiles.append(profile_with_id)   # insere no banco de dados
     return profile_with_id
