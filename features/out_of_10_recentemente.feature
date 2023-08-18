@@ -1,5 +1,5 @@
 Scenario: Encontrar uma série fora dos 10 primeiros itens
-	Given eu estou logado como “usuario comum” com e-mail“rnl2@cin.ufpe.br”, senha “rubinho123” e nome “Fred”
+	Given eu estou logado como “usuario comum” com e-mail “rnl2@cin.ufpe.br” e senha “rubinho123”
 	And eu estou na página “Visto Recentemente”
 	And eu vejo os 10 primeiros itens
 	And eu não encontro a série “The Mandalorian”
