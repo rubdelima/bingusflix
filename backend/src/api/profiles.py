@@ -51,6 +51,7 @@ async def create_profile(
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (premium)')
     
     profile_with_id = ProfileDB(**profile.model_dump(), id_profile=choose_id(user_profiles), id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
+    current_user.active_profile = profile_with_id.id_profile # atualiza o perfil ativo do usuário
     
     database_profiles.append(profile_with_id)   # insere no banco de dados
     return profile_with_id
