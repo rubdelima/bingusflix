@@ -101,6 +101,8 @@ async def remove_profile(
     if id < 1 and id > len(profile_list):
         raise HTTPException(status_code=404, detail='Profile não encontrado')
     
+    # TODO: ZERAR OS DADOS DELE DOS BANCOS DE DADOS DE FAVORITOS, HISTORICO E MINHA LISTA
+
     return database_profiles.pop(id-1) # remove o profile com o id passado
 
 # edita um perfil
