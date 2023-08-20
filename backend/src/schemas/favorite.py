@@ -2,10 +2,14 @@ from pydantic import BaseModel
 
 
 class FavoriteModel(BaseModel):
-    id_profile: int
-    id_user: int
     id_video: int
 
 
+class FavoriteDB(FavoriteModel):
+    id_user: int
+    id_profile: int
+    id_favorite: int
+
+
 class FavoriteList(BaseModel):
-    favorites: list[FavoriteModel]
+    favorites: list[FavoriteDB]
