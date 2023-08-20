@@ -26,6 +26,15 @@ def get_favorites_by_id(id_user:int, id_profile:int):
     return favorites_list
 
 
+# deleta um favorite especifico
+def del_favorite(id_favorite: int):
+    favorite = database_favorites.pop(id_favorite)
+
+    for i in range(id_favorite, len(database_favorites)):
+        database_favorites[i].id_favorite -= 1
+
+    return favorite
+
 # adiciona um video aos favoritos
 @router.post(
     '/', status_code=201, response_model=FavoriteDB, tags=['favorites']
@@ -46,7 +55,7 @@ async def add_favorite(
 async def get_favorites(
     current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):
-    favorite_list = get_favorites_by_id(current_user.id, current_user.active_profile) # retorna uma lista com todos os profiles do usuário
+    favorite_list = get_favorites_by_id(current_user.id, current_user.active_profile) # retorna uma lista com todos os favorites do usuário
 
     return {'favorites': favorite_list}
 
@@ -58,12 +67,30 @@ async def get_favorites(
 async def get_favorite(
     id_favorite: int, current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):
-    favorite_list = get_favorites_by_id(current_user.id, current_user.active_profile) # retorna uma lista com todos os profiles do usuário
+    favorite_list = get_favorites_by_id(current_user.id, current_user.active_profile) # retorna uma lista com todos os favorites do usuário
 
     # garantir que esse favorite exista
     if id_favorite < 1 or id_favorite > len(favorite_list):
         raise HTTPException(status_code=404, detail='Favorite não encontrado')
 
     favorite = favorite_list[id_favorite-1] # seleciona o favorite com o id passado
+
+    return favorite
+
+
+# deleta um favorite especifico
+@router.delete(
+    '/{id_favorite}', status_code=200, response_model=FavoriteDB, tags=['favorites']
+)
+async def remove_favorite(
+    id_favorite: int, current_user: Annotated[UserDB, Depends(get_logged_user)]
+):
+    favorite_list = get_favorites_by_id(current_user.id, current_user.active_profile) # retorna uma lista com todos os favorites do usuário
+
+    # garantir que esse favorite exista
+    if id_favorite < 1 or id_favorite > len(favorite_list):
+        raise HTTPException(status_code=404, detail='Favorite não encontrado')
+    
+    favorite = del_favorite(id_favorite - 1)
 
     return favorite
