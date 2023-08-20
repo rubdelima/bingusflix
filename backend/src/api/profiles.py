@@ -25,16 +25,15 @@ def get_profiles_by_id(id_profile: int):
     return profile_list
 
 
-# retorna o primeiro id livre
-def choose_id(profile_list: list):
-    ids = []
+# deleta um profile especifico
+def del_profile(id_profile: int):
+    profile = database_profiles.pop(id_profile)
 
-    for profile in profile_list:
-        ids.append(profile.id_profile)
+    for i in range(id_profile, len(database_profiles)):
+        database_profiles[i].id_profile -= 1
     
-    for i in range(1, len(profile_list) + 2):
-        if i not in ids:
-            return i
+    return profile
+
 
 # cria um novo profile
 @router.post(
@@ -50,7 +49,7 @@ async def create_profile(
     elif len(user_profiles) == 7 and current_user.plan == 1:
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (premium)')
     
-    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=choose_id(user_profiles), id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
+    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=len(user_profiles)+1, id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
     current_user.active_profile = profile_with_id.id_profile # atualiza o perfil ativo do usuário
     
     database_profiles.append(profile_with_id)   # insere no banco de dados
@@ -101,9 +100,12 @@ async def remove_profile(
     if id < 1 or id > len(profile_list):
         raise HTTPException(status_code=404, detail='Profile não encontrado')
     
+    deleted_profile = del_profile(id - 1)
+
     # TODO: ZERAR OS DADOS DELE DOS BANCOS DE DADOS DE FAVORITOS, HISTORICO E MINHA LISTA
 
-    return database_profiles.pop(id-1) # remove o profile com o id passado
+    return deleted_profile # remove o profile com o id passado
+
 
 # edita um perfil
 @router.put(
