@@ -90,3 +90,16 @@ And eu seleciono “salvar”
 Then eu vejo uma mensagem de “sucesso”
 And vejo “3” perfis criados: usuário "rnl2@gmail.com" com nome “Amanda”, usuário "rnl2@gmail.com" com nome “Rubens” e usuário "rnl2@gmail.com" com nome “Neiva”
 And eu vejo os textos em "inglês"
+
+
+Scenario: alteração da classificacão etaria de um perfil bem sucedida
+
+Given eu estou logado como “usuario comum” com login "rnl2@gmail.com" e senha “rubinho123”
+And eu estou na página “criação e manuntenção de perfis” 
+And eu vejo “3” perfis criados: usuário "rnl2@gmail.com" com nome “Amanda”, usuário "rnl2@gmail.com" com nome “Rubens” e usuário "rnl2@gmail.com" com nome “Neiva”
+And eu vejo a opção “gerenciar perfis”
+When eu seleciono “gerenciar perfis”
+And eu seleciono “Neiva”
+And eu preencho "classificação etária" com "12"
+And eu seleciono “salvar”
+Then eu vejo uma mensagem de “sucesso”

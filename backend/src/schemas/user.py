@@ -8,6 +8,7 @@ class UserModel(BaseModel):
     passwd: str
     birthdate: PastDate
     plan: StrictBool
+    active_profile: int = 1
 
 
 class UserModelPublic(BaseModel):
@@ -17,6 +18,7 @@ class UserModelPublic(BaseModel):
     email: EmailStr
     birthdate: PastDate
     plan: StrictBool
+    active_profile: int
 
 
 class UserList(BaseModel):
