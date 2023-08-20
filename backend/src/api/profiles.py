@@ -80,7 +80,7 @@ async def get_profiles(
     profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
 
     # garantir que esse profile existe
-    if id < 1 and id > len(profile_list):
+    if id < 1 or id > len(profile_list):
         raise HTTPException(status_code=404, detail='Profile não encontrado')
     
     profile = profile_list[id-1] # seleciona o profile com o id passado
@@ -98,7 +98,7 @@ async def remove_profile(
     profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
 
     # garantir que esse profile existe
-    if id < 1 and id > len(profile_list):
+    if id < 1 or id > len(profile_list):
         raise HTTPException(status_code=404, detail='Profile não encontrado')
     
     # TODO: ZERAR OS DADOS DELE DOS BANCOS DE DADOS DE FAVORITOS, HISTORICO E MINHA LISTA
@@ -116,7 +116,7 @@ async def edit_profile(
 
     # garantir que esse profile existe
     # TODO: modularizar essa checagem
-    if id < 1 and id > len(profile_list):
+    if id < 1 or id > len(profile_list):
         raise HTTPException(status_code=404, detail='Profile não encontrado')
 
     profile_with_id = ProfileDB(**profile.model_dump(), id_profile=id, id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
