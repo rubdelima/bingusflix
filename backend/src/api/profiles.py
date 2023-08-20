@@ -74,7 +74,7 @@ async def get_profiles(
 @router.get(
     '/{id}', status_code=200, response_model=ProfileDB, tags=['profiles']
 )
-async def get_profiles(
+async def get_profile(
     id:int , current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):
     profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
