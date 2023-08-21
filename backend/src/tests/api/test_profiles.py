@@ -99,7 +99,7 @@ def test_delete_profile(client: unit_test_client):
 
     access_token = login_response.json()['access_token']
 
-    response = client.get(
+    response = client.delete(
         '/profiles/1',
         headers={'Authorization': f'Bearer {access_token}'},
     )
