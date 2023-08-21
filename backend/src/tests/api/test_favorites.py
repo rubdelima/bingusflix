@@ -82,3 +82,38 @@ def test_add_favorite2(client: unit_test_client):
         'id_profile': 1,
         'id_favorite': 2,
     }
+
+
+def test_get_favorites(client: unit_test_client):
+    login_response = client.post(
+        '/login/',
+        data={
+            'username': 'fal5@examle.com',
+            'password': 'string',
+        }
+    )
+
+    access_token = login_response.json()['access_token']
+
+    response = client.get(
+        '/favorites/',
+        headers={'Authorization': f'Bearer {access_token}'},
+    )
+
+    assert response.status_code == 200
+    assert response.json() == {
+        'favorites': [
+            {
+                'id_video': 1,
+                'id_user': 1,
+                'id_profile': 1,
+                'id_favorite': 1,
+            },
+            {
+                'id_video': 2,
+                'id_user': 1,
+                'id_profile': 1,
+                'id_favorite': 2,
+            },
+        ]
+    }
