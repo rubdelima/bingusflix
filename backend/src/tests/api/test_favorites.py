@@ -142,3 +142,28 @@ def test_get_favorite(client: unit_test_client):
         'id_profile': 1,
         'id_favorite': 1,
     }
+
+
+def test_delete_favorite(client: unit_test_client):
+    login_response = client.post(
+        '/login/',
+        data={
+            'username': 'fal5@examle.com',
+            'password': 'string',
+        }
+    )
+
+    access_token = login_response.json()['access_token']
+
+    response = client.delete(
+        '/favorites/1',
+        headers={'Authorization': f'Bearer {access_token}'},
+    )
+
+    assert response.status_code == 200
+    assert response.json() == {
+        'id_video': 1,
+        'id_user': 1,
+        'id_profile': 1,
+        'id_favorite': 1,
+    }
