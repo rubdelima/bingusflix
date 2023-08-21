@@ -1,7 +1,12 @@
 from src.conftest import unit_test_client
 
 from src.api.users import database as db
+from src.api.profiles import database_profiles as db_p
+
 from src.schemas.user import UserDB
+
+db.clear()
+db_p.clear()
 
 db.append(UserDB(
         id=int(1),
