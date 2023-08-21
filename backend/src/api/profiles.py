@@ -100,6 +100,10 @@ async def remove_profile(
     if id < 1 or id > len(profile_list):
         raise HTTPException(status_code=404, detail='Profile não encontrado')
     
+    # garantir que haja mais de um profile
+    if len(profile_list) <= 1:
+        raise HTTPException(status_code=403, detail='Você não pode deletar seu único profile')
+    
     deleted_profile = del_profile(id - 1)
 
     # TODO: ZERAR OS DADOS DELE DOS BANCOS DE DADOS DE FAVORITOS, HISTORICO E MINHA LISTA
