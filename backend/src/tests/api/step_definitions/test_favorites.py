@@ -10,7 +10,7 @@ from src.api.favorites import database_favorites as db_f
 def login_user_profile(client, user_email: str, user_password: str, user_id: str, profile_id: str):
     db.clear()
     db_p.clear()
-    
+
     db.append(UserDB(
         id=int(user_id),
         name="Nome",
@@ -100,5 +100,68 @@ def check_favorite_addition_response_json(context, video_id: str, user_id: str, 
     }
 
     assert context["response"].json() == expected_favorite_response
+
+    return context
+
+
+@scenario(
+    scenario_name="Remover um favorite",
+    feature_name="../features/favorites.feature"
+)
+def test_favorite_removal():
+    """Test the removal of a favorite"""
+
+@given(
+    parsers.cfparse(
+        'um usuário com id "{user_id}", e-mail "{user_email}", senha "{user_password}" está logado no sistema com o perfil com id "{profile_id}"')
+)
+def mock_user_in_database(client, context, user_id: str, user_email: str, user_password: str, profile_id: str):
+    client, context["access_token"] = login_user_profile(client, user_email, user_password, user_id, profile_id)
+
+    context["user_id"] = user_id
+    context["profile_id"] = profile_id
+
+    return context
+
+@given(
+    parsers.cfparse('esse usuário possui "{n_favorites}" favoritos')
+)
+def mock_favorites_in_database(context, n_favorites: str):
+    db_f.clear()
+    for i in range(int(n_favorites)):
+        db_f.append(FavoriteDB(
+            id_video= i+1,
+            id_user= int(context["user_id"]),
+            id_profile= int(context["profile_id"]),
+            id_favorite= i+1
+        ))
+    
+    return context
+
+@when(
+    parsers.cfparse('o usuário envia uma requisição DELETE para "{favorites_url}"'), target_fixture="context"
+)
+def send_favorite_removal_request(client, context, favorites_url: str):
+    response = client.delete(
+        favorites_url, 
+        headers={'Authorization': f'Bearer {context["access_token"]}'}, 
+    )
+    context["response"] = response
+
+    return context
+
+@then(
+    parsers.cfparse('o status da resposta deve ser "{status_code}"'), target_fixture="context"
+)
+def check_favorite_removal_response_status_code(context, status_code: str):
+    assert context["response"].status_code == int(status_code)
+
+    return context
+
+@then(
+    parsers.cfparse('esse usuário possui "{n_favorites}" favoritos'), target_fixture="context"
+)
+def check_favorite_removal_response_json(context, n_favorites: str):
+    assert len(db_f) == int(n_favorites)
 
     return context
