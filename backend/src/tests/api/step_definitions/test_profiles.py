@@ -3,6 +3,21 @@ from src.schemas.user import UserDB
 from src.api.users import database as db
 from src.api.profiles import database_profiles as db_p
 
+
+def login_user(client, user_email: str, user_password: str):
+    login_response = client.post(
+        '/login/',
+        data={
+            'username': user_email,
+            'password': user_password,
+        }
+    )
+
+    access_token = login_response.json()['access_token']
+
+    return client, access_token
+
+
 @scenario(
     scenario_name="Criação bem sucedida de um profile",
     feature_name="../features/profiles.feature"
@@ -27,16 +42,7 @@ def mock_log_user_in(client, context, user_id: str, user_email: str, user_passwo
         passwd=user_password
     ))
     
-    login_response = client.post(
-        '/login/',
-        data={
-            'username': user_email,
-            'password': user_password,
-        }
-    )
-
-    access_token = login_response.json()['access_token']
-    context['acess_token'] = access_token
+    client, context['access_token'] = login_user(client, user_email, user_password)
 
     return context
 
@@ -63,7 +69,7 @@ def send_profile_creation_request(client, context, profiles_url: str, profile_ni
             'pg': int(profile_pg),
             'language': profile_language,
         },
-        headers={'Authorization': f'Bearer {context["acess_token"]}'},
+        headers={'Authorization': f'Bearer {context["access_token"]}'},
     )
 
     context["response"] = response
