@@ -65,7 +65,6 @@ async def get_profiles(
 ):
     profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
 
-    print(profile_list)
     return {'profiles': profile_list}
 
 
