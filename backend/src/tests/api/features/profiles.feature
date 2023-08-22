@@ -21,13 +21,13 @@ Feature: Profiles
     Then o status da resposta deve ser "200"
     And esse usuário possui "1" profiles
 
-    # Scenario: Remoção má sucedida de um profile
-    # Given um usuário com id "1" com e-mail "fal5@gmail.com" e senha "senha123" está logado no sistema
-    # And esse usuário possui "1" profiles
-    # When o usuário envia uma requisição DELETE para "/profiles/1"
-    # Then o status da resposta deve ser "403"
-    # And o detail da resposta deve ser "Você não pode deletar seu único profile"
-    # And esse usuário possui "1" profiles
+    Scenario: Remoção má sucedida de um profile
+    Given um usuário com id "1" com e-mail "fal5@gmail.com" e senha "senha123" está logado no sistema
+    And esse usuário possui "1" profiles
+    When o usuário envia uma requisição DELETE para "/profiles/1"
+    Then o status da resposta deve ser "403"
+    And o detail da resposta deve ser "Você não pode deletar seu único profile"
+    And esse usuário possui "1" profiles
 
     # Scenario: Modificação bem sucedida de um profile
     # Given um usuário com id "1" com e-mail "fal5@gmail.com" e senha "senha123" está logado no sistema
