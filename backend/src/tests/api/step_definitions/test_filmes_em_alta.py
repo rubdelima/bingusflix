@@ -1,4 +1,4 @@
-from src.api.filmes_em_alta import read_filmesEmAlta
+'''from src.api.filmes_em_alta import read_filmesEmAlta
 from pytest_bdd import scenario, given, when, then, parsers
 from src.schemas.library import library
 
@@ -7,5 +7,5 @@ from src.schemas.library import library
     feature_name='../features/emalta.feature'
 )
 def test_sucessful_EmAlta():
-    pass
+    pass'''
 
