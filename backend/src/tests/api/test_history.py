@@ -1,8 +1,10 @@
 from src.conftest import unit_test_client
 from src.schemas.user import UserDB
+from src.schemas.videos import get_video
 from src.api.users import database as db
- 
-def pass_user_profile(client):
+import json
+
+def pass_user_profile(client, videos:dict={}):
     db.clear()
     db.append(UserDB(
         id=int(1),
@@ -30,6 +32,12 @@ def pass_user_profile(client):
         },
         headers={'Authorization' : f'Bearer {access_token}'}
     )
+    if 'videos' in videos:
+        for video in videos['videos']:
+            response = client.post(
+                '/history/register_access_video/', params={"n_video_id" :video},
+                headers={'Authorization' : f'Bearer {access_token}'})
+    
     return client, access_token
 
 # Teste para por algum fime no histórico
@@ -38,12 +46,18 @@ def test_put_on_history(client: unit_test_client):
     response = client.post(
         '/history/register_access_video/', params={"n_video_id" :8},
         headers={'Authorization' : f'Bearer {access_token}'})
-    print(response)
     assert response.status_code == 201
+    response_dict = response.json()
+    expected_dict = json.loads(get_video(int(8))[0].model_dump_json())
+    for key in response_dict.keys():
+        assert response_dict[key] == expected_dict[key]
+
+
 
 # Teste para checar o histórico
-def get_history(client: unit_test_client):
-    response = client.get('/history/')
+def test_get_history(client: unit_test_client):
+    client, access_token = pass_user_profile(client, {'videos' : [8]})
+    response = client.get('/history/', headers={'Authorization' : f'Bearer {access_token}'})
     assert response.status_code == 200
     j_response = response.json()
     try:

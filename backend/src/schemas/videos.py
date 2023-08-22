@@ -61,7 +61,40 @@ movies_db = [
         name= 'Star Wars - O Retorno de Jedi', duration= '02:00:00',
         year = 1983, gender = 'Adventure',
         imdb= 8.9, classification=10 ,sinopse='Após os Planos da Estrela da Morte serem pegos surge uma nova esperança'
+    ),
+    MovieModel(
+        id=10,
+        name='Inception',
+        duration='02:28:00',
+        year=2010,
+        gender='Action',
+        imdb=8.8,
+        classification=14,
+        sinopse='A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.'
+    ),
+
+    MovieModel(
+        id=11,
+        name='The Shawshank Redemption',
+        duration='02:22:00',
+        year=1994,
+        gender='Drama',
+        imdb=9.3,
+        classification=16,
+        sinopse='Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.'
+    ),
+
+    MovieModel(
+        id=12,
+        name='Pulp Fiction',
+        duration='02:34:00',
+        year=1994,
+        gender='Crime',
+        imdb=8.9,
+        classification=18,
+        sinopse='The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.'
     )
+
 ]
 series_db = [
     SerieModel(

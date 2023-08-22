@@ -1,30 +1,8 @@
+# Tested Scenarios
 
-Scenario : Inserção de um Filme que não está presente no Banco de Dados
+Scenario: Obter apenas 10 videos do histórico de um Profile
     Given um profile de id "1" do usuário com id "1" e e-mail "felipe@gmail.com" e senha "senha123" está cadastrado no sistema
-    When o usuário envia uma requisição POST para "/history/register_access_video/" com o video "999999999"
-    Then recebo o status da resposta "404"
-    And a mensagem de erro deve ser "Não existe esse filme no Banco de Dados da Plataforma"
-
-Scenario: Obter todo o histórico de um Profile
-    Given um profile de id "1" do usuário com id "1" e e-mail "felipe@gmail.com" e senha "senha123" está cadastrado no sistema
-    When o usuário envia uma requisição GET para "/history/"
+    And ele tem os videos de "1" a "12" no seu histórico
+    When o usuário envia uma requisição GET para "/history/only10/" com parametros init "0" e final "10"
     Then recebo o status da resposta "200"
-    And o JSON da resposta deve conter uma lista com dados relacionados a todos os videos assistidos
-
-Scenario: Obter no máximo 10 itens do histórico de um Profile
-    Given um profile de id "1" do usuário com id "1" e e-mail "felipe@gmail.com" e senha "senha123" está cadastrado no sistema
-    When o usuário envia uma requisição GET para "/history/only10/" com os parametros init "0" e final "10"
-    Then recebo o status da resposta "200"
-    And o JSON da resposta deve conter uma lista com dados relacionados aos últimos vídeos assistidos, nos quais podem ter até 10
-
-Scenario: Obter todo o histórico de filmes de um Profile
-    Given um profile de id "1" do usuário com id "1" e e-mail "felipe@gmail.com" e senha "senha123" está cadastrado no sistema
-    When o usuário envia uma requisição GET para "/history/movies/"
-    Then recebo o status da resposta "200"
-    And o JSON da resposta deve conter uma lista com dados relacionados aos filmes assistidos
-
-Scenario: Procura de um filme no histórico com falha
-    Given um profile de id "1" do usuário com id "1" e e-mail "felipe@gmail.com" e senha "senha123" está cadastrado no sistema
-    When o usuário envia uma requisição GET para "/history/only10/" com os parametros init "0" e final "10"
-    Then recebo o status da resposta "200"
-    And o JSON da resposta deve conter uma lista com dados relacionados aos últimos vídeos assistidos, nos quais podem ter até 10
+    And o JSON da resposta deve conter uma lista com dados relacionados a todos os 10 ultimos videos assistidos
