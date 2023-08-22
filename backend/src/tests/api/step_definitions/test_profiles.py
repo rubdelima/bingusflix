@@ -345,3 +345,89 @@ def check_unsuc_del_user_profiles_number(context, n_profiles: str):
     assert len(db_p) == int(n_profiles)
 
     return context
+
+@scenario(
+    scenario_name="Modificação bem sucedida de um profile",
+    feature_name="../features/profiles.feature"
+)
+def test_successful_profile_modification():
+    """Test the successful modification of a profile"""
+
+@given(
+    parsers.cfparse('um usuário com id "{user_id}" com e-mail "{user_email}" e senha "{user_password}" está logado no sistema')
+)
+def mock_suc_mod_log_user_in(client, context, user_id: str, user_email: str, user_password: str):
+    db.clear()
+    db.append(UserDB(
+        id=int(user_id),
+        name="Nome",
+        surname="Sobrenome",
+        email=user_email,
+        birthdate="2000-01-01",
+        plan=True,
+        passwd=user_password
+    ))
+
+    client, context['access_token'] = login_user(client, user_email, user_password)
+
+    context['id_user'] = int(user_id)
+
+    return context
+
+@given(
+    parsers.cfparse('esse usuário possui "{n_profiles}" profiles')
+)
+def mock_suc_mod_user_profiles(context, n_profiles: str):
+    db_p.clear()
+
+    for i in range(int(n_profiles)):
+        db_p.append(ProfileDB(
+            nickname= f'nickname{i}',
+            pg= 16,
+            language= 'pt-br',
+            id_user= context['id_user'],
+            id_profile= i+1
+        ))
+
+    return context
+
+@when(
+    parsers.cfparse('o usuário envia uma requisição PUT para "{profiles_url}" com nickname "{profile_nick}", pg "{profile_pg}" e language "{profile_language}"'), target_fixture="context"
+)
+def send_profile_modification_request(client, context, profiles_url: str, profile_nick: str, profile_pg: str, profile_language: str):
+    response = client.put(
+        profiles_url,
+        json={
+            'nickname': profile_nick,
+            'pg': int(profile_pg),
+            'language': profile_language,
+        },
+        headers={'Authorization': f'Bearer {context["access_token"]}'},
+    )
+
+    context["response"] = response
+    return context
+
+@then(
+    parsers.cfparse('o status da resposta deve ser "{status_code}"'), target_fixture="context"
+)
+def check_profile_modification_response_status_code(context, status_code: str):
+    assert context["response"].status_code == int(status_code)
+
+    return context
+
+@then(
+    parsers.cfparse('o JSON da resposta deve conter o nickname "{profile_nick}", pg "{profile_pg}", language "{profile_language}", id_user "{profile_id_user}" e id_profile "{profile_id_profile}"'), target_fixture="context"
+)
+def check_profile_modification_response_json(context, profile_nick: str, profile_pg: str, profile_language: str, profile_id_user: str, profile_id_profile: str):
+    expected_response = {
+        'nickname': profile_nick,
+        'pg': int(profile_pg),
+        'language': profile_language,
+        'id_user': int(profile_id_user),
+        'id_profile': int(profile_id_profile)
+    }
+
+    assert context["response"].json() == expected_response
+
+    return context

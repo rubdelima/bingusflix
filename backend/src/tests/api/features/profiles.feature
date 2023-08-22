@@ -29,12 +29,12 @@ Feature: Profiles
     And o detail da resposta deve ser "Você não pode deletar seu único profile"
     And esse usuário possui "1" profiles
 
-    # Scenario: Modificação bem sucedida de um profile
-    # Given um usuário com id "1" com e-mail "fal5@gmail.com" e senha "senha123" está logado no sistema
-    # And esse usuário possui "1" profiles
-    # When o usuário envia uma requisição PUT para "/profiles/1" com nickname "felipe", pg "18" e language "pt-br"
-    # Then o status da resposta deve ser "201"
-    # And o JSON da resposta deve conter o nickname "felipe", pg "18", language "pt-br", id_user "1" e id_profile "1"
+    Scenario: Modificação bem sucedida de um profile
+    Given um usuário com id "1" com e-mail "fal5@gmail.com" e senha "senha123" está logado no sistema
+    And esse usuário possui "1" profiles
+    When o usuário envia uma requisição PUT para "/profiles/1" com nickname "felipe", pg "18" e language "pt-br"
+    Then o status da resposta deve ser "200"
+    And o JSON da resposta deve conter o nickname "felipe", pg "18", language "pt-br", id_user "1" e id_profile "1"
 
     # Scenario: Listagem bem sucedida dos profiles de um usuario
     # Given um usuário com id "2" com e-mail "fnls@gmail.com", senha "senha123" e plan "True" está logado no sistema
