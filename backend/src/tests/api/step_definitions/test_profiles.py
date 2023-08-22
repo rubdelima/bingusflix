@@ -431,3 +431,118 @@ def check_profile_modification_response_json(context, profile_nick: str, profile
     assert context["response"].json() == expected_response
 
     return context
+
+
+@scenario(
+    scenario_name="Listagem bem sucedida dos profiles de um usuario",
+    feature_name="../features/profiles.feature"
+)
+def test_successful_profiles_listing():
+    """Test the successful listing of a user's profiles"""
+
+@given(
+    parsers.cfparse('um usuário com id "{user_id}" com e-mail "{user_email}" e senha "{user_password}" está logado no sistema')
+)
+def mock_suc_list_log_user_in(client, context, user_id: str, user_email: str, user_password: str):
+    db.clear()
+    db.append(UserDB(
+        id=int(user_id),
+        name="Nome",
+        surname="Sobrenome",
+        email=user_email,
+        birthdate="2000-01-01",
+        plan=True,
+        passwd=user_password
+    ))
+
+    client, context['access_token'] = login_user(client, user_email, user_password)
+
+    context['id_user'] = int(user_id)
+
+    return context
+
+@given(
+    parsers.cfparse('esse usuário possui "{n_profiles}" profiles: nickname "{nick_1}", pg "{pg_1}", language "{language_1}", nickname "{nick_2}", pg "{pg_2}", language "{language_2}" e nickname "{nick_3}", pg "{pg_3}", language "{language_3}"')
+)
+def mock_suc_list_user_profiles(context, n_profiles: str, nick_1: str, pg_1: str, language_1: str, nick_2: str, pg_2: str, language_2: str, nick_3: str, pg_3: str, language_3: str):
+    db_p.clear()
+
+    db_p.append(ProfileDB(
+        nickname= nick_1,
+        pg= int(pg_1),
+        language= language_1,
+        id_user= context['id_user'],
+        id_profile= 1
+    ))
+
+    db_p.append(ProfileDB(
+        nickname= nick_2,
+        pg= int(pg_2),
+        language= language_2,
+        id_user= context['id_user'],
+        id_profile= 2
+    ))
+
+    db_p.append(ProfileDB(
+        nickname= nick_3,
+        pg= int(pg_3),
+        language= language_3,
+        id_user= context['id_user'],
+        id_profile= 3
+    ))
+
+    return context
+
+@when(
+    parsers.cfparse('o usuário envia uma requisição GET para "{profiles_url}"'), target_fixture="context"
+)
+def send_profiles_listing_request(client, context, profiles_url: str):
+    response = client.get(
+        profiles_url,
+        headers={'Authorization': f'Bearer {context["access_token"]}'},
+    )
+
+    context["response"] = response
+    return context
+
+@then(
+    parsers.cfparse('o status da resposta deve ser "{status_code}"'), target_fixture="context"
+)
+def check_profiles_listing_response_status_code(context, status_code: str):
+    assert context["response"].status_code == int(status_code)
+
+    return context
+
+@then(
+    parsers.cfparse('o JSON da resposta deve conter: nickname "{nick_1}", pg "{pg_1}", language "{language_1}", nickname "{nick_2}", pg "{pg_2}", language "{language_2}" e nickname "{nick_3}", pg "{pg_3}", language "{language_3}"'), target_fixture="context"
+)
+def check_profiles_listing_response_json(context, nick_1: str, pg_1: str, language_1: str, nick_2: str, pg_2: str, language_2: str, nick_3: str, pg_3: str, language_3: str):
+    expected_response = {
+        'profiles': [
+            {
+                'nickname': nick_1,
+                'pg': int(pg_1),
+                'language': language_1,
+                'id_user': context['id_user'],
+                'id_profile': 1
+            },
+            {
+                'nickname': nick_2,
+                'pg': int(pg_2),
+                'language': language_2,
+                'id_user': context['id_user'],
+                'id_profile': 2
+            },
+            {
+                'nickname': nick_3,
+                'pg': int(pg_3),
+                'language': language_3,
+                'id_user': context['id_user'],
+                'id_profile': 3
+            }
+        ]
+    }
+
+    assert context["response"].json() == expected_response
+
+    return context

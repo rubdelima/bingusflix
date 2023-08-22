@@ -36,12 +36,12 @@ Feature: Profiles
     Then o status da resposta deve ser "200"
     And o JSON da resposta deve conter o nickname "felipe", pg "18", language "pt-br", id_user "1" e id_profile "1"
 
-    # Scenario: Listagem bem sucedida dos profiles de um usuario
-    # Given um usuário com id "2" com e-mail "fnls@gmail.com", senha "senha123" e plan "True" está logado no sistema
-    # And esse usuário possui "3" profiles: nickname "felipe", pg "18", language "pt-br", nickname "neiva", pg "18", language "pt-br" e nickname "lima", pg "18", language "pt-br"
-    # When o usuário envia uma requisição GET para "/profiles"
-    # Then o status da resposta deve ser "200"
-    # And o JSON da resposta deve conter: nickname "felipe", pg "18", language "pt-br", nickname "neiva", pg "18", language "pt-br" e nickname "lima", pg "18", language "pt-br"
+    Scenario: Listagem bem sucedida dos profiles de um usuario
+    Given um usuário com id "2" com e-mail "fnls@gmail.com", senha "senha123" e plan "True" está logado no sistema
+    And esse usuário possui "3" profiles: nickname "felipe", pg "18", language "pt-br", nickname "neiva", pg "18", language "pt-br" e nickname "lima", pg "18", language "pt-br"
+    When o usuário envia uma requisição GET para "/profiles"
+    Then o status da resposta deve ser "200"
+    And o JSON da resposta deve conter: nickname "felipe", pg "18", language "pt-br", nickname "neiva", pg "18", language "pt-br" e nickname "lima", pg "18", language "pt-br"
 
     # Scenario: Listagem bem sucedida de um profile especifico do usuário
     # Given um usuário com id "2" com e-mail "fnls@gmail.com", senha "senha123" e plan "True" está logado no sistema
