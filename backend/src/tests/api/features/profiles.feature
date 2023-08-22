@@ -14,12 +14,12 @@ Feature: Profiles
     Then o status da resposta deve ser "403"
     And o detail da resposta deve ser "Você atingiu o limite de perfis para seu plano (comum)"
 
-    # Scenario: Remoção bem sucedida de um profile
-    # Given um usuário com id "1" com e-mail "fal5@gmail.com" e senha "senha123" está logado no sistema
-    # And esse usuário possui "2" profiles
-    # When o usuário envia uma requisição DELETE para "/profiles/2"
-    # Then o status da resposta deve ser "200"
-    # And esse usuário possui "1" profiles
+    Scenario: Remoção bem sucedida de um profile
+    Given um usuário com id "1" com e-mail "fal5@gmail.com" e senha "senha123" está logado no sistema
+    And esse usuário possui "2" profiles
+    When o usuário envia uma requisição DELETE para "/profiles/2"
+    Then o status da resposta deve ser "200"
+    And esse usuário possui "1" profiles
 
     # Scenario: Remoção má sucedida de um profile
     # Given um usuário com id "1" com e-mail "fal5@gmail.com" e senha "senha123" está logado no sistema

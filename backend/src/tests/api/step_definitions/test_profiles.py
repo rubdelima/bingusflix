@@ -189,3 +189,77 @@ def check_profile_creation_response_detail(context, detail: str):
     assert context["response"].json()['detail'] == detail
 
     return context
+
+
+@scenario(
+    scenario_name="Remoção bem sucedida de um profile",
+    feature_name="../features/profiles.feature"
+)
+def test_successful_profile_deletion():
+    """Test the successful deletion of a profile"""
+
+@given(
+    parsers.cfparse('um usuário com id "{user_id}" com e-mail "{user_email}" e senha "{user_password}" está logado no sistema')
+)
+def mock_suc_del_log_user_in(client, context, user_id: str, user_email: str, user_password: str):
+    db.clear()
+    db.append(UserDB(
+        id=int(user_id),
+        name="Nome",
+        surname="Sobrenome",
+        email=user_email,
+        birthdate="2000-01-01",  
+        plan=True,
+        passwd=user_password
+    ))
+
+    client, context['access_token'] = login_user(client, user_email, user_password)
+
+    context['id_user'] = int(user_id)
+
+    return context
+
+@given(
+    parsers.cfparse('esse usuário possui "{n_profiles}" profiles')
+)
+def mock_suc_del_user_profiles(context, n_profiles: str):
+    db_p.clear()
+    print(n_profiles)
+    for i in range(int(n_profiles)):
+        db_p.append(ProfileDB(
+            nickname= f'nickname{i}',
+            pg= 16,
+            language= 'pt-br',
+            id_user= context['id_user'],
+            id_profile= i+1
+        ))
+
+    return context
+
+@when(
+    parsers.cfparse('o usuário envia uma requisição DELETE para "{profiles_url}"'), target_fixture="context"
+)
+def send_profile_deletion_request(client, context, profiles_url: str):
+    response = client.delete(
+        profiles_url,
+        headers={'Authorization': f'Bearer {context["access_token"]}'},
+    )
+
+    context["response"] = response
+    return context
+
+@then(
+    parsers.cfparse('o status da resposta deve ser "{status_code}"'), target_fixture="context"
+)
+def check_profile_deletion_response_status_code(context, status_code: str):
+    assert context["response"].status_code == int(status_code)
+
+    return context
+
+@then(
+    parsers.cfparse('esse usuário possui "{n_profiles}" profiles'), target_fixture="context"
+)
+def check_user_profiles_number(context, n_profiles: str):
+    assert len(db_p) == int(n_profiles)
+
+    return context
