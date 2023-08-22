@@ -28,3 +28,18 @@ class SerieSeason(BaseModel):
 class SerieModel(BaseModel):
     name : str
     serie_seasons : list[SerieSeason]
+
+class MovieModelLibrary(BaseModel):
+    id: int
+    name: str
+    duration: str
+    gender: str
+    year: int
+    classification: int
+    sinopse : str
+    imdb: float
+
+class SerieModelLibrary(BaseModel):
+    id: int
+    name: str
+    serie_seasons: dict
