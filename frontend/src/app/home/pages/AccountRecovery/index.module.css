@@ -1,120 +1,101 @@
-.container{
-    text-align: center;
-    background-color: #CB6CE6;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .topText {
-    font-family: "Open Sans", sans-serif; 
-    font-size: 3vw; 
-    margin-top: 5vh;
-    font-weight: bold; 
-    color: #FFFFFF; 
-  }
-  
-  .centralizedBox {
-    background-color: #FFFFFF;
-    height: 60vh;
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10vh;
-  }
-  
-  .topBoxTest {
-    font-family: "Anonymous Pro", monospace; 
-    font-size: 2vw; 
-    font-weight: bold; 
-    color: #000000; 
-  }
-  
-  .emailInputField {
-    width: 21vw;
-    height: 4vh;
-    background-color: #E2E2E2;
-    border: 2px solid #E2E2E2;
-    font-size: 1vw;
-    margin-top: 5vh;
-    color: #000000;
-  }
-  
-  .emailInputField::placeholder {
-    color: rgba(0, 0, 0, 0.5);
-    font-family: "Anonymous Pro", monospace; 
-    font-weight: bold; 
-  }
+.container {
+  text-align: center;
+  background-color: #CB6CE6;
+  position: relative; /* Change to relative positioning */
+  width: 100%;
+  min-height: 100vh; /* Use min-height to ensure the background extends */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 
-  .emailInputField:focus {
-    outline: none;
-  }
 
-  .emailInputField:focus::placeholder {
-    color: transparent;
-  }
-  
-  .passwordInputField {
-    width: 21vw;
-    height: 4vh;
-    background-color: #E2E2E2;
-    border: 2px solid #E2E2E2;
-    font-size: 1vw;
-    margin-top: 5vh;
-    color: #000000;
-  }
-  
-  .passwordInputField::placeholder {
-    color: rgba(0, 0, 0, 0.5);
-    font-family: "Anonymous Pro", monospace; 
-    font-weight: bold; 
-  }
+.topText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2vw;
+  margin-top: 6vh;
+  font-weight: bold;
+  color: #FFFFFF;
+}
 
-  .passwordInputField:focus::placeholder {
-    color: transparent;
-  }
-  
+.centralizedBox {
+  background-color: #FFFFFF;
+  height: 500px; 
+  width: 500px; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .passwordInputField:focus {
-    outline: none;
-  }
-  
-  .confirmButton {
-    height: 5vh;
-    width: 7vw;
-    background-color: #CB6CE6;
-    color: #000000;
-    border: none;
-    border-radius: 10vw;
-    font-size: 1vw;
-    cursor: pointer;
-    margin-top: 1vw;
-    font-family: "Anonymous Pro", monospace; 
-    font-weight: bold; 
-  }
-  
-  .accountRecoveryButtonsContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; 
-    width: 30vw;
-    margin-top: 2vh;
-  }
-  
-  .textButton {
-    font-size: 1vw;
-    cursor: pointer;
-    border: none;
-    background-color: #FFFFFF;
-    color: #CB6CE6;
-    font-family: "Anonymous Pro", monospace; 
-    font-weight: bold; 
-  }
+.topBoxTest {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.emailInputField,
+.passwordInputField {
+  width: 300px;
+  height: 32px;
+  background-color: #E2E2E2;
+  border: 2px solid #E2E2E2;
+  font-size: 16px;
+  margin-top: 30px;
+  color: #000000;
+}
+
+.emailInputField::placeholder,
+.passwordInputField::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Anonymous Pro", monospace;
+  font-weight: bold;
+}
+
+.emailInputField:focus,
+.passwordInputField:focus {
+  outline: none;
+}
+
+.emailInputField:focus::placeholder,
+.passwordInputField:focus::placeholder {
+  color: transparent;
+}
+
+.confirmButton {
+  height: 40px;
+  width: 80px; 
+  background-color: #CB6CE6;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 50px;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: bold;
+}
+
+.accountRecoveryButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  margin-top: 50px;
+}
+
+.textButton {
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #FFFFFF;
+  color: #CB6CE6;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: bold;
+}
