@@ -1,9 +1,12 @@
+body{
+  background-color: #CB6CE6;
+}
+
 .container {
   text-align: center;
   background-color: #CB6CE6;
-  position: relative; /* Change to relative positioning */
+  position: relative;
   width: 100%;
-  min-height: 100vh; /* Use min-height to ensure the background extends */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -11,9 +14,10 @@
 }
 
 
+
 .topText {
   font-family: "Open Sans", sans-serif;
-  font-size: 2vw;
+  font-size: 3vw;
   margin-top: 6vh;
   font-weight: bold;
   color: #FFFFFF;
@@ -21,12 +25,9 @@
 
 .centralizedBox {
   background-color: #FFFFFF;
-  height: 500px; 
-  width: 500px; 
-  position: absolute; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
+  min-height: 500px; 
+  width: 600px; 
+  margin-top: 100px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
