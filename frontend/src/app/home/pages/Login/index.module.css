@@ -58,6 +58,10 @@
   outline: none;
 }
 
+.emailInputField:focus::placeholder {
+  color: transparent;
+}
+
 .passwordInputField {
   width: 21vw;
   height: 4vh;
@@ -76,6 +80,10 @@
 
 .passwordInputField:focus {
   outline: none;
+}
+
+.passwordInputField:focus::placeholder {
+  color: transparent;
 }
 
 .loginButton {

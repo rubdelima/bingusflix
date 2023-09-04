@@ -57,6 +57,10 @@
   .emailInputField:focus {
     outline: none;
   }
+
+  .emailInputField:focus::placeholder {
+    color: transparent;
+  }
   
   .passwordInputField {
     width: 21vw;
@@ -73,6 +77,11 @@
     font-family: "Anonymous Pro", monospace; 
     font-weight: bold; 
   }
+
+  .passwordInputField:focus::placeholder {
+    color: transparent;
+  }
+  
 
   .passwordInputField:focus {
     outline: none;
