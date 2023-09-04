@@ -81,6 +81,12 @@ body{
   margin-top: 50px;
   font-family: "Anonymous Pro", monospace;
   font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.confirmButton:hover {
+  color: white;
+  transform: scale(1.25); 
 }
 
 .accountRecoveryButtonsContainer {
@@ -99,4 +105,9 @@ body{
   color: #CB6CE6;
   font-family: "Anonymous Pro", monospace;
   font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.textButton:hover {
+  transform: scale(1.5); 
 }
