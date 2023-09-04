@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateTest from "./app/home/pages/CreateTest";
 import ListTests from "./app/home/pages/ListTests";
+import Login from "./app/home/pages/Login";
+import AccountRecovery from "./app/home/pages/AccountRecovery";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
     path: "/tests",
     Component: ListTests,
   },
+  {
+    path: "/login",
+    Component: Login,
+  },
+  {
+    path: "/account_recovery",
+    Component: AccountRecovery,
+  }
 ]);
 
 export default function App() {
