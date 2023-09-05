@@ -1,21 +1,35 @@
 import styles from "./index.module.css";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
 
+    localStorage.removeItem("token");
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error_message, setErrorMessage] = useState("");
-    const [success_message, setSuccessMessage] = useState("");
+
 
     function handleForgotPasswordClick() {
         navigate('/account_recovery');
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
+
+        const formData = new FormData();
+        formData.append('username', email);
+        formData.append('password', password);
+
+        try {
+            const response = await axios.post('http://localhost:8000/login', formData);
+            setErrorMessage("");
+            localStorage.setItem("token", response.data.access_token);
+        } catch (error) {
+            setErrorMessage("Usuário ou senha incorretos");
+}
     }
 
     return (
@@ -47,7 +61,6 @@ function Login() {
                         />
                     </div>
                     {error_message && <p className={styles.error}>{error_message}</p>}
-                    {success_message && <p className={styles.success}>{success_message}</p>}
                     <button type="submit" className={styles.loginButton}>Entrar</button>
                 </form>
                 <div className={styles.loginButtonsContainer}>
