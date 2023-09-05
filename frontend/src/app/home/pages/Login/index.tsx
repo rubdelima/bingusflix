@@ -28,6 +28,7 @@ function Login() {
             setErrorMessage("");
             localStorage.setItem("token", response.data.access_token);
         } catch (error) {
+            console.error(error);
             setErrorMessage("Usuário ou senha incorretos");
 }
     }
