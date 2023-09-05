@@ -1,15 +1,22 @@
 import styles from "./index.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { setToken, fetchToken } from '../../components/auth';
 
 function Login() {
+    
 
-    localStorage.removeItem("token");
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error_message, setErrorMessage] = useState("");
+
+    useEffect(() => {
+        if (fetchToken()) {
+          navigate('/logged');
+        }
+    }, []);
 
 
     function handleForgotPasswordClick() {
@@ -26,7 +33,8 @@ function Login() {
         try {
             const response = await axios.post('http://localhost:8000/login', formData);
             setErrorMessage("");
-            localStorage.setItem("token", response.data.access_token);
+            setToken(response.data.token);
+            navigate('/logged');
         } catch (error) {
             console.error(error);
             setErrorMessage("Usuário ou senha incorretos");

@@ -3,6 +3,7 @@ import CreateTest from "./app/home/pages/CreateTest";
 import ListTests from "./app/home/pages/ListTests";
 import Login from "./app/home/pages/Login";
 import AccountRecovery from "./app/home/pages/AccountRecovery";
+import Logged from "./app/home/pages/Logged";
 
 const router = createBrowserRouter([
   {
@@ -22,9 +23,15 @@ const router = createBrowserRouter([
     Component: Login,
   },
   {
+    path: "/logged",
+    Component: Logged,
+  },
+  {
     path: "/account_recovery",
     Component: AccountRecovery,
-  }
+  },
+
+  
 ]);
 
 export default function App() {

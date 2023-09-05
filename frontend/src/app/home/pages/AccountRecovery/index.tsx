@@ -1,18 +1,26 @@
 import styles from "./index.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { fetchToken } from '../../components/auth';
 
 function Account_recovery() {
 
 
-    localStorage.removeItem("token");
     const navigate = useNavigate(); 
     const [email, setEmail] = useState("");
     const [new_password, setNewPassword] = useState("");
     const [confirm_password, setConfirmPassword] = useState("");
     const [error_message, setErrorMessage] = useState("");
     const [success_message, setSuccessMessage] = useState("");
+
+
+    useEffect(() => {
+        if (fetchToken()) {
+          navigate('/logged');
+        }
+    }, []);
+
 
     function handleLoginClick() {
         navigate('/login'); 
