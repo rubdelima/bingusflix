@@ -1,33 +1,47 @@
 import styles from "./index.module.css";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Account_recovery() {
 
-  const navigate = useNavigate(); 
-  const [email, setEmail] = useState("");
-  const [new_password, setNewPassword] = useState("");
-  const [confirm_password, setConfirmPassword] = useState("");
-  const [error_message, setErrorMessage] = useState("");
-  const [success_message, setSuccessMessage] = useState("");
+
+    localStorage.removeItem("token");
+    const navigate = useNavigate(); 
+    const [email, setEmail] = useState("");
+    const [new_password, setNewPassword] = useState("");
+    const [confirm_password, setConfirmPassword] = useState("");
+    const [error_message, setErrorMessage] = useState("");
+    const [success_message, setSuccessMessage] = useState("");
 
     function handleLoginClick() {
         navigate('/login'); 
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-
-        if (new_password != confirm_password) {
+    
+        if (new_password !== confirm_password) {
             setErrorMessage("As senhas não coincidem");
             setSuccessMessage("");
             return;
         }
-        else {
+        
+        try {
+            const response = await axios.put('http://localhost:8000/account_recovery', {
+                email: email, 
+                new_password: new_password,
+                confirm_password: confirm_password
+            });
+            
+            console.log(response.status);
             setSuccessMessage("Sua senha foi alterada com sucesso!");
             setErrorMessage("");
+        } catch (error) {
+            setErrorMessage("Não foi possível alterar sua senha");
         }
     }
+    
 
   return (
     <div className={styles.container}>
