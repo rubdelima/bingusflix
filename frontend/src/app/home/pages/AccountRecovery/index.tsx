@@ -38,6 +38,7 @@ function Account_recovery() {
             setSuccessMessage("Sua senha foi alterada com sucesso!");
             setErrorMessage("");
         } catch (error) {
+            console.error(error);
             setErrorMessage("Não foi possível alterar sua senha");
         }
     }
