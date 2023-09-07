@@ -18,7 +18,7 @@ async def register_access(n_video_id: int,
         # Inserindo no Banco de Dados de Vídeos
         video = VideoTime(**video.model_dump(), watched_at=datetime.now())
         if (user.id, user.active_profile) not in history_db.keys():
-            history_db[(user.id, user.active_profile)] = [video] # Agora deve ficar history_db[(user.id, user.active_profile] = [video]
+            history_db[(user.id, user.active_profile)] = [video]
         else:
             history_db[(user.id, user.active_profile)].insert(0,video) # Adiciona no inicio da fila
         # Inserindo no Banco de Dados de Series do Usuário

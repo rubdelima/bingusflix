@@ -145,80 +145,13 @@ def check_pst_history_video2(client, context, list_size:str):
     response_dict =  context["response"].json()
     assert len(response_dict['videos']) == int(list_size)
 
-
-scenario1_3 = '''
 # Scenario 3
-
-@scenario(
-    scenario_name='Obter apenas 10 videos do histórico de um Profile',
-    feature_name= '../features/history.feature'
-)
-def test_successful_get_only10_in_history():
-    pass
-
-@given(
-    parsers.cfparse(
-        'um profile de id "{profile_id}" do usuário com id "{user_id}" e e-mail "{user_email}" e senha "{user_password}" está cadastrado no sistema',
-    )
-)
-def mock_user_in_database10(client, context, user_id: str, user_email: str, user_password: str, profile_id: str):
-    # adiciona o usuário na base de dados (condição anterior ao teste)
-    client,context['access_token'] =  pass_user_profile(client, user_id, user_email, user_password,)
-    return context
-@given(
-    parsers.cfparse(
-        'ele tem os videos de "{first_vd}" a "{last_vd}" no seu histórico',
-    )
-)
-def mock_videos_in_database10(client, context, first_vd: str, last_vd: str):
-    # adiciona 12 videos no bd do user-profile
-    first_vd, last_vd = int(first_vd), int(last_vd)
-    for video in range(first_vd,last_vd+1):
-            response = client.post(
-                '/history/register_access_video/', params={"n_video_id" :video},
-                headers={'Authorization' : f'Bearer {context["access_token"]}'})
-            assert response.status_code == 201
-    return context
-
-@when(
-    parsers.cfparse(
-    'o usuário envia uma requisição GET para "{get_url}" com parametros init "{init}" e final "{final}"'
-    ),target_fixture="context"
-)
-def send_get_history_videos10(client, context, get_url: str, init:str, final:str):
-    response = client.get(
-        get_url, headers={'Authorization' : f'Bearer {context["access_token"]}'},
-        params = {'init' : int(init), 'final' : int(final)})
-    context["response"] = response
-    return context
-
-@then(
-    parsers.cfparse('recebo o status da resposta "{cod_resp}"'),
-    target_fixture="context"
-)
-def check_code_history_post10(client, context, cod_resp :str):
-    assert context["response"].status_code == int(cod_resp)
-    return context
-@then(
-    parsers.cfparse(
-    'o JSON da resposta deve conter uma lista com dados relacionados a todos os "{list_size}" ultimos videos assistidos'),
-    target_fixture="context"
-)
-def check_pst_history_video10(client, context, list_size:str):
-    list_size = [i for i in list_size if i in ['1','0']]
-    list_size = ''.join(list_size)
-    list_size = 10
-    response_dict =  context["response"].json()
-    assert len(response_dict['videos']) == int(list_size)
-
-'''
-# Scenario 4
 
 @scenario(
     scenario_name='Obter o histórico de filmes um Profile',
     feature_name= '../features/history.feature'
 )
-def test_successful_get_movies():
+def test_successful_get_movie():
     pass
 
 @given(
@@ -275,7 +208,7 @@ def check_pst_history_movie(client, context, film1:str, film2:str):
 
 
 
-# Scenario 5
+# Scenario 4
 
 @scenario(
     scenario_name='Obter infos de um filme do historico',
@@ -338,7 +271,7 @@ def check_pst_history_movie(client, context, film_id:str, film_name):
 
 
 
-# Scenario 6
+# Scenario 5
 
 @scenario(
     scenario_name='Obter infos das séries do histórico',
