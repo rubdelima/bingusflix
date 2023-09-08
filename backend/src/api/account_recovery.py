@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from src.schemas.user import UserDB, UserModelPublic
 from src.schemas.recovery import AccountRecovery, PasswordChangeResponse
-from .login import search_user
+from .users import search_user
 
 
 router = APIRouter()

@@ -3,17 +3,11 @@ from fastapi import Depends, APIRouter, HTTPException
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from src.schemas.user import UserDB
 from src.schemas.tokenresponse import TokenResponse
-from .users import database
+from .users import database, search_user
 
 router = APIRouter()
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login") # esquema de autenticação por token
-
-def search_user(email: str): # função que procura um usuário na base de dados baseado no email
-    for user in database:
-        if user.email == email:
-            return user
-    return None
 
 async def get_logged_user(token: Annotated[str, Depends(oauth2_scheme)]):
     for user in database: # procura o dicionário do usuário na base de dados baseado no username digitado

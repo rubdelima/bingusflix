@@ -7,6 +7,12 @@ router = APIRouter()
 
 database = []
 
+def search_user(email: str): # função que procura um usuário na base de dados baseado no email
+    for user in database:
+        if user.email == email:
+            return user
+    return None
+
 
 @router.post(
     '/', status_code=201, response_model=UserModelPublic, tags=['users']
