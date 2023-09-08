@@ -32,11 +32,3 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     else:
         raise HTTPException(status_code=401, detail="Wrong password") # se a senha for incorreta: erro 401
 
-
-# EXEMPLO DE UMA FUNÇÃO QUE DEPENDE DO USUÁRIO ESTAR LOGADO:
-
-'''
-@router.get("/me")  
-async def read_users_me(current_user: Annotated[UserDB, Depends(get_logged_user)]):
-    return current_user
-'''
