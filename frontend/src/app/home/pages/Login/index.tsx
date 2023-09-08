@@ -19,6 +19,10 @@ function Login() {
     }, []);
 
 
+    function handleRegisterClick() {
+        navigate('/users');
+    }
+
     function handleForgotPasswordClick() {
         navigate('/account_recovery');
     }
@@ -73,7 +77,7 @@ function Login() {
                     <button type="submit" className={styles.loginButton}>Entrar</button>
                 </form>
                 <div className={styles.loginButtonsContainer}>
-                    <button className={styles.textButton}>Cadastre-se</button>
+                    <button className={styles.textButton} onClick={handleRegisterClick}>Cadastre-se</button>
                     <button className={styles.textButton} onClick={handleForgotPasswordClick}>Esqueceu a senha?</button>
                 </div>
             </div>

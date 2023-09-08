@@ -21,6 +21,9 @@ function Account_recovery() {
         }
     }, []);
 
+    function handleRegisterClick() {
+        navigate('/users');
+    }
 
     function handleLoginClick() {
         navigate('/login'); 
@@ -90,7 +93,7 @@ function Account_recovery() {
                 <button type ="submit" className={styles.confirmButton}>Confirmar</button>
             </form>
             <div className={styles.accountRecoveryButtonsContainer}>
-                <button className={styles.textButton}>Cadastre-se</button>
+                <button className={styles.textButton} onClick={handleRegisterClick}>Cadastre-se</button>
                 <button className={styles.textButton} onClick={handleLoginClick}>Entrar</button>
             </div>
         </div>
