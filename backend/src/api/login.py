@@ -9,7 +9,7 @@ router = APIRouter()
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login") # esquema de autenticação por token
 
-async def get_logged_user(token: Annotated[str, Depends(oauth2_scheme)]): 
+async def get_logged_user(token: Annotated[str, Depends(oauth2_scheme)]):
     for user in database: # procura o dicionário do usuário na base de dados baseado no username digitado
         if user.id == int(token):
             return user
@@ -30,6 +30,8 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 
 # EXEMPLO DE UMA FUNÇÃO QUE DEPENDE DO USUÁRIO ESTAR LOGADO:
 
-'''@router.get("/me")  
+'''
+@router.get("/me")  
 async def read_users_me(current_user: Annotated[UserDB, Depends(get_logged_user)]):
-    return current_user'''
+    return current_user
+'''

@@ -28,10 +28,10 @@ def update_user(user_id: int, user: UserModel):
     if user_id > len(database) or user_id < 1:
         raise HTTPException(status_code=404, detail='User not found')
 
-    user_with_id = UserModelPublic(**user.model_dump(), id=user_id)
+    user_with_id = UserModel(**user.model_dump(), id=user_id)
     database[user_id - 1] = user_with_id
 
-    return user_with_id
+    return UserModelPublic(**user_with_id.model_dump(), id=user_id)
 
 
 @router.delete('/{user_id}', response_model=HttpResponseModel, tags=['users'])
