@@ -1,0 +1,8 @@
+# Tested Scenarios
+
+Scenario: Obter apenas 10 videos do histórico de um Profile
+    Given um profile de id "1" do usuário com id "1" e e-mail "felipe@gmail.com" e senha "senha123" está cadastrado no sistema
+    And ele tem os videos de "1" a "12" no seu histórico
+    When o usuário envia uma requisição GET para "/history/only10/" com parametros init "0" e final "10"
+    Then recebo o status da resposta "200"
+    And o JSON da resposta deve conter uma lista com dados relacionados a todos os 10 ultimos videos assistidos
