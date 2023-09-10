@@ -33,6 +33,7 @@ class SerieModel(BaseModel):
     initial_y : int
     serie_seasons : list[SerieSeason]
 
+
 class VideoTime(VideoModel):
     watched_at: datetime
 
@@ -209,3 +210,19 @@ def getSerieDict(serie : SerieModel, user_profile)->dict:
     return {'name' : serie.name, 'gender': serie.gender, 'initial_year' : serie.initial_y,
             'total_seasons' : len(serie.serie_seasons), 
             'last_episode': get_video(last_wc, search='serie')[0], 'next_episode' : next_ep}
+
+class MovieModelLibrary(BaseModel):
+    id: int
+    name: str
+    duration: str
+    gender: str
+    year: int
+    classification: int
+    sinopse : str
+    imdb: float
+
+class SerieModelLibrary(BaseModel):
+    id: int
+    name: str
+    serie_seasons: dict
+
