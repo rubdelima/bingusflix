@@ -1,18 +1,13 @@
-body{
-  background-color: #CB6CE6;
-}
-
 .container {
   text-align: center;
-  background-color: #CB6CE6;
-  position: relative;
-  width: 100%;
+  background: linear-gradient(142deg, rgba(35,4,67,1) 15%, rgba(52,8,86,1) 30%, rgba(61,11,96,1) 45%, rgba(75,0,129,1) 60%, rgba(127,0,178,1) 75%, rgba(216,106,255,1) 90%);
+  width: 100vw; 
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
-
 
 
 .topText {
@@ -72,8 +67,8 @@ body{
 .loginButton {
   height: 40px;
   width: 80px; 
-  background-color: #CB6CE6;
-  color: #000000;
+  background-color: #3D0B60;
+  color: #FFFFFF;
   border: none;
   border-radius: 10px;
   font-size: 16px;
@@ -81,11 +76,11 @@ body{
   margin-top: 50px;
   font-family: "Anonymous Pro", monospace;
   font-weight: bold;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .loginButton:hover {
-  color: white;
+  background-color: #7F00B2;
   transform: scale(1.25); 
 }
 
@@ -102,7 +97,7 @@ body{
   cursor: pointer;
   border: none;
   background-color: #FFFFFF;
-  color: #CB6CE6;
+  color: #230443;
   font-family: "Anonymous Pro", monospace;
   font-weight: bold;
   transition: transform 0.3s ease;
