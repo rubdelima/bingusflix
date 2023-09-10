@@ -65,7 +65,6 @@ async def get_profiles(
 ):
     profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
 
-    print(profile_list)
     return {'profiles': profile_list}
 
 
@@ -99,6 +98,10 @@ async def remove_profile(
     # garantir que esse profile existe
     if id < 1 or id > len(profile_list):
         raise HTTPException(status_code=404, detail='Profile não encontrado')
+    
+    # garantir que haja mais de um profile
+    if len(profile_list) <= 1:
+        raise HTTPException(status_code=403, detail='Você não pode deletar seu único profile')
     
     deleted_profile = del_profile(id - 1)
 
