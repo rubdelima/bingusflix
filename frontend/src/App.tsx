@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateTest from "./app/home/pages/CreateTest";
 import ListTests from "./app/home/pages/ListTests";
 
-import Home from "./app/home/pages/HomePage";
+import HomePage from "./app/home/pages/HomePage";
 import History from "./app/home/pages/History";
 
 import Login from "./app/home/pages/Login";
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
   },
   {
 
-    path: "/home",
-    Component: Home,
+    path: "/home-page",
+    Component: HomePage,
   },
   {
     path: "/history",
