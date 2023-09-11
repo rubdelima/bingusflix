@@ -5,7 +5,6 @@ import Home from "./app/home/pages/Home";
 import Subscribe from "./app/home/pages/Subscribe";
 import Login from "./app/home/pages/Login";
 import AccountRecovery from "./app/home/pages/AccountRecovery";
-import Logged from "./app/home/pages/Logged";
 
 
 const router = createBrowserRouter([
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
   {
     path: "/login",
     Component: Login,
-  },
-  {
-    path: "/logged",
-    Component: Logged,
   },
   {
     path: "/account_recovery",
