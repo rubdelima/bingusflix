@@ -26,7 +26,7 @@ class Db_manager:
 
     Example usage:
 
-    >>> json_server = JSONServerClient("http://localhost:3000")
+    >>> json_server = Db_manager("http://localhost:3000")
     >>> data = {"name": "John", "age": 30}
     >>> result = json_server.get("users")
     >>> created_user = json_server.post("users", data)
@@ -44,7 +44,17 @@ class Db_manager:
         table_name: str,
         default_value: Union[list, dict]=[]
     ) -> None:
+        """
+        Creates a new resource (a route in the json server and a key in the json file).
 
+        Args:
+            path (str): The path to the json db file.
+            table_name (str): The name of the table to create.
+            default_value (Union[list, dict], optional): The default value to set for the table. Defaults to [].
+
+        Returns:
+            None
+        """
         with open(path, "r") as json_file:
             existing_data = json.load(json_file)
 
