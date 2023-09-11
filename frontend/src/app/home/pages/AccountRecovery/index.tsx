@@ -17,7 +17,7 @@ function Account_recovery() {
 
     useEffect(() => {
         if (fetchToken()) {
-          navigate('/logged');
+          navigate('/home-page');
         }
     }, []);
 

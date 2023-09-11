@@ -14,7 +14,7 @@ function Login() {
 
     useEffect(() => {
         if (fetchToken()) {
-          navigate('/logged');
+          navigate('/home-page');
         }
     }, []);
 
@@ -38,7 +38,7 @@ function Login() {
             const response = await axios.post('http://localhost:8000/login', formData);
             setErrorMessage("");
             setToken(response.data.token);
-            navigate('/logged');
+            navigate('/home-page');
         } catch (error) {
             console.error(error);
             setErrorMessage("Usuário ou senha incorretos");
