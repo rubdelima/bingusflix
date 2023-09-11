@@ -1,0 +1,124 @@
+.container {
+  text-align: center;
+  background: linear-gradient(142deg, rgba(35,4,67,1) 15%, rgba(52,8,86,1) 30%, rgba(61,11,96,1) 45%, rgba(75,0,129,1) 60%, rgba(127,0,178,1) 75%, rgba(216,106,255,1) 90%);
+  width: 100vw; 
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.topText {
+  font-family: "Open Sans", sans-serif;
+  font-size: 3vw;
+  margin-top: 6vh;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.centralizedBox {
+  background-color: #FFFFFF;
+  min-height: 500px; 
+  width: 600px; 
+  margin-top: 100px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.topBoxTest {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.emailInputField,
+.passwordInputField {
+  width: 300px;
+  height: 32px;
+  background-color: #E2E2E2;
+  border: 2px solid #E2E2E2;
+  font-size: 16px;
+  margin-top: 30px;
+  color: #000000;
+}
+
+.emailInputField::placeholder,
+.passwordInputField::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Anonymous Pro", monospace;
+  font-weight: bold;
+}
+
+.emailInputField:focus,
+.passwordInputField:focus {
+  outline: none;
+}
+
+.emailInputField:focus::placeholder,
+.passwordInputField:focus::placeholder {
+  color: transparent;
+}
+
+.confirmButton {
+  height: 40px;
+  width: 80px; 
+  background-color: #3D0B60;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 50px;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.confirmButton:hover {
+  background-color: #7F00B2;
+  transform: scale(1.25); 
+}
+
+.accountRecoveryButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  margin-top: 50px;
+}
+
+.textButton {
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #FFFFFF;
+  color: #3D0B60;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.textButton:hover {
+  transform: scale(1.5); 
+}
+
+.error {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: bold;
+  color: red;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.success{
+  font-family: "Anonymous Pro", monospace;
+  font-weight: bold;
+  color: green;
+  font-size: 16px;
+  margin-top: 20px;
+}
