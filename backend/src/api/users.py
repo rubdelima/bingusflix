@@ -16,7 +16,9 @@ database = Db_manager("http://localhost:4000")
 )
 def create_user(user: UserModel):
     user_with_id = UserDB(**user.model_dump(), id=database.get_greatest_table_id('users') + 1)
-    database.post('users', user_with_id)
+    dumped_user = user_with_id.model_dump()
+    dumped_user['birthdate'] = dumped_user['birthdate'].strftime('%Y-%m-%d')
+    database.post('users', dumped_user)
 
     return UserModelPublic(**user_with_id.model_dump())
 
