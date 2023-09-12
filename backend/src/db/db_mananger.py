@@ -86,7 +86,7 @@ class Db_manager:
         response.raise_for_status()
         return response.json()
 
-    def post(self, resource, data) -> dict:
+    def post(self, resource: str, data: dict) -> dict:
         """
         Send a POST request to create a new resource on the JSON server.
 
