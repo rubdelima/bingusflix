@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateTest from "./app/home/pages/CreateTest";
 import ListTests from "./app/home/pages/ListTests";
 
+import Home from "./app/home/pages/Home";
 import HomePage from "./app/home/pages/HomePage";
 import History from "./app/home/pages/History";
 
@@ -24,7 +25,6 @@ const router = createBrowserRouter([
     Component: ListTests,
   },
   {
-
     path: "/home-page",
     Component: HomePage,
   },
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
     path: "/account_recovery",
     Component: AccountRecovery,
   },
+  {
+    path: "/home",
+    Component: Home,
+  }
 ]);
 
 export default function App() {
