@@ -12,11 +12,11 @@ function Login() {
     const [password, setPassword] = useState("");
     const [error_message, setErrorMessage] = useState("");
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (fetchToken()) {
           navigate('/home-page');
         }
-    }, []);
+    }, []);*/
 
 
     function handleRegisterClick() {
