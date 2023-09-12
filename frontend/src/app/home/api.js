@@ -60,4 +60,36 @@ export const getMovie = async (movie_id) => {
 
 };
 
+export const searchMulti = async (v_name) => {
+    try{
+        v_name = encodeURIComponent(v_name);
+        let url= `https://api.themoviedb.org/3/search/multi?query=${v_name}&include_adult=false&language=pt-BR&page=1&api_key=${API_KEY}`;
+        const response = await fetch(url);
+        return await response.json();
+    }catch (error){
+        console.log("error searchMovie: ", error);
+    }
+}
+
+export const getSerieDetails = async (serie_id) => {
+    try{
+        let url= `https://api.themoviedb.org/3/tv/${serie_id}?api_key=${API_KEY}&language=pt-BR`;
+        const response = await fetch(url);
+        return await response.json();
+    }catch (error){
+        console.log("error getSerieDetails: ", error);
+    }
+
+};
+
+export const getSeasonDetails = async (serie_id, season_id) => {
+    try{
+        let url= `https://api.themoviedb.org/3/tv/${serie_id}/season/${season_id}?api_key=${API_KEY}&language=pt-BR`;
+        const response = await fetch(url);
+        return await response.json();
+    }catch (error){
+        console.log("error getSerieDetails: ", error);
+    }
+}
+
 export default categories;

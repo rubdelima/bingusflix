@@ -35,18 +35,102 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999; /* Certifique-se de que o VideoInfo esteja acima de tudo */
+    z-index: 999;
 }
 
 .video-info-content {
+    position: relative;
     background-color:rgba(35,4,67,1);
     padding: 20px;
     border-radius: 10px;
-    width: 70%; /* 70% da largura da janela do navegador */
-    max-width: 800px; /* Largura máxima */
+    width: 80%; 
+    height: 80%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+}
+
+.cover-overlay{
+    position: absolute;
+    content: "";
+    width: 75%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(15, 0, 30), transparent);
+}
+
+.info-content{
+    z-index: 998;
+    position: relative;
+}
+
+.info-title {
+    padding-top: 1%;
+    padding-left: 2%;
+    font-size: 3rem;
+    font-weight: 800;
+    padding-bottom: 0.3rem;
+}
+
+.info-description {
+    width: 45rem;
+    line-height: 1.3;
+    padding-top: 1%;
+    padding-left: 2%;
+    font-size: 0.8rem;
+    max-width: 360px;
+    height: 80px;
+}
+
+.info-button {
+    cursor: pointer;
+    color: #c1bdda;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    border-radius:  0.2vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-left: 2rem;
+    padding-top: 0.5rem;
+    background-color: #340856;
+    padding-bottom: 0.5rem;
+}
+
+.info-button:hover {
+    color:#340856;
+    background-color: #c1bdda;
+    transition: all 0.2s;
+}
+
+.button-close {
+    z-index: 1002;
+    position: absolute;
+    top: 10px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
+    background-color: #c1bdda;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 24px;
+    border-radius: 50%; 
+    width: 48px; /* Tamanho dos botões */
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#340856;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.button-close:hover .close-icon {
+    background-color: #340856;
+    color: #c1bdda;
+}
+
+.select-season{
+    color:#340856;
+    background-color: #c1bdda;
 }

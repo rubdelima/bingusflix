@@ -13,12 +13,7 @@ function Banner() {
             const data = await getMovies(topTreading.path);
             const movies = data?.results;
             const randomIndex = Math.floor(Math.random() *movies.length);
-
-            const data2 = await  getMovie("227735");
-            const movie2 = data2?.results;
-            console.log("filme selecionado: ",data2);
-            setMovie(data2);
-            //setMovie(movies[randomIndex]);
+            setMovie(movies[randomIndex]);
         }catch(e){
             console.log("error in Banner-fetchRandomMovie", e);
         }
