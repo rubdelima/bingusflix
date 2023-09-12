@@ -14,17 +14,24 @@ def test_successful_account_recovery():
         'um usuário com email "{user_email}" e senha "{user_password}" está cadastrado no sistema'
     )
 )
-def mock_user_in_database(user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
-    db.clear()
-    db.append(UserDB(
-        id=1,
-        name="Nome",
-        surname="Sobrenome",
-        email=user_email,
-        birthdate="2000-01-01",  
-        plan=True,
-        passwd=user_password
-    ))
+def mock_user_in_database(client, user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
+    client.delete(
+        '/users/1'
+    )
+
+
+    client.post(
+        '/users/',
+        json={
+            'name': 'Nome',
+            'surname': 'Sobrenome',
+            'email': user_email,
+            'passwd': 'cpv123',
+            'birthdate': '2001-01-01',
+            'plan': True,
+            'passwd': user_password
+        },
+    )
 
 @when(
     parsers.cfparse(
@@ -63,8 +70,10 @@ def test_invalid_email_account_recovery():
     pass
 
 @given(parsers.cfparse('que nenhum usuário com email "{user_email}" está cadastrado no sistema')) 
-def clear_database(user_email: str): # para garantir que não exista nenhum usuário cadastrado no sistema
-    db.clear()
+def clear_database(client): # para garantir que não exista nenhum usuário cadastrado no sistema
+    client.delete(
+        '/users/1'
+    )
 
 @when(
     parsers.cfparse(
@@ -100,17 +109,24 @@ def test_passwords_do_not_match_account_recovery():
     pass
 
 @given(parsers.cfparse('que um usuário com email "{user_email}" e senha "{user_password}" está cadastrado no sistema'))
-def mock_user_in_database(user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
-    db.clear()
-    db.append(UserDB(
-        id=1,
-        name="Nome",
-        surname="Sobrenome",
-        email=user_email,
-        birthdate="2000-01-01",  
-        plan=True,
-        passwd=user_password
-    ))
+def mock_user_in_database(client, user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
+    client.delete(
+        '/users/1'
+    )
+
+
+    client.post(
+        '/users/',
+        json={
+            'name': 'Nome',
+            'surname': 'Sobrenome',
+            'email': user_email,
+            'passwd': 'cpv123',
+            'birthdate': '2001-01-01',
+            'plan': True,
+            'passwd': user_password
+        },
+    )
 
 @when(
     parsers.cfparse(
@@ -121,6 +137,11 @@ def mock_user_in_database(user_email: str, user_password: str): # adiciona o usu
 def send_account_recovery_request(client, context, account_recovery_url: str, user_email: str, new_password: str, confirm_password: str): # envia um put para a rota de recuperação de conta com o email, a nova senha e a confirmação da senha
     response = client.put(account_recovery_url, json={"email": user_email, "new_password": new_password, "confirm_password": confirm_password})
     context["response"] = response
+
+    client.delete( # remove o usuário adicionado no teste
+        '/users/1'
+    )
+
     return context
 
 @then(parsers.cfparse('o status da resposta deve ser "{status_code}"'), target_fixture="context") 

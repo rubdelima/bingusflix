@@ -14,17 +14,23 @@ def test_successful_login(): # testar o login bem sucedido de um usuário
         'um usuário com id "{user_id}" e e-mail "{user_email}" e senha "{user_password}" está cadastrado no sistema'
     )
 )
-def mock_user_in_database(user_id: str, user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
-    db.clear()
-    db.append(UserDB(
-        id=int(user_id),
-        name="Nome",
-        surname="Sobrenome",
-        email=user_email,
-        birthdate="2000-01-01",  
-        plan=True,
-        passwd=user_password
-    ))
+def mock_user_in_database(client, user_id: str, user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
+    client.delete(
+        '/users/1'
+    )
+
+    client.post(
+        '/users/',
+        json={
+            'name': 'Nome',
+            'surname': 'Sobrenome',
+            'email': user_email,
+            'passwd': 'cpv123',
+            'birthdate': '2001-01-01',
+            'plan': True,
+            'passwd': user_password
+        },
+    )
 
 @when(
     parsers.cfparse(
@@ -70,8 +76,10 @@ def test_email_not_registered():
         'nenhum usuário com e-mail "{user_email}" está cadastrado no sistema'
     )
 )
-def clear_database(): # para garantir que não exista nenhum usuário cadastrado no sistema
-    db.clear()
+def clear_database(client): # para garantir que não exista nenhum usuário cadastrado no sistema
+    client.delete(
+        '/users/1'
+    )
 
 @when(
     parsers.cfparse(
@@ -108,17 +116,24 @@ def test_wrong_password():
         'um usuário com e-mail "{user_email}" e senha "{user_password}" está cadastrado no sistema'
     )
 )
-def mock_user_in_database(user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
-    db.clear()
-    db.append(UserDB(
-        id=1,
-        name="Nome",
-        surname="Sobrenome",
-        email=user_email,
-        birthdate="2000-01-01",  
-        plan=True,
-        passwd=user_password
-    ))
+def mock_user_in_database(client, user_email: str, user_password: str): # adiciona o usuário na base de dados (condição anterior ao teste)
+    client.delete(
+        '/users/1'
+    )
+
+    client.post(
+        '/users/',
+        json={
+            'name': 'Nome',
+            'surname': 'Sobrenome',
+            'email': user_email,
+            'passwd': 'cpv123',
+            'birthdate': '2001-01-01',
+            'plan': True,
+            'passwd': user_password
+        },
+    )
+
 
 @when(
     parsers.cfparse(
@@ -129,6 +144,12 @@ def mock_user_in_database(user_email: str, user_password: str): # adiciona o usu
 def send_login_request(client, context, login_url: str, user_email: str, user_password: str): # envia um post para a rota de login com o email e senha do usuário
     response = client.post(login_url, data={"username": user_email, "password": user_password})
     context["response"] = response
+
+    client.delete( # remove o usuário adicionado no teste
+        '/users/1'
+    )
+
+
     return context
 
 @then(parsers.cfparse('o status da resposta deve ser "{status_code}"'), target_fixture="context") # verifica se o código de status da resposta é 401

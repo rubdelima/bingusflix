@@ -24,3 +24,9 @@ def test_account_recovery(client: unit_test_client):
     assert response.status_code == 200
     assert response.json()["email"] == 'cpv@gmail.com'
     assert response.json()["new_password"] == 'cpv345'
+
+    # remover o usuário adicionado no teste
+
+    client.delete(
+        '/users/1'
+    )

@@ -156,4 +156,4 @@ class Db_manager:
         res_data = response.json()
 
         return len(res_data)
-
+    
