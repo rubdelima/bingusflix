@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateTest from "./app/home/pages/CreateTest";
 import ListTests from "./app/home/pages/ListTests";
 import Home from "./app/home/pages/Home";
+import HomePage from ".app/home/pages/HomePage";
 import Subscribe from "./app/home/pages/Subscribe";
 import Login from "./app/home/pages/Login";
 import AccountRecovery from "./app/home/pages/AccountRecovery";
@@ -37,8 +38,10 @@ const router = createBrowserRouter([
     path: "/account_recovery",
     Component: AccountRecovery,
   },
-
-  
+  {
+    path : "/home-page",
+    Component : HomePage
+  }
 ]);
 
 export default function App() {
