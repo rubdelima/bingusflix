@@ -106,12 +106,13 @@ class Db_manager:
         return response.json()
 
 
-    def put(self, resource, data):
+    def put(self, resource: str, element_id: int, data: dict):
         """
         Send a PUT request to update an existing resource on the JSON server.
 
         Args:
             resource (str): The name or path of the resource to update.
+            element_id (str): The id of the resource to be updated.
             data (dict): The data to include in the PUT request's JSON body for the update.
 
         Returns:
@@ -120,12 +121,13 @@ class Db_manager:
         Raises:
             requests.exceptions.RequestException: If the PUT request encounters an error.
         """
-        url = f"{self.base_url}/{resource}"
+        url = f"{self.base_url}/{resource}/{element_id}"
         response = requests.put(url, json=data)
         response.raise_for_status()
         return response.json()
 
-    def delete(self, resource):
+
+    def delete(self, resource: str, element_id: int):
         """
         Send a DELETE request to remove a resource from the JSON server.
 
@@ -139,7 +141,19 @@ class Db_manager:
             requests.exceptions.RequestException: If the DELETE request encounters an error.
         """
         
-        url = f"{self.base_url}/{resource}"
+        url = f"{self.base_url}/{resource}/{element_id}"
         response = requests.delete(url)
         response.raise_for_status()
         return response.json()
+
+    
+    def get_greatest_table_id(self, table: str) -> int:
+        
+        url = f'{self.base_url}/{table}'
+        response = requests.get(url)
+        response.raise_for_status()
+
+        res_data = response.json()
+
+        return len(res_data)
+
