@@ -7,8 +7,6 @@
 
 html,
 body {
-  overflow-x: hidden;
-  overflow-y: hidden;
   height: 100vh;
   background-color: #450068;
 }

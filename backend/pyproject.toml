@@ -15,6 +15,7 @@ python-dotenv = "^1.0.0"
 httpx = "^0.24.1"
 pysondb-v2 = "^2.1.0"
 python-multipart = "^0.0.6"
+requests = "^2.31.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"
