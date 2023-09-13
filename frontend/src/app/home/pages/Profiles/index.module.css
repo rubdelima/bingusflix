@@ -1,0 +1,103 @@
+.container {
+    text-align: center;
+    background: linear-gradient(142deg, rgba(35,4,67,1) 15%, rgba(52,8,86,1) 30%, rgba(61,11,96,1) 45%, rgba(75,0,129,1) 60%, rgba(127,0,178,1) 75%, rgba(216,106,255,1) 90%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.topText {
+    font-family: "Open Sans", sans-serif;
+    font-size: 3vw;
+    margin-top: 6vh;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.centralizedBox {
+    background-color: #FFFFFF;
+    min-height: 500px;
+    width: 600px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topBoxText {
+    font-family: "Anonymous Pro", monospace;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.profileSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.profile {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.profile img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile img:hover {
+    transform: scale(1.25);
+}
+
+.profileName {
+    text-align: center;
+    color: #230443;
+}
+
+.bottomPage {
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.manageButton {
+    height: 40px;
+    width: 110px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    margin-top: 50px;
+    background-color: #3D0B60;
+    color: #FFFFFF;
+    font-family: "Anonymous Pro", monospace;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.manageButton:hover {
+    background-color: #7F00B2;
+    transform: scale(1.25);
+}
+
+.bottomLeftText {
+    margin-top: 50px;
+    font-size: 14px;
+    margin-right: 200px;
+    font-family: "Anonymous Pro", monospace;
+}
+
+.bottomLeftTextColored {
+    color: darkorange;
+}

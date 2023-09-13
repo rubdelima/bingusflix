@@ -35,6 +35,10 @@ def del_favorite(id_favorite: int):
 
     return favorite
 
+# garante que um determinado favorite existe
+def is_not_valid_favorite_id(id_favorite, favorite_list):
+    return id_favorite < 1 or id_favorite > len(favorite_list)
+
 # adiciona um video aos favoritos
 @router.post(
     '/', status_code=201, response_model=FavoriteDB, tags=['favorites']
@@ -70,7 +74,7 @@ async def get_favorite(
     favorite_list = get_favorites_by_id(current_user.id, current_user.active_profile) # retorna uma lista com todos os favorites do usuário
 
     # garantir que esse favorite exista
-    if id_favorite < 1 or id_favorite > len(favorite_list):
+    if is_not_valid_favorite_id(id_favorite, favorite_list):
         raise HTTPException(status_code=404, detail='Favorite não encontrado')
 
     favorite = favorite_list[id_favorite-1] # seleciona o favorite com o id passado
@@ -88,8 +92,9 @@ async def remove_favorite(
     favorite_list = get_favorites_by_id(current_user.id, current_user.active_profile) # retorna uma lista com todos os favorites do usuário
 
     # garantir que esse favorite exista
-    if id_favorite < 1 or id_favorite > len(favorite_list):
+    if is_not_valid_favorite_id(id_favorite, favorite_list):
         raise HTTPException(status_code=404, detail='Favorite não encontrado')
+
     
     favorite = del_favorite(id_favorite - 1)
 
