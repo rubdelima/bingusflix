@@ -12,6 +12,10 @@ function Nav() {
     navigate('/home');
   }
 
+  const handleProfiles = () => {
+    navigate('/profiles')
+  }
+
   const handleProfileClick = () => {
     setIsModalOpen(true);
   };
@@ -55,6 +59,7 @@ function Nav() {
               X
             </span>
             <button className='profile-button' >Conta</button>
+            <button className='profile-button' onClick={handleProfiles}>Perfis</button>
             <button className='profile-button' onClick={handleLogout}>Logout</button>
           </div>
         </div>
