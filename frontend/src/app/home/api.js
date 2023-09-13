@@ -10,7 +10,7 @@ const categories = [
     {
         name: "netflixOriginals",
         title: "Originais BingusFlix",
-        path: `/discover/tv?api_key=${API_KEY}&with_networks=21`,
+        path: `/discover/tv?api_key=${API_KEY}&with_networks=21&language=pt-BR`,
         isLarge: false
     },
     {
@@ -22,19 +22,19 @@ const categories = [
     {
         name: "comedy",
         title: "Comédias",
-        path: `/discover/tv?api_key=${API_KEY}&with_genres=35`,
+        path: `/discover/movie?api_key=${API_KEY}&with_genres=35&language=pt-BR`,
         isLarge: false
     },
     {
         name: "romances",
         title: "Romances",
-        path: `/discover/tv?api_key=${API_KEY}&with_genres=10749`,
+        path: `/discover/tv?api_key=${API_KEY}&with_genres=10749&language=pt-BR`,
         isLarge: false
     },
     {
         name: "documentaries",
         title: "Documentarios",
-        path: `/discover/tv?api_key=${API_KEY}&with_genres=99`,
+        path: `/discover/tv?api_key=${API_KEY}&with_genres=99&language=pt-BR`,
         isLarge: false
     }
 ];
