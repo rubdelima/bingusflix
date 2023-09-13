@@ -1,6 +1,7 @@
 from src.conftest import unit_test_client
 
 def test_login(client: unit_test_client):
+
     client.post(
         '/users/',
         json={
@@ -22,3 +23,9 @@ def test_login(client: unit_test_client):
 
     assert response.status_code == 200
     assert response.json()["access_token"] == '1'
+
+    # remover o usuário adicionado no teste
+
+    client.delete(
+        '/users/1'
+    )
