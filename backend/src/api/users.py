@@ -10,9 +10,9 @@ database = Db_manager("http://localhost:4000")
 
 #database = 
 
-def search_user(email: str): # função que procura um usuário na base de dados baseado no email
-    for user in database:
-        if user.email == email:
+def search_user(email: str, db: list): # função que procura um usuário na base de dados baseado no email
+    for user in db:
+        if user['email'] == email:
             return user
     return None
 
