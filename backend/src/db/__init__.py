@@ -1,6 +1,6 @@
-from .database import Database
-from .config.create_collections import create_collections
+# from .database import Database
+# from .config.create_collections import create_collections
 
-database = Database()
+# database = Database()
 
-create_collections(database)
+# create_collections(database)

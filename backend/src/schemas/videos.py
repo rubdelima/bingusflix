@@ -57,26 +57,17 @@ class VideoInfoPost(BaseModel):
     season : int | None
     episode : int | None
 
+class TvModel(BaseModel):
+    serie_id : int
+    serie_name: str
+    len_seasons : int
+    last_episode_season : int
+    last_episode_number : int
+    next_episode_season : int | None
+    next_episode_number : int | None
 
-def getVideoDataAPI(video_info:VideoInfoPost)->tuple[bool, VideoModelAPI|None]:
-    if video_info.video_type == "movie":
-        url = f"https://api.themoviedb.org/3/movie/{video_info.movie_id}?language=pt-BR"
-    else:
-        url = f"https://api.themoviedb.org/3/tv/{video_info.serie_id}/season/{video_info.season}/episode/{video_info.episode}?language=pt-BR"
-    headers = {
-        "accept": "application/json",
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzRhZWEzNDk4MTM4MTYxZjdjMTc1Mzk3YmM1YTgzNiIsInN1YiI6IjY0ZmIzNjQxYTI4NGViMDExZDVmNDdiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lPrDEfSG8Cbi4DsH5Q1W1ho1bJvN9_Iw3blu3jE01fU"
-    }
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        vm = VideoModelAPI(video_type=video_info.video_type, video_values=response.json(), watched_at=str(dt.datetime.now()))
-        return (True, vm)
-    return(False, None)
-
-# DataBase
-
-history_db = {}
-history_series_db = {}
+class TvList(BaseModel):
+    series : list[TvModel]
 
 class MovieModelLibrary(BaseModel):
     id: int
