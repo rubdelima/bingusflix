@@ -14,6 +14,7 @@ export default defineConfig({
     openMode: 0,
   },
   chromeWebSecurity: false,
+  experimentalModifyObstructiveThirdPartyCode: true,
   env: {
     codeCoverage: {
       exclude: ["cypress/**/*.*", "coverage/**/*.*"],

@@ -40,7 +40,7 @@ function Login() {
             setToken(response.data.token);
             navigate('/home-page');
         } catch (error) {
-            console.error(error);
+            console.log(error);
             setErrorMessage("Usuário ou senha incorretos");
 }
     }
@@ -53,6 +53,7 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <div className={styles.inputContainer}>
                         <input
+                            data-cy='email'
                             type="email"
                             placeholder="exemplo@email.com"
                             className={styles.emailInputField}
@@ -64,6 +65,7 @@ function Login() {
                     </div>
                     <div className={styles.inputContainer}>
                         <input
+                            data-cy='senha'
                             type="password"
                             placeholder="senha"
                             className={styles.passwordInputField}
@@ -73,8 +75,8 @@ function Login() {
                             required
                         />
                     </div>
-                    {error_message && <p className={styles.error}>{error_message}</p>}
-                    <button type="submit" className={styles.loginButton}>Entrar</button>
+                    {error_message  && <p data-cy="error-message" className={styles.error}>{error_message}</p>}
+                    <button data-cy="Entrar" type="submit" className={styles.loginButton}>Entrar</button>
                 </form>
                 <div className={styles.loginButtonsContainer}>
                     <button className={styles.textButton} onClick={handleRegisterClick}>Cadastre-se</button>
