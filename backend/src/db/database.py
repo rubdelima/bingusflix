@@ -5,7 +5,7 @@ from pymongo.collection import Collection, IndexModel
 from src.config.config import env
 from logging import INFO, WARNING, getLogger
 
-logger = getLogger('uvicorn')
+'''logger = getLogger('uvicorn')
 
 class Database():
 
@@ -208,4 +208,4 @@ class Database():
         - list:
             A list of all items in the collection.
 
-        """
+        """'''

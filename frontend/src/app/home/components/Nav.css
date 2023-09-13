@@ -25,6 +25,7 @@
     right: 20px;
     width: 30px;
     object-fit: contain;
+    cursor: pointer;
 }
 
 .buttons-nav-container {
@@ -59,4 +60,51 @@
 .buttons-nav:hover {
     background-color: rgba(193, 189, 218, 0.5); /* Fundo ligeiramente escuro com visibilidade aumentada ao passar o mouse */
     opacity: 1; /* Aumenta a opacidade ao passar o mouse */
+}
+
+.modal{
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+    z-index: 1;
+    background-color: rgba(35, 4, 67, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.close{
+    position: absolute;
+    color: white;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.profile-button{
+    display: block;
+    margin-top: 10px;
+    margin-left: 100px;
+    padding: 5px 10px;
+    min-width: 150px;
+    border: none;
+    border-radius: 8px;
+    font-family: Anonymous Pro, monospace;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: white;
+    color: darkviolet;
+    cursor: pointer;
 }
