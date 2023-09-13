@@ -1,6 +1,18 @@
 import styles from "./index.module.css"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchToken } from "../../components/auth.js";
 
 function Profiles() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!fetchToken()) {
+          navigate('/home');
+        }
+      }, []);
+
+
     return (
         <div className={styles.container}>
             <h1 className={styles.topText}>BingusFlix</h1>
