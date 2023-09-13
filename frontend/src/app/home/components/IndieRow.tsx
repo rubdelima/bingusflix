@@ -84,7 +84,7 @@ function IndieRow({ videoArray, isLarge }) {
                             >
                                 <img
                                     className={isLarge ? "movie-image-large" :"movie-image"}
-                                    src={`${imageHost}${movie?.still_path || movie?.movie.backdrop_path ||  movie?.poster_path}`}
+                                    src={`${imageHost}${movie?.still_path || movie?.backdrop_path ||  movie?.poster_path}`}
                                     alt={movie.name}
                                 />
                                 <div className="movie-card-overlay">
