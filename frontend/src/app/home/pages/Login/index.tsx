@@ -37,7 +37,7 @@ function Login() {
         try {
             const response = await axios.post('http://localhost:8000/login', formData);
             setErrorMessage("");
-            setToken(response.data.token);
+            setToken(response.data.access_token);
             navigate('/home-page');
         } catch (error) {
             console.error(error);

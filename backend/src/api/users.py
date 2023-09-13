@@ -38,7 +38,10 @@ def read_user():
 def update_user(user_id: int, user: UserModel):
     try:
         # user_with_id = UserModel(**user.model_dump(), id=user_id)
-        database.put("users", user_id, user.model_dump())
+        dumped_user = user.model_dump()
+        dumped_user['birthdate'] = dumped_user['birthdate'].strftime('%Y-%m-%d')
+        database.put("users", user_id, dumped_user)
+        
     except HTTPError: 
         raise HTTPException(status_code=404, detail='User not found')
 
