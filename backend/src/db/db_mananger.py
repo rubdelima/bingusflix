@@ -157,3 +157,29 @@ class Db_manager:
 
         return len(res_data)
     
+    def get_greatest_table_id_profile(self, table: str, user_id: int) -> int:
+        
+        url = f'{self.base_url}/{table}'
+        response = requests.get(url)
+        response.raise_for_status()
+
+        res_data = response.json()
+
+        count = 0
+
+        for i in res_data:
+            if i['id_user'] == user_id:
+                count += 1
+
+        return count
+    
+    def get_greatest_table_id_from_profile(self, table: str) -> int:
+        
+        url = f'{self.base_url}/{table}'
+        response = requests.get(url)
+        response.raise_for_status()
+
+        res_data = response.json()
+        print(res_data)
+        print(res_data[-1]['id'])
+        return res_data[-1]['id']
