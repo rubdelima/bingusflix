@@ -1,4 +1,5 @@
 import styles from "./index.module.css";
+import React from 'react';
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -35,9 +36,9 @@ function Login() {
         formData.append('password', password);
 
         try {
-            const response = await axios.post('http://localhost:8000/login', formData);
+            const response = await axios.post('http://127.0.0.1:8000/login', formData);
             setErrorMessage("");
-            setToken(response.data.token);
+            setToken(response.data.access_token);
             navigate('/home-page');
         } catch (error) {
             console.log(error);
@@ -80,7 +81,7 @@ function Login() {
                 </form>
                 <div className={styles.loginButtonsContainer}>
                     <button className={styles.textButton} onClick={handleRegisterClick}>Cadastre-se</button>
-                    <button className={styles.textButton} onClick={handleForgotPasswordClick}>Esqueceu a senha?</button>
+                    <button data-cy="Esqueceu sua senha?" className={styles.textButton} onClick={handleForgotPasswordClick}>Esqueceu a senha?</button>
                 </div>
             </div>
         </div>

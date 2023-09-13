@@ -4,7 +4,8 @@ import axios from 'axios';
 
 Given("o usuário está na página {string}", (page: string) => {
     cy.visit(page);
-  });
+});
+    
 
 When("o usuário preenche o campo de {string} com {string}", (field: string, value: string) => {
     cy.getDataCy(field).type(value);
