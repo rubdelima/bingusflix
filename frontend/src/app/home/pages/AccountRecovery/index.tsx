@@ -15,11 +15,11 @@ function Account_recovery() {
     const [success_message, setSuccessMessage] = useState("");
 
 
-    /*useEffect(() => {
+    useEffect(() => {
         if (fetchToken()) {
           navigate('/home-page');
         }
-    }, []);*/
+    }, []);
 
     function handleRegisterClick() {
         navigate('/users');
