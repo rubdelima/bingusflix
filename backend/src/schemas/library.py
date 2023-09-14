@@ -1,709 +1,82 @@
-library = {
-    "acao":
-    {1: {  "id": 1,
-           "name": "Agente Stone",
-           "duration": "123 min",
-           "gender": "ação",
-           "year": 2023,
-           "classification": 13,
-           "sinopse": "Uma agente especial de uma organização que busca manter a paz no mundo faz de tudo para impedir que uma hacker roube um bem valioso e extremamente perigoso.",
-           "imdb": 5.7}, 
-    
-    2: {  "id": 2,
-          "name": "O pacto",
-          "duration": "123 min",
-          "gender": "ação",
-          "year": 2023,
-          "classification": 14,
-          "sinopse": "Durante a guerra no Afeganistão, um intérprete arrisca sua vida para carregar um sargento ferido por quilômetros de terreno hostil em busca de um local seguro.",
-          "imdb": 7.5},
-    
-    3: {  "id": 3,
-          "name": "Sede assassina",
-          "duration": "119 min",
-          "gender": "ação",
-          "year": 2023,
-          "classification": 16,
-          "sinopse": "A polícia investiga um atirador de elite que mata sem deixar nenhum vestígio. Eleanor, uma agente antissocial e problemática é uma das grandes esperanças da operação para resolver o caso. Graças a sua psique conturbada, ela pode ser a única capaz de entender mente do assassino.",
-          "imdb": 6.5},
+import requests
 
-    4: {  "id": 4,
-          "name": "Lupin",
-          "serie_seasons": {1: {1: {"name": "Capitulo 1",
-                                          "duration": "48 min",
-                                          "gender": "ação",
-                                          "year": 2021,
-                                          "classification": 16,
-                                          "sinopse" : "Anos depois de uma trágica injustiça, Assane tenta acertar as contas, e quitar uma dívida, roubando um colar de diamante, mas o roubo não sai como esperado."},
-                                        
-                              2: {"name": "Capitulo 2",
-                                        "duration": "53 min",
-                                        "gender": "ação",
-                                        "year": 2021,
-                                        "classification": 16,
-                                        "sinopse" : "Assane bola um plano para entrar em contato com Comet, um preso que o leva a uma pista sobre a morte de Babakar. Anne Pellegrini se abre sobre o passado."},
-                                                
-                              3: {"name": "Capitulo 3",
-                                        "duration": "43 min",
-                                        "gender": "ação",
-                                        "year": 2021,
-                                        "classification": 16,
-                                        "sinopse" : "Assane confronta o comissário Dumont e dá um jeito de despistar a polícia. A ligação de Hubert Pellegrini com o destino de Babakar vem à tona."},
-                                        
-                              4: {"name": "Capitulo 4",
-                                        "duration": "43 min",
-                                        "gender": "ação",
-                                        "year": 2021,
-                                        "classification": 16,
-                                        "sinopse" : "Assane pede ajuda a uma jornalista para conseguir provas contra Hubert. O policial Guédira liga os pontos no caso do assalto ao Louvre."},
-                                        
-                             5: {"name": "Capitulo 5",
-                                       "duration": "48 min",
-                                       "gender": "ação",
-                                       "year": 2021,
-                                       "classification": 16,
-                                       "sinopse": "A caminho de Étretat com Claire e Raoul, Assane encontra uma figura inoportuna. Encurralado, Assane manda uma mensagem ao capitão Laugier."}
-                                        },
-                                        
-                        2: {1: {"name": "Capitulo 6",
-                                      "duration": "42 min",
-                                      "gender": "ação",
-                                      "year": 2021,
-                                      "classification": 16,
-                                      "sinopse" : "Assane procura Raoul com Guédira em sua cola. Em uma mansão deserta na Normandia, Leonard e Assane se enfrentam em um confronto tenso."},
-                  
-                            2: {"name": "Capitulo 7",
-                                      "duration": "43 min",
-                                      "gender": "ação",
-                                      "year": 2021,
-                                      "classification": 16,
-                                      "sinopse" : "Hubert faz um acordo com Dumont e prepara uma armadilha para Assane, que está um passo à frente. Claire bate à porta de Hubert."},
-                          
-                            3: {"name": "Capitulo 8",
-                                      "duration": "41 min",
-                                      "gender": "ação",
-                                      "year": 2021,
-                                      "classification": 16,
-                                      "sinopse" : "Assane tenta ganhar a confiança de Juliette com uma série de trapaças e bola um plano elaborado para pegar Hubert desprevenido."},
-                  
-                            4: {"name": "Capitulo 9",
-                                      "duration": "47 min",
-                                      "gender": "ação",
-                                      "year": 2021,
-                                      "classification": 16,
-                                      "sinopse" : "Leonard segue Assane até sua casa. Hubert planeja uma cilada. Assane deixa uma pista digital para Guédira que lança uma luz sobre Dumont."},
-                  
-                            5: {"name": "Capitulo 10",
-                                      "duration": "50 min",
-                                      "gender": "ação",
-                                      "year": 2021,
-                                      "classification": 16,
-                                      "sinopse": "Assane e Benjamin elaboram um plano audacioso para levar Hubert à justiça. Para isso, eles contam com a ajuda de um cúmplice brilhante, e disfarçado, é claro."}
-                              }                        
-                            } 
-             },
-      5: {"id": 5,
-           "name": "Resgate",
-           "duration": "118 min",
-           "gender": "ação",
-           "year": 2020,
-           "classification": 16,
-           "sinopse": "Em Bangladesh, o mercenário Tyler Rake luta para sobreviver durante uma missão para resgatar o filho de um chefão do crime.",
-           "imdb": 6.8},
+API_KEY = "634aea3498138161f7c175397bc5a836"
 
-      6: {"id": 6,
-           "name": "O Resgate 2",
-           "duration": "123 min",
-           "gender": "ação",
-           "year": 2023,
-           "classification": 16,
-           "sinopse": "Depois de escapar da morte por um triz, o mercenário Tyler Rake encara mais uma missão perigosa: resgatar a família de um criminoso implacável.",
-           "imdb": 7.0},
-      
-      7: {"id": 7,
-          "name": "Fubar",
-          "serie_seasons": {1: {1: {"name": "Dia de levar a filha para o trabalho.",
-                                    "duration": "55 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "A aposentadoria da CIA está chegando e o agente Luke está prestes a partir em uma última missão. Tudo corria bem… até umas revelações bombásticas de família."},
-                                        
-                              2: {  "name": "Trem roubado",
-                                    "duration": "46 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "Para derrotar Boro, Luke e Emma precisam superar o ranço e trabalhar juntos. Só que essa dificuldade de convivência vai ser só o primeiro obstáculo."},
-                                                
-                              3:  { "name": "Isca",
-                                    "duration": "55 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "Depois de evitar uma crise internacional, a equipe busca informações confidenciais na Moldávia. A missão se complica, e Emma se oferece para servir de isca."},
-                                        
-                              4:   {"name": "Armado e perigoso",
-                                    "duration": "57 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "Luke tranquiliza Emma, que volta para casa e encontra uma surpresa. Na Grécia, a equipe encara uma missão perigosa para libertar uma pessoa de confiança."},
-                                        
-                             5:   { "name": "Hoje aqui, amanhã quem sabe",
-                                    "duration": "57 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "Uma emergência familiar acaba embolando os limites da vida dupla de Luke, que agora precisa lidar com os problemas de Emma e Boro."},
+categories = [
+    {
+        "name": "action_tv",
+        "title": "Séries de ação",
+        "path": f"/discover/tv?api_key={API_KEY}&with_genres=10759"
+    },
+    {
+        "name": "action_movies",
+        "title": "Filmes de ação",
+        "path": f"/discover/movie?api_key={API_KEY}&with_genres=28"
+    },
+    {
+        "name": "comedy_tv",
+        "title": "Séries de comédia",
+        "path": f"/discover/tv?api_key={API_KEY}&with_genres=35&include_adult=false"
+    },
+    {
+        "name": "comedy_movies",
+        "title": "Filmes de comédia",
+        "path": f"/discover/movie?api_key={API_KEY}&with_genres=35&include_adult=false"
+    },
+    {
+        "name": "ficction_tv",
+        "title": "Séries de ficcção científica",
+        "path": f"/discover/tv?api_key={API_KEY}&with_genres=10765"
+    },
+    {
+        "name": "ficction_movies",
+        "title": "Filmes de ficcção científica",
+        "path": f"/discover/movie?api_key={API_KEY}&with_genres=878"
+    },
+    {
+        "name": "romance_tv",
+        "title": "Séries de romance",
+        "path": f"/discover/tv?api_key={API_KEY}&with_genres=10749&include_adult=false"
+    },
+    {
+        "name": "romance_movies",
+        "title": "Filmes de romance",
+        "path": f"/discover/movie?api_key={API_KEY}&with_genres=10749&include_adult=false"
+    },
+    {
+        "name": "suspense_tv",
+        "title": "Séries de suspense",
+        "path": f"/discover/tv?api_key={API_KEY}&with_genres=9648"
+    },
+    {
+        "name": "suspense_movies",
+        "title": "Filmes de suspense",
+        "path": f"/discover/movie?api_key={API_KEY}&with_genres=53"
+    },
+    {
+        "name": "trending_tv",
+        "title": "Séries em alta",
+        "path": f"/trending/tv/week?api_key={API_KEY}&language=pt-BR"
+    },
+    {
+        "name": "trending_movies",
+        "title": "Filmes em alta",
+        "path": f"/trending/movie/week?api_key={API_KEY}&language=pt-BR"
+    }
+]
 
-                              6:  { "name": "Royal flush",
-                                    "duration": "59 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "Barry e Tina se infiltram em um jogo de cartas para se aproximar de Boro. A equipe fica presa num lugar inesperado e as emoções correm soltas."},
-                              
-                              7:  { "name": "Urina da sorte",
-                                    "duration": "51 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "Luke e Emma chegam perto de Boro, mas precisam lidar com problemas de relacionamento e uma situação delicada. Uma questão de vida ou morte obriga Roo a se soltar."},
+def get_movies(path):
+    try:
+        url = f"https://api.themoviedb.org/3{path}"
+        response = requests.get(url)
+        return response.json()
+    except Exception as error:
+        print("error getMovies:", error)
 
-                              8:  { "name": "É isso e acabou",
-                                    "duration": "45 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "Correndo contra o tempo, Luke e Emma tomam decisões difíceis para concluir a missão e continuar vivos. Um dia especial da família Brunner sai do controle."}
-                                        }                   
-                            } 
-            },
-
-      8: {"id": 8,
-          "name": "Cães de caça",
-          "serie_seasons": {1: {1: {"name": "Episódio 1",
-                                    "duration": "61 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "Após uma emocionante luta de boxe, Kim Gun-woo faz amizade com Hong Woo-jin. Em nome da ambição, Kim Myeong-gil recorre a táticas perigosas."},
-                                        
-                              2: {  "name": "Episódio 2",
-                                    "duration": "63 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "Gun-woo procura Choi Tae-ho para quitar a dívida da mãe. Myeong-gil sai humilhado da reunião com Hong Min-beom e decide se vingar."},
-                                                
-                              3:  { "name": "Episódio 3",
-                                    "duration": "58 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "Gun-woo e Woo-jin descobrem um jeito de desmantelar o esquema. Myeong-gil consegue ganhar vantagem sobre Min-beom."},
-                                        
-                              4:   {"name": "Episódio 4",
-                                    "duration": "54 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "Após passar um tremendo sufoco, Choi dá início à sua operação. Mas os inimigos fazem de tudo para atrapalhar os planos."},
-                                        
-                             5:   { "name": "Episódio 5",
-                                    "duration": "55 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "Depois de escapar por pouco de uma ameaça, o grupo treina para enfrentar novos ataques. Choi e seus homens saem em busca de informações cruciais."},
-
-                              6:  { "name": "Episódio 6",
-                                    "duration": "58 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "O grupo comemora e planeja o próximo passo. Mais vulnerável do que nunca, Myeong-gil vai atrás de Choi e seus guardas."},
-                              
-                              7:  { "name": "Episódio 7",
-                                    "duration": "61 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "Uma tremenda derrota leva Gun-woo e Woo-jin a jurar vingança. Para isso, eles precisam fazer uma aliança inesperada."},
-
-                              8:  { "name": "Episódio 8",
-                                    "duration": "74 min",
-                                    "gender": "ação",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "Unidos em nome das pessoas que amam, Gun-woo e Woo-jin avançam para derrotar Myeong-gil de uma vez por todas."}
-                                        }
-                                    }
-            },
-      
-      9: {"id": 9,
-           "name": "Linha de frente",
-           "duration": "100 min",
-           "gender": "ação",
-           "year": 2013,
-           "classification": 16,
-           "sinopse": "Um ex-agente perde a esposa e se muda para uma pequena cidade com a filha, mas sua vida pacata é destruída por um traficante de drogas.",
-           "imdb": 6.5},
-
-      10: {"id": 10,
-          "name": "Queen Sono",
-          "serie_seasons": {1: {1: {"name": "Eu sou Queen Sono",
-                                    "duration": "44 min",
-                                    "gender": "ação",
-                                    "year": 2020,
-                                    "classification": 12,
-                                    "sinopse" : "A espiã de elite Queen Sono completa uma missão em Zanzibar e faz uma descoberta chocante sobre Hendrikus, o homem preso pelo assassinato de sua mãe."},
-                                        
-                              2: {  "name": "Morrer é ruim",
-                                    "duration": "45 min",
-                                    "gender": "ação",
-                                    "year": 2020,
-                                    "classification": 12,
-                                    "sinopse" : "O passado de Elton Davenport vem à tona depois da missão de Queen em Harare se revelar. Após uma tragédia, Ekaterina faz um acordo com Shandu."},
-                                                
-                              3:  { "name": "Ferramentas do diabo",
-                                    "duration": "43 min",
-                                    "gender": "ação",
-                                    "year": 2020,
-                                    "classification": 12,
-                                    "sinopse" : "Fingindo ser uma jornalista, Queen entrevista Ekaterina e se coloca em risco. Shandu lida com suas lealdades."},
-                                        
-                              4:   {"name": "Novata",
-                                    "duration": "41 min",
-                                    "gender": "ação",
-                                    "year": 2020,
-                                    "classification": 12,
-                                    "sinopse" : "No começo de seu trabalho no Grupo de Operações Especiais, Queen e Shandu arriscam suas vidas protegendo um vice-presidente corrupto."},
-                                        
-                             5:   { "name": "Água com açucar",
-                                    "duration": "31 min",
-                                    "gender": "ação",
-                                    "year": 2020,
-                                    "classification": 12,
-                                    "sinopse": "Quando ocorre um ataque na estação de trem de Joanesburgo, Ekaterina vê uma oportunidade. Queen confronta Sid sobre a morte de sua mãe."},
-
-                              6:  { "name": "Estado de emergência",
-                                    "duration": "47 min",
-                                    "gender": "ação",
-                                    "year": 2020,
-                                    "classification": 12,
-                                    "sinopse": "Queen e seus colegas decidem agir para impedir um ataque iminente. Um visitante perigoso bate à porta de Mazet."}
-                                    }
-                                    }
-                        }
-      
-     },
-
-     'comedia': 
-     {1: { "id": 1,
-           "name": "Ted 2",
-           "duration": "115 min",
-           "gender": "comédia",
-           "year": 2015,
-           "classification": 16,
-           "sinopse": "Para salvar o casamento, Ted e Tami-Lynn decidem ter um bebê. Agora eles precisam provar na Justiça que o urso Ted é uma pessoa, capaz de criar um filho.",
-           "imdb": 6.3}, 
-    
-    2: {  "id": 2,
-          "name": "Esposa de mentirinha",
-          "duration": "116 min",
-          "gender": "comédia",
-          "year": 2011,
-          "classification": 12,
-          "sinopse": "Um cirurgião plástico passa anos fingindo ser casado, até que conhece a mulher perfeita. Agora, ele precisa que sua assistente se passe por sua futura ex.",
-          "imdb": 6.4},
-    
-    3: {  "id": 3,
-          "name": "Golpe baixo",
-          "duration": "113 min",
-          "gender": "comédia",
-          "year": 2005,
-          "classification": 14,
-          "sinopse": "Um quarterback profissional preso convence outro presidiário e ex-treinador a treinar um grupo de detentos para um jogo contra os guardas.",
-          "imdb": 6.4},
-
-    4: {  "id": 4,
-          "name": "Armas e amores",
-          "serie_seasons": {1: {1: {"name": "Capitulo 1: Há um diabo em cada um de nós",
-                                          "duration": "50 min",
-                                          "gender": "comédia",
-                                          "year": 2023,
-                                          "classification": 16,
-                                          "sinopse" : "Após a morte do pai, o mecânico apaixonado Tipu toma uma medida drástica. A chegada do policial Arjun Varma causa um rebuliço. Uma grande negociação se inicia."},
-                                        
-                              2: {"name": "Capitulo 2: Tudo o que faço... é por você",
-                                        "duration": "47 min",
-                                        "gender": "comédia",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "Arjun vive um grande problema quando sua família é ameaçada. A gangue de Ganchi sofre um baque. O assassino Atmaram está de olho em Tipu."},
-                                                
-                              3: {"name": "Capitulo 3: Juro pela morte dos meus pais",
-                                        "duration": "44 min",
-                                        "gender": "comédia",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "Arrasado, Tipu jura se vingar de uma grande perda. Um cartel rival sai em busca de poder enquanto Jugnu assume o lugar do pai."},
-                                        
-                              4: {"name": "Capitulo 4: Com acordo ou sem acordo",
-                                        "duration": "47 min",
-                                        "gender": "comédia",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "Com as gangues lutando entre si, Arjun fica de olho em fazendas de ópio nas duas regiões. Nannu e Jo se aproximam. Tipu e Bunty procuram Atmaram."},
-                                        
-                             5: {"name": "Capitulo 5: Quando dois corações se encontram...",
-                                       "duration": "46 min",
-                                       "gender": "comédia",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "Desesperado, Jugnu faz uma jogada arriscada. A família de Lekha sofre para lidar com a situação atual. Um ataque no hospital expõe Tipu à ira de Atmaram."},
-
-                              6: {"name": "Capitulo 6: Loucuras de amor",
-                                       "duration": "53 min",
-                                       "gender": "comédia",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "Arjun tenta encontrar aliados. A amizade de Nannu e Jo gera um conflito com Gangu. Tipu tem um plano ousado para ajudar Lekha."},
-                              
-                              7: {"name": "Capítulo 7 e 8: A noite é uma criança...",
-                                       "duration": "81 min",
-                                       "gender": "comédia",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "Na guerra entre policiais e traficantes, um caminhão é o alvo da vez. Com Lekha e as crianças em perigo, Arjun e Tipu precisam agir."}
-                                        }                       
-                            } 
-             },
-      5: {"id": 5,
-           "name": "Este é o meu garoto",
-           "duration": "114 min",
-           "gender": "comédia",
-           "year": 2012,
-           "classification": 16,
-           "sinopse": "O que esperar quando seu pai maluco se muda para sua casa às vésperas de seu casamento, desesperado para recuperar o tempo perdido? Confusão na certa.",
-           "imdb": 5.5},
-
-      6: {"id": 6,
-           "name": "Arremessando alto",
-           "duration": "118 min",
-           "gender": "comédia",
-           "year": 2022,
-           "classification": 12,
-           "sinopse": "Um olheiro de basquete azarado encontra um jogador com potencial de sucesso e se esforça para provar que ambos merecem chegar à NBA.",
-           "imdb": 7.3},
-      
-      7: {"id": 7,
-          "name": "Um conto de fadas perfeito",
-          "serie_seasons": {1: {1: {"name": "Não vamos procurar um pelo outro",
-                                    "duration": "44 min",
-                                    "gender": "comédia",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "No dia do casamento, Margot entra em pânico. David tenta superar uma desilusão amorosa. Um encontro casual entre os dois desencadeia algo inimaginável."},
-                                        
-                              2: {  "name": "O que devo fazer?",
-                                    "duration": "45 min",
-                                    "gender": "comédia",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "Movida por um jogo aleatório, Margot escolhe no mapa uma viagem que promete ser libertadora. Ela e David fazem um pacto, mas Candela planta a semente da dúvida."},
-                                                
-                              3:  { "name": "Amigos",
-                                    "duration": "35 min",
-                                    "gender": "comédia",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "A conexão entre Margot e David se intensifica, mas ela prefere esconder o que sente. Uma mensagem intrigante revela que Margot talvez seja correspondida."},
-                                        
-                              4:   {"name": "Data de validade",
-                                    "duration": "40 min",
-                                    "gender": "comédia",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse" : "David surpreende Margot e a aventura romântica continua, mas nem tudo é um mar de rosas. Eles decidem fazer um pacto para quando retornarem a Madrid."},
-                                        
-                             5:   { "name": "A decisão",
-                                    "duration": "53 min",
-                                    "gender": "comédia",
-                                    "year": 2023,
-                                    "classification": 16,
-                                    "sinopse": "As irmãs compartilham segredos e planos para o futuro. Depois da viagem a Ávila, será que Margot e David vão abrir as portas para novas possibilidades?"}     
-                              }                   
-                            } 
-            },
-      
-      8: {"id": 8,
-           "name": "Dupla jornada",
-           "duration": "113 min",
-           "gender": "comédia",
-           "year": 2022,
-           "classification": 16,
-           "sinopse": "Um caçador de vampiros tem uma semana para conseguir dinheiro para pagar as despesas da filha. E ele vai lutar com unhas e dentes para garantir o sustento da família.",
-           "imdb": 6.1}
-      },
-
-     'romance': 
-     {1: { "id": 1,
-           "name": "Amor e outras drogas",
-           "duration": "112 min",
-           "gender": "romance",
-           "year": 2010,
-           "classification": 16,
-           "sinopse": "Um charmoso representante farmacêutico repensa suas escolhas após conhecer uma jovem artista com um quadro precoce de doença de Parkinson.",
-           "imdb": 6.7}, 
-    
-    2: {  "id": 2,
-          "name": "Felicidade para principiantes",
-          "duration": "103 min",
-          "gender": "romance",
-          "year": 2023,
-          "classification": 10,
-          "sinopse": "Após o divórcio, uma professora se aventura a recomeçar na vida e no amor quando decide fazer uma reveladora caminhada de longa distância.",
-          "imdb": 6.0},
-    
-    3: {  "id": 3,
-          "name": "Comer rezar amar",
-          "duration": "140 min",
-          "gender": "romance",
-          "year": 2010,
-          "classification": 12,
-          "sinopse": "Uma mulher casada percebe como seu casamento realmente é infeliz e que sua vida precisa tomar uma direção diferente. Após um doloroso divórcio, ela parte em uma jornada ao redor do mundo para 'se encontrar a si mesma'.",
-          "imdb": 5.8},
-
-    4: {  "id": 4,
-          "name": "Half bad: O filho bastardo do diabo",
-          "serie_seasons": {1: {1: {"name": "Episódio 1",
-                                          "duration": "50 min",
-                                          "gender": "romance",
-                                          "year": 2022,
-                                          "classification": 16,
-                                          "sinopse" : "O jovem Nathan está fazendo o melhor que pode na escola e em casa, mas é difícil se desvencilhar do terrível legado do pai."},
-                                        
-                              2: {"name": "Episódio 2",
-                                        "duration": "53 min",
-                                        "gender": "romance",
-                                        "year": 2022,
-                                        "classification": 16,
-                                        "sinopse" : "Ceelia começa a treinar Nathan para um eventual confronto com o pai. Jessica cria uma inimizade durante o treinamento de cadetes."},
-                                                
-                              3: {"name": "Episódio 3",
-                                        "duration": "52 min",
-                                        "gender": "romance",
-                                        "year": 2022,
-                                        "classification": 16,
-                                        "sinopse" : "Soul e um esquadrão de Caçadores escoltam Nathan até Londres, mas se deparam com problemas no caminho. Annalise tenta lidar com o dom que acabou de descobrir."},
-                                        
-                              4: {"name": "Episódio 4",
-                                        "duration": "48 min",
-                                        "gender": "romance",
-                                        "year": 2022,
-                                        "classification": 16,
-                                        "sinopse" : "Gabriel ajuda Nathan e Annalise em Paris, mas um segredo pode acabar com essa camaradagem."},
-                                        
-                             5: {"name": "Episódio 5",
-                                       "duration": "47 min",
-                                       "gender": "romance",
-                                       "year": 2022,
-                                       "classification": 16,
-                                       "sinopse": "Nathan e Annalise acompanham Gabriel pelos campos da França, onde descobrem informações surpreendentes sobre os Bruxos das Sombras que pertencem ao clã Ozanne."},
-
-                              6: {"name": "Episódio 6",
-                                       "duration": "46 min",
-                                       "gender": "romance",
-                                       "year": 2022,
-                                       "classification": 16,
-                                       "sinopse": "Nathan tenta fazer com que Ceelia enxergue a verdade sobre Soul e tem uma visão assustadora. Jessica assume de vez seu lado implacável depois de subir de posição."},
-                              
-                              7: {"name": "Episódio 7",
-                                       "duration": "41 min",
-                                       "gender": "romance",
-                                       "year": 2022,
-                                       "classification": 16,
-                                       "sinopse": "Soul e Jessica vão para Wolfhagen, mas Annalise e Ceelia seguem logo atrás. Gabriel tenta convencer Nathan a se encontrar com Mercury."},
-
-                              8: {"name": "Episódio 8",
-                                       "duration": "51 min",
-                                       "gender": "romance",
-                                       "year": 2022,
-                                       "classification": 16,
-                                       "sinopse": "Ansioso para finalmente acabar com Marcus, Soul parte para o ataque em Wolfhagen. Nathan, Annalise e Gabriel tentam detê-lo antes que seja tarde demais."}
-                                        }                       
-                            } 
-                            }
-                            },
-
-     "ficcao": 
-     {1: { "id": 1,
-           "name": "Bloodshot",
-           "duration": "109 min",
-           "gender": "ficção",
-           "year": 2020,
-           "classification": 14,
-           "sinopse": "Ray Garrison, um soldado assassinado, é revivido com super poderes.",
-           "imdb": 5.7}, 
-    
-    2: {  "id": 2,
-          "name": "Homem Aranha: De volta ao lar",
-          "duration": "133 min",
-          "gender": "ficção",
-          "year": 2017,
-          "classification": 12,
-          "sinopse": "Peter Parker equilibra a sua vida como um estudante normal com o seu super herói, o Homem Aranha, mas encontrará um rastro de uma nova ameaça que ronda os céus da cidade de Nova York.",
-          "imdb": 7.4},
-    
-    3: {  "id": 3,
-          "name": "Clonaram tyrone",
-          "duration": "119 min",
-          "gender": "ficção",
-          "year": 2023,
-          "classification": 16,
-          "sinopse": "Uma mulher casada percebe como seu casamento realmente é infeliz e que sua vida precisa tomar uma direção diferente. Após um doloroso divórcio, ela parte em uma jornada ao redor do mundo para 'se encontrar a si mesma'.",
-          "imdb": 6.7},
-
-    4: {  "id": 4,
-          "name": "O eleito",
-          "serie_seasons": {1: {1: {"name": "A chegada",
-                                          "duration": "47 min",
-                                          "gender": "ficção",
-                                          "year": 2023,
-                                          "classification": 16,
-                                          "sinopse" : "O jovem Nathan está fazendo o melhor que pode na escola e em casa, mas é difícil se desvencilhar do terrível legado do pai."},
-                                        
-                              2: {"name": "Milagres",
-                                        "duration": "46 min",
-                                        "gender": "ficção",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "Ceelia começa a treinar Nathan para um eventual confronto com o pai. Jessica cria uma inimizade durante o treinamento de cadetes."},
-                                                
-                              3: {"name": "Despertar",
-                                        "duration": "35 min",
-                                        "gender": "ficção",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "Soul e um esquadrão de Caçadores escoltam Nathan até Londres, mas se deparam com problemas no caminho. Annalise tenta lidar com o dom que acabou de descobrir."},
-                                        
-                              4: {"name": "Verdadeiro ou falso",
-                                        "duration": "44 min",
-                                        "gender": "ficção",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "Gabriel ajuda Nathan e Annalise em Paris, mas um segredo pode acabar com essa camaradagem."},
-                                        
-                             5: {"name": "Fé",
-                                       "duration": "44 min",
-                                       "gender": "ficção",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "Nathan e Annalise acompanham Gabriel pelos campos da França, onde descobrem informações surpreendentes sobre os Bruxos das Sombras que pertencem ao clã Ozanne."},
-
-                              6: {"name": "Revelação",
-                                       "duration": "41 min",
-                                       "gender": "ficção",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "Nathan tenta fazer com que Ceelia enxergue a verdade sobre Soul e tem uma visão assustadora. Jessica assume de vez seu lado implacável depois de subir de posição."}
-                                        }                       
-                            } 
-                            }
-                            },
-
-     "suspense": 
-     {1: { "id": 1,
-           "name": "Paraíso",
-           "duration": "118 min",
-           "gender": "suspense",
-           "year": 2023,
-           "classification": 16,
-           "sinopse": "Um homem vê o lado sombrio da empresa de doação de tempo em que trabalha quando sua esposa precisa abrir mão de 40 anos da própria vida para quitar uma dívida.",
-           "imdb": 6.3}, 
-    
-    2: {  "id": 2,
-          "name": "O código da vinci",
-          "duration": "148 min",
-          "gender": "suspense",
-          "year": 2006,
-          "classification": 14,
-          "sinopse": "Um assassinato dentro do Louvre, e pistas nas pinturas de Da Vinci, levaram à descoberta de um mistério religioso protegido por uma sociedade secreta por dois mil anos, o que poderia abalar os fundamentos do cristianismo.",
-          "imdb": 6.6},
-    
-    3: {  "id": 3,
-          "name": "Caça mortal",
-          "duration": "94 min",
-          "gender": "suspense",
-          "year": 2020,
-          "classification": 16,
-          "sinopse": "Um caçador reformado que vive isolado em um santuário de vida selvagem é pego em um jogo mortal de gato e rato quando ele e o xerife local começam a rastrear um assassino cruel que pode ter sequestrado sua filha anos atrás.",
-          "imdb": 6.2},
-
-    4: {  "id": 4,
-          "name": "Negociador",
-          "serie_seasons": {1: {1: {"name": "Em nome do pai",
-                                          "duration": "46 min",
-                                          "gender": "suspense",
-                                          "year": 2023,
-                                          "classification": 16,
-                                          "sinopse" : "Capitão Menck retorna ao trabalho após a morte de sua esposa. Enfrenta um assalto com reféns, descobrindo que há motivações além do dinheiro. Tensões surgem com sua nova gerente, Major Chacur, e a equipe tática, enquanto tenta desvendar os motivos do criminoso."},
-                                        
-                              2: {"name": "Família S.A.",
-                                        "duration": "47 min",
-                                        "gender": "suspense",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "Menck enfrenta o sequestro da herdeira de uma construtora de São Paulo. Algumas descobertas levantam suspeitas e a sequestrada foge, ameaçando pular do telhado. Na delegacia, Major Freitas investiga o acidente que levou a morte de Sofia, mulher de Menck."},
-                                                
-                              3: {"name": "Bandido Bom É Bandido Morto",
-                                        "duration": "43 min",
-                                        "gender": "suspense",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "O apresentador Walter Guerra é rendido em casa por um jovem. Menck chega na ocorrência e os localiza dentro da adega. O local é de difícil acesso, a situação é tensa. Chacur pressiona Siqueira para encontrar um ponto de acesso para uma possível ação da equipe tática. Siqueira invade o local. Menck chega tarde demais."},
-                                        
-                              4: {"name": "Até que a Vida Nos Separe",
-                                        "duration": "43 min",
-                                        "gender": "suspense",
-                                        "year": 2023,
-                                        "classification": 16,
-                                        "sinopse" : "No dia do seu casamento, noiva e seu filho viram reféns. O sequestrador é ex-marido dela e pai do rapaz. Ambos são rendidos em um quarto de hotel. Menck entra disfarçado e ganha a confiança do sequestrador. Menck convence o sequestrador a largar a arma, mas um descuido pode mudar o desfecho da história."},
-                                        
-                             5: {"name": "Sem Tempo",
-                                       "duration": "41 min",
-                                       "gender": "suspense",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "Menck é interrogado sobre o acidente de Sofia. Ao entrar no seu carro, nota que há uma bomba. Ele recebe uma ligação de Eva e percebe que ela e Ian também estão em perigo. Siqueira se encaminha para casa de Menck enquanto Chacur comanda a operação no carro dele."},
-
-                              6: {"name": "Gate x Gate",
-                                       "duration": "42 min",
-                                       "gender": "suspense",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "Chacur é sequestrada pelo Capitão Bismark. Menck negocia com ele, mas Bismark está em total descontrole. Menck e Siqueira buscam por Chacur até que a equipe escuta um barulho de tiro. O negociador precisa se apressar, parece que Bismark não tem planos de sair com vida."},
-                              
-                              7: {"name": "Bomba de Fumaça",
-                                       "duration": "43 min",
-                                       "gender": "suspense",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "A Companhia de Engenharia de Tráfego (CET) é invadida por bandidos. Lopes pede que Menck volte para a licença. Chacur assume como negociadora. Menck descobre algo sobre o acidente de Sofia. Chacur, no saguão da CET, negocia com o sequestrador, mas quando ela entra no cativeiro descobre que a troca que teve com o bandido não foi tão verdadeira."},
-
-                              8: {"name": "Novo Cangaço",
-                                       "duration": "38 min",
-                                       "gender": "suspense",
-                                       "year": 2023,
-                                       "classification": 16,
-                                       "sinopse": "Chacur descobre que o sequestrador é Santa Cruz. Ele está em um galpão comandando toda a ação. A equipe tática cerca o local enquanto Chacur negocia a vida dos reféns. Menck invade o galpão e rende Santa Cruz. Ele acredita que o criminoso está envolvido na morte de Sofia. O negociador vira sequestrador e ameaça explodir o galpão caso Chacur interfira."}
-                                        }                       
-                            } 
-                            }
-                            }
-}
+"""if __name__ == "__main__":
+    for category in categories:
+        movie_data = get_movies(category["path"])
+        print(f"{category['title']} Data:")
+        print(movie_data)"""
 
 

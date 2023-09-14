@@ -2,46 +2,46 @@ const API_KEY = "634aea3498138161f7c175397bc5a836";
 
 const categories = [
     {
-        name: "trending",
-        title: "Em alta",
-        path: `/trending/all/week?api_key=${API_KEY}&language=pt-BR`,
-        isLarge: true,
-        tipo : 'all'
+        name: "trending_tv",
+        title: "Séries em alta",
+        path: `/trending/tv/week?api_key=${API_KEY}&language=pt-BR`,
+        isLarge: true
+    },
+    {
+        name: "trending_movies",
+        title: "Filmes em alta",
+        path: `/trending/movie/week?api_key=${API_KEY}&language=pt-BR`,
+        isLarge: true
     },
     {
         name: "netflixOriginals",
         title: "Originais BingusFlix",
         path: `/discover/tv?api_key=${API_KEY}&with_networks=21&language=pt-BR`,
-        isLarge: false,
-        tipo : 'tv'
+        isLarge: false
     },
     {
         name: "topRated",
         title: "Populares",
         path: `/movie/top_rated?api_key=${API_KEY}&language=pt-BR`,
-        isLarge: false,
-        tipo : 'movie'
+        isLarge: false
     },
     {
         name: "comedy",
         title: "Comédias",
         path: `/discover/movie?api_key=${API_KEY}&with_genres=35&language=pt-BR`,
-        isLarge: false,
-        tipo : 'movie'
+        isLarge: false
     },
     {
         name: "romances",
         title: "Romances",
         path: `/discover/tv?api_key=${API_KEY}&with_genres=10749&language=pt-BR`,
-        isLarge: false,
-        tipo : 'tv'
+        isLarge: false
     },
     {
         name: "documentaries",
         title: "Documentarios",
         path: `/discover/tv?api_key=${API_KEY}&with_genres=99&language=pt-BR`,
-        isLarge: false,
-        tipo : 'tv'
+        isLarge: false
     }
 ];
 
@@ -97,7 +97,5 @@ export const getSeasonDetails = async (serie_id, season_id) => {
         console.log("error getSerieDetails: ", error);
     }
 }
-
-
 
 export default categories;

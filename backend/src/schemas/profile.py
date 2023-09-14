@@ -10,6 +10,7 @@ class ProfileModel(BaseModel):
 class ProfileDB(ProfileModel):
     id_profile: int
     id_user: int
+    id: int
 
 
 class ProfileList(BaseModel):

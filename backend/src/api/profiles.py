@@ -6,6 +6,7 @@ from src.api.login import get_logged_user
 from src.api.users import database
 from src.schemas.user import UserDB
 from src.schemas.profile import ProfileModel, ProfileDB, ProfileList
+from .users import database
 
 from typing import Annotated
 
@@ -15,25 +16,30 @@ database_profiles = []
 
 
 # retorna os profiles de um usuario
-def get_profiles_by_id(id_profile: int):
+def get_profiles_by_id(id_user: int):
     profile_list = []
 
-    for profile in database_profiles:
-        if profile.id_user == id_profile:
+    for profile in database.get('profiles'):
+        if profile["id_user"] == id_user:
             profile_list.append(profile)
 
     return profile_list
 
-
 # deleta um profile especifico
-def del_profile(id_profile: int):
-    profile = database_profiles.pop(id_profile)
+def del_profile(id_profile: int, profile_list: list):
+    profile = profile_list[id_profile-1] # pega esse perfil
+    database.delete('profiles', profile["id"]) # deleta do banco de dados
+    del profile_list[id_profile-1]
 
-    for i in range(id_profile, len(database_profiles)):
-        database_profiles[i].id_profile -= 1
+    #print(profile_list)
     
-    return profile
+    # ajeita os indexes dos perfis
+    for i in range(id_profile-1, len(profile_list)):
+        p = profile_list[i]
+        p["id_profile"] = p["id_profile"] - 1
+        database.put('profiles', p["id"], p)
 
+    return profile
 
 # cria um novo profile
 @router.post(
@@ -42,18 +48,25 @@ def del_profile(id_profile: int):
 async def create_profile(
     profile: ProfileModel, current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):  
-    user_profiles = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
+    
+    max_id = database.get_greatest_table_id_profile(('profiles'), current_user["id"]) # retorna a quantidade de usuarios
 
-    if len(user_profiles) == 3 and current_user.plan == 0:
+    profile_id = database.get_greatest_table_id_from_profile('profiles') + 1 # retorna o maior id de profile
+
+    if max_id == 3 and current_user["plan"] == 0:
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (comum)')
-    elif len(user_profiles) == 7 and current_user.plan == 1:
+    elif max_id == 7 and current_user["plan"] == 1:
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (premium)')
     
-    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=len(user_profiles)+1, id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
-    current_user.active_profile = profile_with_id.id_profile # atualiza o perfil ativo do usuário
+    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=max_id+1, id_user=current_user["id"], id=profile_id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
+
+    current_user["active_profile"] = profile_with_id.id_profile # atualiza o perfil ativo do usuário
+
+    dumped_profile = profile_with_id.model_dump()
+    database.post('profiles', dumped_profile) # insere no banco de dados
+    database.put('users', current_user["id"], current_user) # atualiza o usuário no banco de dados
     
-    database_profiles.append(profile_with_id)   # insere no banco de dados
-    return profile_with_id
+    return ProfileDB(**profile_with_id.model_dump())
 
 
 # retorna todos os profiles de um usuário
@@ -63,9 +76,8 @@ async def create_profile(
 async def get_profiles(
     current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):
-    profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
-
-    return {'profiles': profile_list}
+    profiles = get_profiles_by_id(current_user["id"]) # retorna uma lista com todos os profiles do usuário
+    return {'profiles': profiles}
 
 
 # retorna um perfil especifico de um usuario
@@ -75,7 +87,7 @@ async def get_profiles(
 async def get_profile(
     id:int , current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):
-    profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
+    profile_list = get_profiles_by_id(current_user["id"]) # retorna uma lista com todos os profiles do usuário
 
     # garantir que esse profile existe
     if id < 1 or id > len(profile_list):
@@ -93,7 +105,7 @@ async def get_profile(
 async def remove_profile(
     id:int , current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):
-    profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
+    profile_list = get_profiles_by_id(current_user["id"]) # retorna uma lista com todos os profiles do usuário
 
     # garantir que esse profile existe
     if id < 1 or id > len(profile_list):
@@ -103,7 +115,7 @@ async def remove_profile(
     if len(profile_list) <= 1:
         raise HTTPException(status_code=403, detail='Você não pode deletar seu único profile')
     
-    deleted_profile = del_profile(id - 1)
+    deleted_profile = del_profile(id, profile_list)
 
     # TODO: ZERAR OS DADOS DELE DOS BANCOS DE DADOS DE FAVORITOS, HISTORICO E MINHA LISTA
 
@@ -117,15 +129,17 @@ async def remove_profile(
 async def edit_profile(
     id:int , profile: ProfileModel, current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):
-    profile_list = get_profiles_by_id(current_user.id) # retorna uma lista com todos os profiles do usuário
+    profile_list = get_profiles_by_id(current_user["id"]) # retorna uma lista com todos os profiles do usuário
 
     # garantir que esse profile existe
     # TODO: modularizar essa checagem
     if id < 1 or id > len(profile_list):
         raise HTTPException(status_code=404, detail='Profile não encontrado')
 
-    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=id, id_user=current_user.id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
+    profile_updated = profile_list[id-1] # seleciona o profile com o id passado
 
-    database_profiles[id-1] = profile_with_id # atualiza os dados desse profile
+    profile_with_id = ProfileDB(**profile.model_dump(), id_profile=id, id_user=current_user["id"], id=profile_updated["id"]) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado
 
-    return database_profiles[id-1]
+    database.put('profiles', profile_updated["id"], profile_with_id.model_dump()) # atualiza o profile no banco de dados
+
+    return profile_with_id # retorna o profile atualizado

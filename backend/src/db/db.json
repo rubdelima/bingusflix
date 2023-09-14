@@ -1,29 +1,29 @@
 {
   "users": [
     {
-      "name": "Ian",
-      "surname": "30",
-      "email": "igbt@cin.ufpe.br",
-      "passwd": "ianzin30",
-      "birthdate": "2001-09-13",
+      "name": "string",
+      "surname": "string",
+      "email": "felipe@gmail.com",
+      "passwd": "netflix123",
+      "birthdate": "2023-08-13",
       "plan": true,
       "active_profile": 1,
-      "id": 2
+      "id": 1
     }
   ],
   "profiles": [
     {
-      "id": 1,
-      "nickname": "Luara",
+      "nickname": "um",
       "pg": 0,
-      "language": "pt-BR",
+      "language": "string",
       "id_profile": 1,
-      "id_user": 2
+      "id_user": 1,
+      "id": 1
     }
   ],
   "watched": [
     {
-      "id": 21,
+      "id": 11,
       "movie": [],
       "tv": []
     }

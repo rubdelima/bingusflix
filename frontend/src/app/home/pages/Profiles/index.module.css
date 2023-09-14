@@ -15,6 +15,13 @@
     margin-top: 6vh;
     font-weight: bold;
     color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.topText:hover {
+    cursor: pointer;
+    transform: scale(1.25);
 }
 
 .centralizedBox {
@@ -72,7 +79,7 @@
 }
 
 .manageButton {
-    height: 40px;
+    height: 50px;
     width: 110px;
     font-size: 16px;
     border-radius: 10px;
@@ -98,6 +105,21 @@
     font-family: "Anonymous Pro", monospace;
 }
 
-.bottomLeftTextColored {
-    color: darkorange;
+.addProfileButton {
+    height: 50px;
+    width: 110px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #3D0B60;
+    color: #FFFFFF;
+    font-family: "Anonymous Pro", monospace;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.addProfileButton:hover {
+    background-color: #7F00B2;
+    transform: scale(1.25);
 }
