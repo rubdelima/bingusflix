@@ -16,6 +16,10 @@ function Nav() {
     navigate('/profiles')
   }
 
+  const handleAccount = () => {
+    navigate('/account-management')
+  }
+
   const handleProfileClick = () => {
     setIsModalOpen(true);
   };
@@ -58,7 +62,7 @@ function Nav() {
             <span className='close' onClick={closeModal}>
               X
             </span>
-            <button className='profile-button' >Conta</button>
+            <button className='profile-button' onClick={handleAccount}>Conta</button>
             <button className='profile-button' onClick={handleProfiles}>Perfis</button>
             <button className='profile-button' onClick={handleLogout}>Logout</button>
           </div>

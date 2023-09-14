@@ -8,6 +8,7 @@ import Subscribe from "./app/home/pages/Subscribe";
 import Login from "./app/home/pages/Login";
 import AccountRecovery from "./app/home/pages/AccountRecovery";
 import Profiles from "./app/home/pages/Profiles";
+import AccountManagement from "./app/home/pages/AccountManagement";
 
 
 const router = createBrowserRouter([
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/profiles",
     Component: Profiles,
+  },
+  {
+    path: "/account-management",
+    Component: AccountManagement,
   },
 ]);
 

@@ -1,3 +1,15 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "Dirceu",
+      "surname": "Euler",
+      "email": "hggmarks@gmail.com",
+      "passwd": "123",
+      "birthdate": "2002-01-01",
+      "plan": false,
+      "active_profile": 1,
+      "id": 1
+    }
+  ],
+  "my_list": []
 }
