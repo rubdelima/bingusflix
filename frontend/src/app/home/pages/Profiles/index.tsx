@@ -1,8 +1,8 @@
 import styles from "./index.module.css"
 import { useState, useEffect } from "react"
 import { useNavigate } from 'react-router-dom';
-import { fetchToken } from '../../components/auth';
 import axios from 'axios';
+import { fetchToken } from '../../components/auth';
 
 
 function Profiles() {
