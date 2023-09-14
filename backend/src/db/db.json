@@ -4,7 +4,7 @@
       "name": "string",
       "surname": "string",
       "email": "felipe@gmail.com",
-      "passwd": "netflix123",
+      "passwd": "hbo123",
       "birthdate": "2023-08-13",
       "plan": true,
       "active_profile": 1,
