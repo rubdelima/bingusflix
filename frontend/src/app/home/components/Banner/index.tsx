@@ -9,7 +9,7 @@ function Banner() {
     const fetchRandomMovie = async () => {
         try{
             const topTreading =  categories.find(
-                (category) => category.name === "trending");
+                (category) => category.name === "trending_movies");
             const data = await getMovies(topTreading.path);
             const movies = data?.results;
             const randomIndex = Math.floor(Math.random() *movies.length);
