@@ -8,7 +8,7 @@ import requests
 import datetime as dt
 
 from src.db.db_mananger import Db_manager
-db = Db_manager("http://localhost:4000")
+db = Db_manager("http://127.0.0.1:4000")
 
 headers_tmdb = {
     "accept": "application/json",

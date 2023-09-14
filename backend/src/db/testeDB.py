@@ -16,7 +16,7 @@ class TvModel(BaseModel):
     next_episode_season : int | None
     next_episode_number : int | None
 
-db = Db_manager("http://localhost:4000")
+db = Db_manager("http://127.0.0.1:4000")
 
 
 def getHistory(history_id):
