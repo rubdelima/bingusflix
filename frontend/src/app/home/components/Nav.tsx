@@ -23,6 +23,7 @@ function Nav() {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setIsModalOpenGender(false);
   };
 
   const handleGenderClick = () => {
