@@ -35,6 +35,7 @@ function ManageProfile() {
         } catch (error) {
             console.error(error);
             setErrorMessage("Não foi possível alterar seu perfil");
+            setSuccessMessage("");
         }
     }
 
