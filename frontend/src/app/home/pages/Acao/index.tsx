@@ -1,6 +1,6 @@
-import Nav from "../../components/Nav.js";
+import Nav from "../../components/Nav";
 import categories from "../../genres_api/action_api.js";
-import Row from "../../components/Row.js";
+import Row from "../../components/Row";
 import Banner from "../../components/Banners_genders/Banner_action.js";
 import "./index.css"
 

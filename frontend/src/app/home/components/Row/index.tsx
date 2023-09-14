@@ -1,18 +1,30 @@
 import React, { useEffect, useRef } from 'react';
-import { getMovies } from '../api.js';
-import './IndieRow.css';
+import { getMovies } from '../../api.js';
+import "./Row.css";
+import VideoInfo from '../VideoInfo/index.js';
 
 const imageHost = 'https://image.tmdb.org/t/p/original/';
 
-function IndieRow({ videoArray, isLarge }) {
+function Row({ title, path, isLarge, tipo }) {
+    const [movies, setMovies] = React.useState([]);
     const scrollContainerRef = useRef(null);
 
-    const [videoDict, getVideoData] = React.useState(null);
+    // Funcoes para carregar os filmes
 
-    const fetchVideoData = async () => {
-
+    const fetchMovies = async (_path) => {
+        try {
+            const data = await getMovies(_path);
+            console.log('data: ', data);
+            setMovies(data?.results);
+        } catch (e) {
+            console.log('fetchmovies error: ', e);
+        }
     };
-  
+
+    useEffect(() => {
+        fetchMovies(path);
+    }, [path]);
+    
     // Função para rolagem
     const scrollLeft = () => {
         if (scrollContainerRef.current) {
@@ -55,11 +67,9 @@ function IndieRow({ videoArray, isLarge }) {
         return (-c / 2) * (t * (t - 2) - 1) + b;
     };
 
-    
     const [selectedMovie, setSelectedMovie] = React.useState(null);
 
     const handleMovieClick = (movieId) => {
-      console.log("selected movie: " , movieId);
       setSelectedMovie(movieId);
       console.log(selectedMovie);
     };
@@ -69,14 +79,14 @@ function IndieRow({ videoArray, isLarge }) {
     };
     
     return (
-        <div className='indie-row-container'>
+        <div className='row-container'>
+            <h2 className='row-header'>{title}</h2>
             <div className='row-cards-container'>
                 <button className='scroll-button left-button' onClick={scrollLeft}>
                     &lt;
                 </button>
-                {console.log("Video Array: ", videoArray)}
                 <div className='row-cards' ref={scrollContainerRef}>
-                    {videoArray?.map((movie) => {
+                    {movies?.map((movie) => {
                         return (
                             <div className="movie-card-content"
                                 key={movie.id}
@@ -84,7 +94,7 @@ function IndieRow({ videoArray, isLarge }) {
                             >
                                 <img
                                     className={isLarge ? "movie-image-large" :"movie-image"}
-                                    src={`${imageHost}${movie?.still_path || movie?.backdrop_path ||  movie?.poster_path}`}
+                                    src={`${imageHost}${isLarge ? movie.backdrop_path : movie.poster_path}`}
                                     alt={movie.name}
                                 />
                                 <div className="movie-card-overlay">
@@ -98,9 +108,12 @@ function IndieRow({ videoArray, isLarge }) {
                     &gt;
                 </button>
             </div>
+            {selectedMovie !== null && (
+                <VideoInfo movie={selectedMovie} onClose={handleCloseModal} tipo={tipo}/>
+            )}
         </div>
     );
     
 }
 
-export default IndieRow;
+export default Row;

@@ -5,43 +5,50 @@ const categories = [
         name: "trending_tv",
         title: "Séries em alta",
         path: `/trending/tv/week?api_key=${API_KEY}&language=pt-BR`,
-        isLarge: true
+        isLarge: true,
+        tipo : "tv"
     },
     {
         name: "trending_movies",
         title: "Filmes em alta",
         path: `/trending/movie/week?api_key=${API_KEY}&language=pt-BR`,
-        isLarge: true
+        isLarge: true,
+        tipo : "movie"
     },
     {
         name: "netflixOriginals",
         title: "Originais BingusFlix",
         path: `/discover/tv?api_key=${API_KEY}&with_networks=21&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : "tv"
     },
     {
         name: "topRated",
         title: "Populares",
         path: `/movie/top_rated?api_key=${API_KEY}&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : "movie"
     },
     {
         name: "comedy",
         title: "Comédias",
         path: `/discover/movie?api_key=${API_KEY}&with_genres=35&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : "movie"
     },
     {
         name: "romances",
         title: "Romances",
         path: `/discover/tv?api_key=${API_KEY}&with_genres=10749&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : "tv"
     },
     {
         name: "documentaries",
         title: "Documentarios",
         path: `/discover/tv?api_key=${API_KEY}&with_genres=99&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : "tv"
     }
 ];
 

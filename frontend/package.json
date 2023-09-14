@@ -52,7 +52,7 @@
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
     "@vitest/coverage-c8": "^0.31.1",
-    "cucumber-html-reporter": "^7.1.1",
+    "cucumber-html-reporter": "^6.0.0",
     "cucumber-pretty": "^6.0.1",
     "cypress": "^13.2.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
