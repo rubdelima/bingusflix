@@ -4,7 +4,7 @@
       "name": "string",
       "surname": "string",
       "email": "felipe@gmail.com",
-      "passwd": "hbo123",
+      "passwd": "netflix123",
       "birthdate": "2023-08-13",
       "plan": true,
       "active_profile": 1,
@@ -13,17 +13,505 @@
   ],
   "profiles": [
     {
-      "nickname": "um",
-      "pg": 0,
-      "language": "string",
+      "nickname": "oii",
+      "pg": 14,
+      "language": "a",
       "id_profile": 1,
       "id_user": 1,
-      "id": 1
+      "id": 2
     }
   ],
   "watched": [
     {
       "id": 11,
+      "movie": [
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg",
+            "belongs_to_collection": null,
+            "budget": 145000000,
+            "genres": [
+              {
+                "id": 35,
+                "name": "Comédia"
+              },
+              {
+                "id": 12,
+                "name": "Aventura"
+              },
+              {
+                "id": 14,
+                "name": "Fantasia"
+              }
+            ],
+            "homepage": "",
+            "id": 346698,
+            "imdb_id": "tt1517268",
+            "original_language": "en",
+            "original_title": "Barbie",
+            "overview": "No mundo mágico das Barbies, \"Barbieland\", uma das bonecas começa a perceber que não se encaixa como as outras. Depois de ser expulsa, ela parte para uma aventura no \"mundo real\", onde descobre que a beleza está no interior de cada um.",
+            "popularity": 3661.8,
+            "poster_path": "/yRRuLt7sMBEQkHsd1S3KaaofZn7.jpg",
+            "production_companies": [
+              {
+                "id": 82968,
+                "logo_path": "/gRROMOG5bpF6TIDMbfaa5gnFFzl.png",
+                "name": "LuckyChap Entertainment",
+                "origin_country": "US"
+              },
+              {
+                "id": 437,
+                "logo_path": "/nu20mtwbEIhUNnQ5NXVhHsNknZj.png",
+                "name": "Heyday Films",
+                "origin_country": "GB"
+              },
+              {
+                "id": 181486,
+                "logo_path": null,
+                "name": "NB/GG Pictures",
+                "origin_country": "US"
+              },
+              {
+                "id": 6220,
+                "logo_path": "/cAj69EL1zSXmZH6STbMGZrunyMD.png",
+                "name": "Mattel",
+                "origin_country": "US"
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+              },
+              {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+              }
+            ],
+            "release_date": "2023-07-19",
+            "revenue": 1404802725,
+            "runtime": 112,
+            "spoken_languages": [
+              {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+              }
+            ],
+            "status": "Released",
+            "tagline": "Ela é tudo. Ele é só o Ken.",
+            "title": "Barbie",
+            "video": false,
+            "vote_average": 7.337,
+            "vote_count": 4302
+          },
+          "watched_at": "2023-09-14 08:29:09.493234"
+        },
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/9m161GawbY3cWxe6txd1NOHTjd0.jpg",
+            "belongs_to_collection": {
+              "id": 84,
+              "name": "Indiana Jones: Coleção",
+              "poster_path": "/lUiJKFmAqELHXNTr0eXqPGJYhsa.jpg",
+              "backdrop_path": "/6kh59mZizZsttZPR0HAdXk6Ve2n.jpg"
+            },
+            "budget": 294700000,
+            "genres": [
+              {
+                "id": 12,
+                "name": "Aventura"
+              },
+              {
+                "id": 28,
+                "name": "Ação"
+              },
+              {
+                "id": 14,
+                "name": "Fantasia"
+              }
+            ],
+            "homepage": "",
+            "id": 335977,
+            "imdb_id": "tt1462764",
+            "original_language": "en",
+            "original_title": "Indiana Jones and the Dial of Destiny",
+            "overview": "Encontrando-se em uma nova era, aproximando-se da aposentadoria, Indy luta para se encaixar em um mundo que parece tê-lo superado. Mas quando os tentáculos de um mal muito familiar retornam na forma de um antigo rival, Indy deve colocar seu chapéu e pegar seu chicote mais uma vez para garantir que um antigo e poderoso artefato não caia nas mãos erradas.",
+            "popularity": 1194.002,
+            "poster_path": "/9EnfMH0nTPCna87Mh3G8Q6W2wze.jpg",
+            "production_companies": [
+              {
+                "id": 1,
+                "logo_path": "/o86DbpburjxrqAzEDhXZcyE8pDb.png",
+                "name": "Lucasfilm Ltd.",
+                "origin_country": "US"
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+              }
+            ],
+            "release_date": "2023-06-28",
+            "revenue": 382336037,
+            "runtime": 144,
+            "spoken_languages": [
+              {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+              }
+            ],
+            "status": "Released",
+            "tagline": "Uma lenda enfrentará seu destino.",
+            "title": "Indiana Jones e A Relíquia do Destino",
+            "video": false,
+            "vote_average": 6.679,
+            "vote_count": 1557
+          },
+          "watched_at": "2023-09-14 08:29:32.862162"
+        },
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/9m161GawbY3cWxe6txd1NOHTjd0.jpg",
+            "belongs_to_collection": {
+              "id": 84,
+              "name": "Indiana Jones: Coleção",
+              "poster_path": "/lUiJKFmAqELHXNTr0eXqPGJYhsa.jpg",
+              "backdrop_path": "/6kh59mZizZsttZPR0HAdXk6Ve2n.jpg"
+            },
+            "budget": 294700000,
+            "genres": [
+              {
+                "id": 12,
+                "name": "Aventura"
+              },
+              {
+                "id": 28,
+                "name": "Ação"
+              },
+              {
+                "id": 14,
+                "name": "Fantasia"
+              }
+            ],
+            "homepage": "",
+            "id": 335977,
+            "imdb_id": "tt1462764",
+            "original_language": "en",
+            "original_title": "Indiana Jones and the Dial of Destiny",
+            "overview": "Encontrando-se em uma nova era, aproximando-se da aposentadoria, Indy luta para se encaixar em um mundo que parece tê-lo superado. Mas quando os tentáculos de um mal muito familiar retornam na forma de um antigo rival, Indy deve colocar seu chapéu e pegar seu chicote mais uma vez para garantir que um antigo e poderoso artefato não caia nas mãos erradas.",
+            "popularity": 1194.002,
+            "poster_path": "/9EnfMH0nTPCna87Mh3G8Q6W2wze.jpg",
+            "production_companies": [
+              {
+                "id": 1,
+                "logo_path": "/o86DbpburjxrqAzEDhXZcyE8pDb.png",
+                "name": "Lucasfilm Ltd.",
+                "origin_country": "US"
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+              }
+            ],
+            "release_date": "2023-06-28",
+            "revenue": 382336037,
+            "runtime": 144,
+            "spoken_languages": [
+              {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+              }
+            ],
+            "status": "Released",
+            "tagline": "Uma lenda enfrentará seu destino.",
+            "title": "Indiana Jones e A Relíquia do Destino",
+            "video": false,
+            "vote_average": 6.679,
+            "vote_count": 1557
+          },
+          "watched_at": "2023-09-14 08:36:03.921638"
+        },
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/5mzr6JZbrqnqD8rCEvPhuCE5Fw2.jpg",
+            "belongs_to_collection": {
+              "id": 742536,
+              "name": "Megatubarão: Coleção",
+              "poster_path": "/7sAnVGMn5he5NZBZCE6fhDpA7fl.jpg",
+              "backdrop_path": "/rNoyJmjdhgn30bVbvd8n3DJMocB.jpg"
+            },
+            "budget": 129000000,
+            "genres": [
+              {
+                "id": 28,
+                "name": "Ação"
+              },
+              {
+                "id": 878,
+                "name": "Ficção científica"
+              },
+              {
+                "id": 27,
+                "name": "Terror"
+              }
+            ],
+            "homepage": "",
+            "id": 615656,
+            "imdb_id": "tt9224104",
+            "original_language": "en",
+            "original_title": "Meg 2: The Trench",
+            "overview": "Um mergulho exploratório nas profundezas do oceano de uma ousada equipe de pesquisa se transforma em caos quando uma operação de mineração malévola ameaça sua missão e os força a uma batalha de alto risco pela sobrevivência.",
+            "popularity": 2543.98,
+            "poster_path": "/8tBhAn6qVRQzf5yvEcxjgPMgTkw.jpg",
+            "production_companies": [
+              {
+                "id": 56242,
+                "logo_path": "/1YORRYmg7hgYIgoJek8jU3cykuQ.png",
+                "name": "Apelles Entertainment",
+                "origin_country": "US"
+              },
+              {
+                "id": 174,
+                "logo_path": "/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+              },
+              {
+                "id": 435,
+                "logo_path": "/AjzK0s2w1GtLfR4hqCjVSYi0Sr8.png",
+                "name": "di Bonaventura Pictures",
+                "origin_country": "US"
+              },
+              {
+                "id": 92484,
+                "logo_path": "/dfWwoWRp8snHjzDKO5IFkiCAUe7.png",
+                "name": "CMC Pictures",
+                "origin_country": "CN"
+              },
+              {
+                "id": 208093,
+                "logo_path": null,
+                "name": "DF Pictures",
+                "origin_country": ""
+              },
+              {
+                "id": 208094,
+                "logo_path": null,
+                "name": "Onaroll Productions",
+                "origin_country": ""
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "CN",
+                "name": "China"
+              },
+              {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+              }
+            ],
+            "release_date": "2023-08-02",
+            "revenue": 384056482,
+            "runtime": 116,
+            "spoken_languages": [
+              {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+              }
+            ],
+            "status": "Released",
+            "tagline": "Novo mega. Mesma presa.",
+            "title": "Megatubarão 2",
+            "video": false,
+            "vote_average": 7.008,
+            "vote_count": 1687
+          },
+          "watched_at": "2023-09-14 08:36:11.667673"
+        },
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/5mzr6JZbrqnqD8rCEvPhuCE5Fw2.jpg",
+            "belongs_to_collection": {
+              "id": 742536,
+              "name": "Megatubarão: Coleção",
+              "poster_path": "/7sAnVGMn5he5NZBZCE6fhDpA7fl.jpg",
+              "backdrop_path": "/rNoyJmjdhgn30bVbvd8n3DJMocB.jpg"
+            },
+            "budget": 129000000,
+            "genres": [
+              {
+                "id": 28,
+                "name": "Ação"
+              },
+              {
+                "id": 878,
+                "name": "Ficção científica"
+              },
+              {
+                "id": 27,
+                "name": "Terror"
+              }
+            ],
+            "homepage": "",
+            "id": 615656,
+            "imdb_id": "tt9224104",
+            "original_language": "en",
+            "original_title": "Meg 2: The Trench",
+            "overview": "Um mergulho exploratório nas profundezas do oceano de uma ousada equipe de pesquisa se transforma em caos quando uma operação de mineração malévola ameaça sua missão e os força a uma batalha de alto risco pela sobrevivência.",
+            "popularity": 2543.98,
+            "poster_path": "/8tBhAn6qVRQzf5yvEcxjgPMgTkw.jpg",
+            "production_companies": [
+              {
+                "id": 56242,
+                "logo_path": "/1YORRYmg7hgYIgoJek8jU3cykuQ.png",
+                "name": "Apelles Entertainment",
+                "origin_country": "US"
+              },
+              {
+                "id": 174,
+                "logo_path": "/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+              },
+              {
+                "id": 435,
+                "logo_path": "/AjzK0s2w1GtLfR4hqCjVSYi0Sr8.png",
+                "name": "di Bonaventura Pictures",
+                "origin_country": "US"
+              },
+              {
+                "id": 92484,
+                "logo_path": "/dfWwoWRp8snHjzDKO5IFkiCAUe7.png",
+                "name": "CMC Pictures",
+                "origin_country": "CN"
+              },
+              {
+                "id": 208093,
+                "logo_path": null,
+                "name": "DF Pictures",
+                "origin_country": ""
+              },
+              {
+                "id": 208094,
+                "logo_path": null,
+                "name": "Onaroll Productions",
+                "origin_country": ""
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "CN",
+                "name": "China"
+              },
+              {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+              }
+            ],
+            "release_date": "2023-08-02",
+            "revenue": 384056482,
+            "runtime": 116,
+            "spoken_languages": [
+              {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+              }
+            ],
+            "status": "Released",
+            "tagline": "Novo mega. Mesma presa.",
+            "title": "Megatubarão 2",
+            "video": false,
+            "vote_average": 7.008,
+            "vote_count": 1687
+          },
+          "watched_at": "2023-09-14 09:02:51.378481"
+        },
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/Ab8mkHmkYADjU7wQiOkia9BzGvS.jpg",
+            "belongs_to_collection": null,
+            "budget": 19000000,
+            "genres": [
+              {
+                "id": 16,
+                "name": "Animação"
+              },
+              {
+                "id": 10751,
+                "name": "Família"
+              },
+              {
+                "id": 14,
+                "name": "Fantasia"
+              }
+            ],
+            "homepage": "",
+            "id": 129,
+            "imdb_id": "tt0245429",
+            "original_language": "ja",
+            "original_title": "千と千尋の神隠し",
+            "overview": "Chihiro e seus pais estão se mudando para uma cidade diferente. A caminho da nova casa, o pai decide pegar um atalho. Eles se deparam com uma mesa repleta de comida, embora ninguém esteja por perto. Chihiro sente o perigo, mas seus pais começam a comer. Quando anoitece, eles se transformam em porcos. Agora, apenas Chihiro pode salvá-los",
+            "popularity": 75.921,
+            "poster_path": "/e7WdOF6j3wB5kFXIEoqGXKmGaTl.jpg",
+            "production_companies": [
+              {
+                "id": 10342,
+                "logo_path": "/eS79pslnoKbWg7t3PMA9ayl0bGs.png",
+                "name": "Studio Ghibli",
+                "origin_country": "JP"
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "JP",
+                "name": "Japan"
+              }
+            ],
+            "release_date": "2001-07-20",
+            "revenue": 274925095,
+            "runtime": 126,
+            "spoken_languages": [
+              {
+                "english_name": "Japanese",
+                "iso_639_1": "ja",
+                "name": "日本語"
+              }
+            ],
+            "status": "Released",
+            "tagline": "",
+            "title": "A Viagem de Chihiro",
+            "video": false,
+            "vote_average": 8.539,
+            "vote_count": 14856
+          },
+          "watched_at": "2023-09-14 09:02:59.354449"
+        }
+      ],
+      "tv": []
+    },
+    {
+      "id": 12,
       "movie": [],
       "tv": []
     }
