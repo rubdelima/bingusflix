@@ -10,5 +10,15 @@
       "active_profile": 1,
       "id": 1
     }
+  ],
+  "profiles": [
+    {
+      "nickname": "um",
+      "pg": 0,
+      "language": "string",
+      "id_profile": 1,
+      "id_user": 1,
+      "id": 1
+    }
   ]
 }
