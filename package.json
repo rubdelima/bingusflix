@@ -2,5 +2,8 @@
   "dependencies": {
     "@mui/icons-material": "^5.14.8",
     "@mui/material": "^5.14.8"
+  },
+  "devDependencies": {
+    "cypress": "^13.2.0"
   }
 }

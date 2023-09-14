@@ -5,6 +5,14 @@ import axios from 'axios';
 
 
 function Profiles() {
+  
+    useEffect(() => {
+        if (!fetchToken()) {
+          navigate('/home');
+        }
+      }, []);
+  
+  
     const navigate = useNavigate();
     const [profileList, setProfileList] = useState([]);
 
@@ -45,7 +53,6 @@ function Profiles() {
     const handleTitleClick = () => {
         navigate('/home-page');
     }
-
 
     return (
         <div className={styles.container}>
