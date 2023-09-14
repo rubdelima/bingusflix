@@ -57,6 +57,14 @@ const handleClick = (url: string) => {
           birthdate: '',
           plan: false,
         });
+        
+        const response_post = await axios.post(`http://localhost:8000/profiles`, {
+          nickname: formData.name,
+          pg: 18,
+          language: 'pt'
+        }, {headers: {Authorization: `Bearer ${response.data.id}`}})
+        
+        navigate('/login');
       } else {
         console.error("Form submission failed");
       }
