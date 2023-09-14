@@ -4,6 +4,7 @@ import './Nav.css';
 
 function Nav() {
   const [show, setShow] = useState(false);
+  const [isModalOpenGender, setIsModalOpenGender] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -24,6 +25,34 @@ function Nav() {
     setIsModalOpen(false);
   };
 
+  const handleGenderClick = () => {
+    setIsModalOpenGender(true);
+  }
+
+  const handleComedyClick = () => {
+    navigate('/comedia');
+  }
+
+  const handleActionClick = () => {
+    navigate('/acao');
+  }
+
+  const handleFicctionClick = () => {
+    navigate('/ficcao');
+  }
+
+  const handleRomanceClick = () => {
+    navigate('/romance');
+  }
+
+  const handleSuspenseClick = () => {
+    navigate('/suspense');
+  }
+
+  const handleLogoClick = () => {
+    navigate('/home-page');
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       setShow(window.scrollY > 100);
@@ -36,6 +65,7 @@ function Nav() {
         className='nav-logo'
         src='/imgs/bingusflix_logo.png'
         alt='BingusFlix'
+        onClick={handleLogoClick}
       ></img>
       <div className='buttons-nav-container'>
         <button className='buttons-nav'>Em Alta</button>
@@ -43,6 +73,9 @@ function Nav() {
         <button className='buttons-nav'>Séries</button>
         <button className='buttons-nav'>Últimos Assistidos</button>
         <button className='buttons-nav'>Histórico</button>
+        <div className='gender-click' onClick={handleGenderClick}>
+          <button className='buttons-nav'>Gêneros</button>
+        </div>
       </div>
       <div className='profile-click' onClick={handleProfileClick}>
         <img
@@ -58,11 +91,26 @@ function Nav() {
             <span className='close' onClick={closeModal}>
               X
             </span>
-            <button className='profile-button' >Conta</button>
-            <button className='profile-button' onClick={handleProfiles}>Perfis</button>
-            <button className='profile-button' onClick={handleLogout}>Logout</button>
+            <button className='popup-button' >Conta</button>
+            <button className='popup-button' onClick={handleProfiles}>Perfis</button>
+            <button className='popup-button' onClick={handleLogout}>Logout</button>
           </div>
         </div>
+      )}
+
+      {isModalOpenGender && (
+              <div className='modal'>
+                <div className='modal-content'>
+                  <span className='close' onClick={closeModal}>
+                    X
+                  </span>
+                  <button className='popup-button' onClick={handleActionClick}>Ação</button>
+                  <button className='popup-button' onClick={handleComedyClick}>Comédia</button>
+                  <button className='popup-button' onClick={handleRomanceClick}>Romance</button>
+                  <button className='popup-button' onClick={handleSuspenseClick}>Suspense</button>
+                  <button className='popup-button' onClick={handleFicctionClick}>Ficção</button>
+                </div>
+              </div>
       )}
     </div>
   );
