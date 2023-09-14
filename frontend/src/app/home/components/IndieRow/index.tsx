@@ -1,30 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import { getMovies } from '../api.js';
-import './Row.css';
-import VideoInfo from './VideoInfo.tsx';
+import { getMovies } from '../../api.js';
+import "./IndieRow.css";
+import axios from 'axios';
+import VideoInfo from '../VideoInfo/index'
+
 
 const imageHost = 'https://image.tmdb.org/t/p/original/';
 
-function Row({ title, path, isLarge }) {
-    const [movies, setMovies] = React.useState([]);
+function IndieRow({ videoArray, isLarge , tipo, serieId}) {
     const scrollContainerRef = useRef(null);
 
-    // Funcoes para carregar os filmes
-
-    const fetchMovies = async (_path) => {
-        try {
-            const data = await getMovies(_path);
-            console.log('data: ', data);
-            setMovies(data?.results);
-        } catch (e) {
-            console.log('fetchmovies error: ', e);
-        }
-    };
-
-    useEffect(() => {
-        fetchMovies(path);
-    }, [path]);
-    
     // Função para rolagem
     const scrollLeft = () => {
         if (scrollContainerRef.current) {
@@ -60,6 +45,8 @@ function Row({ title, path, isLarge }) {
         animateScroll();
     };
 
+
+
     Math.easeInOutQuad = (t, b, c, d) => {
         t /= d / 2;
         if (t < 1) return (c / 2) * t * t + b;
@@ -68,27 +55,43 @@ function Row({ title, path, isLarge }) {
     };
 
     
-    const [selectedMovie, setSelectedMovie] = React.useState(null);
+    // Funcao para dar post no histórico
 
-    const handleMovieClick = (movieId) => {
-      console.log("selected movie: " , movieId);
-      setSelectedMovie(movieId);
-      console.log(selectedMovie);
+    const postEpisodeInHistory = async (movieInfo) => {
+        try{
+            const token = localStorage.getItem("token");
+            const config = { headers: { Authorization: `Bearer ${token}`,},};
+            const newVideoData = {"video_type": "tv", "movie_id": null , "serie_id": serieId, "season": movieInfo.season_number, "episode": movieInfo.episode_number};
+            const response = await axios.post('http://localhost:8000/history/register_access_video', newVideoData, config);
+        }catch(e){
+            console.log('fetchVideo error: ', e);
+        }
+    }
+
+    const [selectedMovie, setSelectedMovie] = React.useState(null);
+    
+
+    const handleMovieClick = (movieInfo) => {
+        if (tipo === "serieInfo"){
+            postEpisodeInHistory(movieInfo)
+        }
+        setSelectedMovie(movieInfo);
     };
 
     const handleCloseModal = () => {
       setSelectedMovie(null);
     };
     
+    //<div className='indie-row-container'>
+
     return (
-        <div className='row-container'>
-            <h2 className='row-header'>{title}</h2>
+        <div className={(tipo === "homePage") ? 'indie-row-container-home-page' : 'indie-row-container'}>
             <div className='row-cards-container'>
                 <button className='scroll-button left-button' onClick={scrollLeft}>
                     &lt;
                 </button>
                 <div className='row-cards' ref={scrollContainerRef}>
-                    {movies?.map((movie) => {
+                    {videoArray?.map((movie) => {
                         return (
                             <div className="movie-card-content"
                                 key={movie.id}
@@ -96,7 +99,7 @@ function Row({ title, path, isLarge }) {
                             >
                                 <img
                                     className={isLarge ? "movie-image-large" :"movie-image"}
-                                    src={`${imageHost}${isLarge ? movie.backdrop_path : movie.poster_path}`}
+                                    src={`${imageHost}${movie?.still_path || movie?.backdrop_path ||  movie?.poster_path}`}
                                     alt={movie.name}
                                 />
                                 <div className="movie-card-overlay">
@@ -110,13 +113,12 @@ function Row({ title, path, isLarge }) {
                     &gt;
                 </button>
             </div>
-            {/* Adicione aqui o componente VideoInfo quando o filme for selecionado */}
-            {selectedMovie !== null && (
-                <VideoInfo movie={selectedMovie} onClose={handleCloseModal} />
+            {selectedMovie !== null && tipo === "homePage"  && (
+                <VideoInfo movie={selectedMovie} onClose={handleCloseModal} tipo={tipo}/>
             )}
         </div>
     );
     
 }
 
-export default Row;
+export default IndieRow;

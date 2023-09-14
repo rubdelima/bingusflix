@@ -173,3 +173,25 @@ async def get_history(user: Annotated [UserDB, Depends (get_logged_user)]):
         return {'series' : videos}
     except:
         raise HTTPException(status_code=404, detail= "Você não possui séries no banco de dados")
+    
+@router.get("/videos/",status_code=200, response_model=dict)
+async def get_videos(user: Annotated [UserDB, Depends (get_logged_user)]):
+    try: 
+        history_id = int(f"{user['id']}{user['active_profile']}")
+        history = getHistory(history_id)
+        del history['id']
+        data = {'tv' : [], 'movie': [], 'all' :[]}
+        dict_type = {'tv' : 'tv_id', 'movie' : 'id'}
+        videos = history['movie'] + history['tv']
+        videos.sort(key = lambda x: x['watched_at'], reverse=True)
+        for video in videos:
+            url = f"https://api.themoviedb.org/3/{video['video_type']}/{video['video_values'][dict_type[video['video_type']]]}?language=pt-BR"
+            response = requests.get(url, headers=headers_tmdb)
+            data[video['video_type']].append(response.json())
+            result = response.json()
+            data[video['video_type']].append(result)
+            if result not in data['all']: data['all'].append(result)
+        return data
+        
+    except:
+        raise HTTPException(status_code=404, detail= "Você não possui séries no banco de dados")
