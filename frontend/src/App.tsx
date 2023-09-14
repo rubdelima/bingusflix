@@ -9,6 +9,12 @@ import Login from "./app/home/pages/Login";
 import AccountRecovery from "./app/home/pages/AccountRecovery";
 import Profiles from "./app/home/pages/Profiles";
 import AccountManagement from "./app/home/pages/AccountManagement";
+import Comedia from "./app/home/pages/Comedia";
+import Acao from "./app/home/pages/Acao";
+import Ficcao from "./app/home/pages/Ficcao";
+import Romance from "./app/home/pages/Romance";
+import Suspense from "./app/home/pages/Suspense";
+import ManageProfile from "./app/home/pages/ManageProfile";
 
 
 const router = createBrowserRouter([
@@ -53,6 +59,30 @@ const router = createBrowserRouter([
     path: "/account-management",
     Component: AccountManagement,
   },
+  {
+    path: "/comedia",
+    Component: Comedia,
+  },
+  {
+    path: "/acao",
+    Component: Acao,
+  },
+  {
+    path: "/ficcao",
+    Component: Ficcao,
+  },
+  {
+    path: "/romance",
+    Component: Romance,
+  },
+  {
+    path: "/suspense",
+    Component: Suspense,
+  },
+  {
+    path: "/manage_profile",
+    Component: ManageProfile
+  }
 ]);
 
 export default function App() {

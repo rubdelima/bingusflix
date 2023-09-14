@@ -44,7 +44,7 @@ const handleClick = (url: string) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/users/', formData);
+      const response = await axios.post('http://127.0.0.1:8000/users/', formData);
 
       console.log(formData);
       if (response.status === 201) {
@@ -92,6 +92,7 @@ const handleClick = (url: string) => {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  data-cy='nome'
                   variant='outlined'
                   name="name"
                   label="First Name"
@@ -104,6 +105,7 @@ const handleClick = (url: string) => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  data-cy='sobrenome'
                   variant='outlined'
                   id="surname"
                   label="Last Name"
@@ -116,6 +118,7 @@ const handleClick = (url: string) => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  data-cy='email'
                   id="email"
                   label="Email Address"
                   name="email"
@@ -128,6 +131,7 @@ const handleClick = (url: string) => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  data-cy='data de nascimento'
                   id='birthdate'
                   type='date'
                   name='birthdate'
@@ -139,6 +143,7 @@ const handleClick = (url: string) => {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  data-cy='senha'
                   name="passwd"
                   label="Password"
                   type="password"
@@ -164,10 +169,12 @@ const handleClick = (url: string) => {
               </Grid>
             </Grid>
             <Button
+              data-cy='criar conta'
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={() => handleClick("/login")}
             >
               Sign Up
             </Button>

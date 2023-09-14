@@ -6,7 +6,7 @@ from src.schemas.response import HttpResponseModel, HTTPResponses
 from src.schemas.user import UserDB, UserList, UserModel, UserModelPublic
 router = APIRouter()
 
-database = Db_manager("http://localhost:4000")
+database = Db_manager("http://127.0.0.1:4000")
 
 
 def search_user(email: str, db: list): # função que procura um usuário na base de dados baseado no email
@@ -40,6 +40,7 @@ def update_user(user_id: int, user: UserModel):
         dumped_user = user.model_dump()
         dumped_user['birthdate'] = dumped_user['birthdate'].strftime('%Y-%m-%d')
         database.put("users", user_id, dumped_user)
+        
     except HTTPError: 
         raise HTTPException(status_code=404, detail='User not found')
 

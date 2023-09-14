@@ -3,18 +3,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { fetchToken } from '../../components/auth';
-import { set } from "cypress/types/lodash";
 
 function Account_recovery() {    
     const navigate = useNavigate(); 
-    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [new_password, setNewPassword] = useState("");
     const [confirm_password, setConfirmPassword] = useState("");
-    const [delete_account, setDeleteAccount] = useState(false);
     const [error_message, setErrorMessage] = useState("");
     const [success_message, setSuccessMessage] = useState("");
-    //const [id, setId] = useState("");
 
     const id = fetchToken();
 
@@ -27,7 +23,7 @@ function Account_recovery() {
     ///console.log(id);
 
     async function handleDeleteClick() {
-        const response = await axios.delete('http://localhost:8000/users/' + Number(id));
+        const response = await axios.delete('http://127.0.0.1:8000/users/' + Number(id));
         localStorage.removeItem('token');
         navigate('/home');
     }
@@ -39,7 +35,7 @@ function Account_recovery() {
     async function handleSubmit(event) {
         event.preventDefault();
         
-        const res = await axios.get(`http://localhost:4000/users/${Number(id)}`);
+        const res = await axios.get(`http://127.0.0.1:4000/users/${Number(id)}`);
 
         const curr_passwd = res.data["passwd"]
 
@@ -61,7 +57,7 @@ function Account_recovery() {
         res.data["passwd"] = new_password;
         console.log(res.data);
         try {
-            const response = await axios.put(`http://localhost:8000/users/${Number(id)}`, res.data);
+            const response = await axios.put(`http://127.0.0.1:8000/users/${Number(id)}`, res.data);
             
             console.log(response.status);
             setSuccessMessage("Sua senha foi alterada com sucesso!");
@@ -111,7 +107,7 @@ function Account_recovery() {
                 <button type ="submit" className={styles.confirmButton}>Confirmar</button>
             </form>
             <div className={styles.accountRecoveryButtonsContainer}>
-                <button className={styles.textButton} onClick={handleDeleteClick}>Deletar Conta</button>
+                <button data-cy="deletar conta" className={styles.textButton} onClick={handleDeleteClick}>Deletar Conta</button>
                 <button className={styles.textButton} onClick={handleGoBackClick}>Voltar</button>
             </div>
         </div>
