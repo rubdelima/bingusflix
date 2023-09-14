@@ -24,7 +24,7 @@ Scenario: Atualizacão de senha da conta
   Then o usuário recebe a mensagem de confirmação "Sua senha foi alterada com sucesso!"
 
 Scenario: Exclusão de conta
-  Given o usuário de id "1" está logado
+  Given o usuário de id "3" está logado
   And o usuário está na página "account-management"
   When clica na opção "deletar conta"
   Then o usuário é direcionado para a pagina "home"
