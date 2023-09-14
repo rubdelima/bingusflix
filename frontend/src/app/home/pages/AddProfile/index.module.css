@@ -40,86 +40,84 @@
     font-size: 40px;
     font-weight: bold;
     color: black;
+    margin-bottom: 40px;
 }
 
-.profileSection {
+.formContainer {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.profile {
-    width: 30%;
+.formRow {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.profile img {
+.formImg {
     width: 100px;
     height: auto;
     object-fit: cover;
     border-radius: 50%;
+    margin-left: 300px;
+    margin-bottom: 30px;
 }
 
-.profile img:hover {
+.formInputName {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.formInputAge {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.formInputLanguage {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.confirmButton {
+    width: 200px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #3D0B60;
+    color: #FFFFFF;
+    font-family: "Anonymous Pro", monospace;
+    font-weight: bold;
+    margin-right: 280px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.confirmButton:hover {
+    background-color: #7F00B2;
     transform: scale(1.25);
 }
 
-.profileName {
-    text-align: center;
-    color: #230443;
-}
-
-.bottomPage {
-    padding: 20px;
-    text-align: left;
+.inputBoxes {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 100px;
 }
 
-.manageButton {
-    height: 50px;
-    width: 110px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-    margin-top: 50px;
-    background-color: #3D0B60;
-    color: #FFFFFF;
+.errorMessage {
     font-family: "Anonymous Pro", monospace;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.manageButton:hover {
-    background-color: #7F00B2;
-    transform: scale(1.25);
-}
-
-.bottomLeftText {
-    margin-top: 50px;
     font-size: 14px;
-    margin-right: 200px;
-    font-family: "Anonymous Pro", monospace;
+    color: red;
 }
 
-.addProfileButton {
-    height: 50px;
-    width: 110px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-    background-color: #3D0B60;
-    color: #FFFFFF;
+.success {
     font-family: "Anonymous Pro", monospace;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.addProfileButton:hover {
-    background-color: #7F00B2;
-    transform: scale(1.25);
+    font-size: 14px;
+    color: green;
 }

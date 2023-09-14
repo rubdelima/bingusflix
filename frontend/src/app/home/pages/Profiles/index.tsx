@@ -54,6 +54,9 @@ function Profiles() {
     const handleTitleClick = () => {
         navigate('/home-page');
     }
+    const handleAdd = () => {
+        navigate('/add_profile');
+    }
 
     return (
         <div className={styles.container}>
@@ -78,9 +81,14 @@ function Profiles() {
                 </div>
 
                 <div className={styles.bottomPage}>
-                    <div className={styles.bottomLeftText}>Plano <span className={styles.bottomLeftTextColored}>Comum</span></div>
+                    <div className={styles.bottomLeftText}>
+                        <button className={styles.addProfileButton}
+                        onClick={handleAdd}>
+                            Adicionar Perfil</button>
+                    </div>
+
                     <button className={styles.manageButton}
-                    onClick={handleManage}>Gerenciar</button>
+                    onClick={handleManage}>Gerenciar Perfil</button>
                 </div>
             </div>
         </div>

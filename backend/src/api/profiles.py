@@ -75,9 +75,9 @@ async def create_profile(
 
     profile_id = database.get_greatest_table_id_from_profile('profiles') + 1 # retorna o maior id de profile
 
-    if max_id == 3 and current_user.plan == 0:
+    if max_id == 3 and current_user["plan"] == 0:
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (comum)')
-    elif max_id == 7 and current_user.plan == 1:
+    elif max_id == 7 and current_user["plan"] == 1:
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (premium)')
     
     profile_with_id = ProfileDB(**profile.model_dump(), id_profile=max_id+1, id_user=current_user["id"], id=profile_id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado

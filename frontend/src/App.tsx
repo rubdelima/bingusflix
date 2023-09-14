@@ -9,6 +9,7 @@ import Login from "./app/home/pages/Login";
 import AccountRecovery from "./app/home/pages/AccountRecovery";
 import Profiles from "./app/home/pages/Profiles";
 import ManageProfile from "./app/home/pages/ManageProfile";
+import AddProfile from "./app/home/pages/AddProfile";
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/manage_profile",
     Component: ManageProfile
+  },
+  {
+    path: "/add_profile",
+    Component: AddProfile
   }
 ]);
 
