@@ -4,7 +4,7 @@
       "name": "string",
       "surname": "string",
       "email": "felipe@gmail.com",
-      "passwd": "hbo123",
+      "passwd": "netflix123",
       "birthdate": "2023-08-13",
       "plan": true,
       "active_profile": 1,
@@ -343,6 +343,169 @@
             "vote_count": 1687
           },
           "watched_at": "2023-09-14 08:36:11.667673"
+        },
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/5mzr6JZbrqnqD8rCEvPhuCE5Fw2.jpg",
+            "belongs_to_collection": {
+              "id": 742536,
+              "name": "Megatubarão: Coleção",
+              "poster_path": "/7sAnVGMn5he5NZBZCE6fhDpA7fl.jpg",
+              "backdrop_path": "/rNoyJmjdhgn30bVbvd8n3DJMocB.jpg"
+            },
+            "budget": 129000000,
+            "genres": [
+              {
+                "id": 28,
+                "name": "Ação"
+              },
+              {
+                "id": 878,
+                "name": "Ficção científica"
+              },
+              {
+                "id": 27,
+                "name": "Terror"
+              }
+            ],
+            "homepage": "",
+            "id": 615656,
+            "imdb_id": "tt9224104",
+            "original_language": "en",
+            "original_title": "Meg 2: The Trench",
+            "overview": "Um mergulho exploratório nas profundezas do oceano de uma ousada equipe de pesquisa se transforma em caos quando uma operação de mineração malévola ameaça sua missão e os força a uma batalha de alto risco pela sobrevivência.",
+            "popularity": 2543.98,
+            "poster_path": "/8tBhAn6qVRQzf5yvEcxjgPMgTkw.jpg",
+            "production_companies": [
+              {
+                "id": 56242,
+                "logo_path": "/1YORRYmg7hgYIgoJek8jU3cykuQ.png",
+                "name": "Apelles Entertainment",
+                "origin_country": "US"
+              },
+              {
+                "id": 174,
+                "logo_path": "/IuAlhI9eVC9Z8UQWOIDdWRKSEJ.png",
+                "name": "Warner Bros. Pictures",
+                "origin_country": "US"
+              },
+              {
+                "id": 435,
+                "logo_path": "/AjzK0s2w1GtLfR4hqCjVSYi0Sr8.png",
+                "name": "di Bonaventura Pictures",
+                "origin_country": "US"
+              },
+              {
+                "id": 92484,
+                "logo_path": "/dfWwoWRp8snHjzDKO5IFkiCAUe7.png",
+                "name": "CMC Pictures",
+                "origin_country": "CN"
+              },
+              {
+                "id": 208093,
+                "logo_path": null,
+                "name": "DF Pictures",
+                "origin_country": ""
+              },
+              {
+                "id": 208094,
+                "logo_path": null,
+                "name": "Onaroll Productions",
+                "origin_country": ""
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "CN",
+                "name": "China"
+              },
+              {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+              }
+            ],
+            "release_date": "2023-08-02",
+            "revenue": 384056482,
+            "runtime": 116,
+            "spoken_languages": [
+              {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+              }
+            ],
+            "status": "Released",
+            "tagline": "Novo mega. Mesma presa.",
+            "title": "Megatubarão 2",
+            "video": false,
+            "vote_average": 7.008,
+            "vote_count": 1687
+          },
+          "watched_at": "2023-09-14 09:02:51.378481"
+        },
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/Ab8mkHmkYADjU7wQiOkia9BzGvS.jpg",
+            "belongs_to_collection": null,
+            "budget": 19000000,
+            "genres": [
+              {
+                "id": 16,
+                "name": "Animação"
+              },
+              {
+                "id": 10751,
+                "name": "Família"
+              },
+              {
+                "id": 14,
+                "name": "Fantasia"
+              }
+            ],
+            "homepage": "",
+            "id": 129,
+            "imdb_id": "tt0245429",
+            "original_language": "ja",
+            "original_title": "千と千尋の神隠し",
+            "overview": "Chihiro e seus pais estão se mudando para uma cidade diferente. A caminho da nova casa, o pai decide pegar um atalho. Eles se deparam com uma mesa repleta de comida, embora ninguém esteja por perto. Chihiro sente o perigo, mas seus pais começam a comer. Quando anoitece, eles se transformam em porcos. Agora, apenas Chihiro pode salvá-los",
+            "popularity": 75.921,
+            "poster_path": "/e7WdOF6j3wB5kFXIEoqGXKmGaTl.jpg",
+            "production_companies": [
+              {
+                "id": 10342,
+                "logo_path": "/eS79pslnoKbWg7t3PMA9ayl0bGs.png",
+                "name": "Studio Ghibli",
+                "origin_country": "JP"
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "JP",
+                "name": "Japan"
+              }
+            ],
+            "release_date": "2001-07-20",
+            "revenue": 274925095,
+            "runtime": 126,
+            "spoken_languages": [
+              {
+                "english_name": "Japanese",
+                "iso_639_1": "ja",
+                "name": "日本語"
+              }
+            ],
+            "status": "Released",
+            "tagline": "",
+            "title": "A Viagem de Chihiro",
+            "video": false,
+            "vote_average": 8.539,
+            "vote_count": 14856
+          },
+          "watched_at": "2023-09-14 09:02:59.354449"
         }
       ],
       "tv": []
