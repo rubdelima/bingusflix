@@ -101,16 +101,10 @@ function Nav() {
             <span className='close' onClick={closeModal}>
               X
             </span>
-<<<<<<< HEAD:frontend/src/app/home/components/Nav.tsx
             <button className='profile-button' onClick={handleAccount}>Conta</button>
             <button className='profile-button' onClick={handleProfiles}>Perfis</button>
             <button className='profile-button' onClick={handleLogout}>Logout</button>
-=======
-            <button className='popup-button' >Conta</button>
-            <button className='popup-button' onClick={handleProfiles}>Perfis</button>
-            <button className='popup-button' onClick={handleLogout}>Logout</button>
             <button className='popup-button' onClick={handleHistoryClick}>Histórico</button>
->>>>>>> 73058bc415233dc1711ec1c70e7e3aa1b3865833:frontend/src/app/home/components/Nav/index.tsx
           </div>
         </div>
       )}
