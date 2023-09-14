@@ -121,3 +121,23 @@
     font-size: 14px;
     color: green;
 }
+
+.removeButton {
+    width: 200px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #3D0B60;
+    color: #FFFFFF;
+    font-family: "Anonymous Pro", monospace;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.removeButton:hover {
+    background-color: #7F00B2;
+    transform: scale(1.25);
+}
