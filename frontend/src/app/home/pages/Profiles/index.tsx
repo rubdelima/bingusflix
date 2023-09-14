@@ -38,9 +38,19 @@ function Profiles() {
         navigate('/home-page');
     };
 
+    const handleManage = () => {
+        navigate('/manage_profile');
+    }
+
+    const handleTitleClick = () => {
+        navigate('/home-page');
+    }
+
+
     return (
         <div className={styles.container}>
-            <h1 className={styles.topText}>BingusFlix</h1>
+            <h1 className={styles.topText}
+            onClick={() => handleTitleClick()}>BingusFlix</h1>
 
             <div className={styles.centralizedBox}>
                 <h2 className={styles.topBoxText}>Profiles</h2>
@@ -61,7 +71,8 @@ function Profiles() {
 
                 <div className={styles.bottomPage}>
                     <div className={styles.bottomLeftText}>Plano <span className={styles.bottomLeftTextColored}>Comum</span></div>
-                    <button className={styles.manageButton}>Gerenciar</button>
+                    <button className={styles.manageButton}
+                    onClick={handleManage}>Gerenciar</button>
                 </div>
             </div>
         </div>
