@@ -40,71 +40,84 @@
     font-size: 40px;
     font-weight: bold;
     color: black;
+    margin-bottom: 40px;
 }
 
-.profileSection {
+.formContainer {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-.profile {
-    width: 30%;
+.formRow {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.profile img {
+.formImg {
     width: 100px;
     height: auto;
     object-fit: cover;
     border-radius: 50%;
+    margin-left: 300px;
+    margin-bottom: 30px;
 }
 
-.profile img:hover {
-    transform: scale(1.25);
+.formInputName {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
-.profileName {
-    text-align: center;
-    color: #230443;
+.formInputAge {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
-.bottomPage {
-    padding: 20px;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.formInputLanguage {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
-.manageButton {
-    height: 40px;
-    width: 110px;
+.confirmButton {
+    width: 200px;
+    padding: 5px;
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
     border: none;
-    margin-top: 50px;
     background-color: #3D0B60;
     color: #FFFFFF;
     font-family: "Anonymous Pro", monospace;
     font-weight: bold;
+    margin-right: 280px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.manageButton:hover {
+.confirmButton:hover {
     background-color: #7F00B2;
     transform: scale(1.25);
 }
 
-.bottomLeftText {
-    margin-top: 50px;
-    font-size: 14px;
-    margin-right: 200px;
-    font-family: "Anonymous Pro", monospace;
+.inputBoxes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 100px;
 }
 
-.bottomLeftTextColored {
-    color: darkorange;
+.errorMessage {
+    font-family: "Anonymous Pro", monospace;
+    font-size: 14px;
+    color: red;
+}
+
+.success {
+    font-family: "Anonymous Pro", monospace;
+    font-size: 14px;
+    color: green;
 }
