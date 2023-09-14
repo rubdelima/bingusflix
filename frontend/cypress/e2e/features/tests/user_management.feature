@@ -14,12 +14,6 @@ Scenario: Cadastro bem sucedido de um usuário
   And clica na opção "criar conta"
   Then o usuário é direcionado para a "login"
 
-Scenario: Exclusão de conta
-  Given o usuário de id "1" está logado
-  And o usuário está na página "account-management"
-  When clica na opção "deletar conta"
-  Then o usuário é direcionado para a pagina "home"
-
 Scenario: Atualizacão de senha da conta
   Given o usuário de id "2" está logado
   And o usuário está na página "account-management"
@@ -28,3 +22,11 @@ Scenario: Atualizacão de senha da conta
   And preenche o campo de "conf-senha" com "cpvsabemais"
   And clica na opção "criar conta"
   Then o usuário recebe a mensagem de confirmação "Sua senha foi alterada com sucesso!"
+
+Scenario: Exclusão de conta
+  Given o usuário de id "1" está logado
+  And o usuário está na página "account-management"
+  When clica na opção "deletar conta"
+  Then o usuário é direcionado para a pagina "home"
+
+
