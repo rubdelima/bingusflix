@@ -25,35 +25,13 @@ def get_profiles_by_id(id_user: int):
 
     return profile_list
 
-
-# # deleta um profile especifico
-# def del_profile(id_profile: int, profile_list: list):
-#     profile = profile_list[id_profile-1] # pega esse perfil
-    
-#     print(profile_list)
-#     # ajeita os indexes dos perfis
-#     for i in range(id_profile, len(profile_list)):
-#         print(f"i: {i}")
-#         p = profile_list[i]
-#         print("antes")
-#         print(p)
-#         p["id_profile"] = p["id_profile"] - 1
-#         print("depois")
-#         print(p)
-#         database.put('profiles', i-1, p)
-    
-#     # o perfil que deve ser deletado foi sobrescrito, agora vamos deletar o ultimo perfil (esta escrito 2 vezes)
-#     database.delete('profiles', len(database.get('profiles')) - 1)
-
-#     return profile
-
 # deleta um profile especifico
 def del_profile(id_profile: int, profile_list: list):
     profile = profile_list[id_profile-1] # pega esse perfil
     database.delete('profiles', profile["id"]) # deleta do banco de dados
     del profile_list[id_profile-1]
 
-    print(profile_list)
+    #print(profile_list)
     
     # ajeita os indexes dos perfis
     for i in range(id_profile-1, len(profile_list)):
@@ -75,9 +53,9 @@ async def create_profile(
 
     profile_id = database.get_greatest_table_id_from_profile('profiles') + 1 # retorna o maior id de profile
 
-    if max_id == 3 and current_user.plan == 0:
+    if max_id == 3 and current_user["plan"] == 0:
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (comum)')
-    elif max_id == 7 and current_user.plan == 1:
+    elif max_id == 7 and current_user["plan"] == 1:
         raise HTTPException(status_code=403, detail='Você atingiu o limite de perfis para seu plano (premium)')
     
     profile_with_id = ProfileDB(**profile.model_dump(), id_profile=max_id+1, id_user=current_user["id"], id=profile_id) # retorna um dicionario com os dados do profile, além do id do usuário e do profile criado

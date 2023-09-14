@@ -1,5 +1,4 @@
 from fastapi import APIRouter, HTTPException, Depends
-from src.db.db_mananger import Db_manager
 from src.schemas.user import UserDB
 from src.schemas.response import HttpResponseModel, HTTPResponses
 from src.schemas.movies import MovieModel, MovieList
@@ -12,12 +11,10 @@ from typing import Annotated, Union
 router = APIRouter()
 
 my_list_db = {}
-database = Db_manager("http://localhost:4000")
 
 
 @router.get('/', status_code=200, response_model=GenericMediaList, tags=["my-list"])
 def get_my_list(current_user: Annotated[UserDB, Depends(get_logged_user)]):
-    # profile_list = database.
     profiles_list = my_list_db.get(current_user.email, {})
 
     profile_list = profiles_list.get(current_user.active_profile, [])
@@ -34,7 +31,7 @@ def add_movie_to_mylist(
     movie: MovieModel,
     current_user: Annotated[UserDB, Depends(get_logged_user)]
 ):
-   
+
     profiles_lists = my_list_db.setdefault(current_user.email, {})
 
     profile_lists = profiles_lists.setdefault(

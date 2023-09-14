@@ -21,9 +21,10 @@ Scenario: Exclusão de conta
   Then o usuário é direcionado para a pagina "home"
 
 Scenario: Atualizacão de senha da conta
-  Given eu estou logado como "usuário comum" com login "hfm@email.com" e senha "hfm321"
-  And eu estou na página "configuracões da conta"
-  When eu seleciono "Alterar senha da conta"
-  And eu preencho a senha com "hfm321"
-  And eu preencho o "nova senha" com "321hfm" e "confirmação de senha" com "321hfm"
-  Then eu recebo a mensagem de "Senha alterada com sucesso"
+  Given o usuário de id "2" está logado
+  And o usuário está na página "account-management"
+  When o usuário preenche o campo de "senha-atual" com "brenosabemto"
+  And preenche o campo de "nova-senha" com "cpvsabemais"
+  And preenche o campo de "conf-senha" com "cpvsabemais"
+  And clica na opção "criar conta"
+  Then o usuário recebe a mensagem de confirmação "Sua senha foi alterada com sucesso!"

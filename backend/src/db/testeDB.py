@@ -16,7 +16,7 @@ class TvModel(BaseModel):
     next_episode_season : int | None
     next_episode_number : int | None
 
-db = Db_manager("http://127.0.0.1:4000")
+db = Db_manager("http://localhost:4000")
 
 
 def getHistory(history_id):
@@ -80,4 +80,20 @@ def getTvModel():
         tvs_arr.append(tvM)
         
 
-getTvModel()
+def getVideoData():
+    history = getHistory(11)
+    del history['id']
+    data = {'tv' : [], 'movie': [], 'all' :[]}
+    dict_type = {'tv' : 'tv_id', 'movie' : 'id'}
+    videos = history['movie'] + history['tv']
+    videos.sort(key = lambda x: x['watched_at'], reverse=True)
+    for video in videos:
+        url = f"https://api.themoviedb.org/3/{video['video_type']}/{video['video_values'][dict_type[video['video_type']]]}?language=pt-BR"
+        response = requests.get(url, headers=headers)
+        data[video['video_type']].append(response.json())
+        result = response.json()
+        data[video['video_type']].append(result)
+        if result not in data['all']: data['all'].append(result)
+    return data
+
+getVideoData()

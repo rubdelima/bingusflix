@@ -6,8 +6,9 @@ from src.schemas.response import HttpResponseModel, HTTPResponses
 from src.schemas.user import UserDB, UserList, UserModel, UserModelPublic
 router = APIRouter()
 
-database = Db_manager("http://127.0.0.1:4000")
+database = Db_manager("http://localhost:4000")
 
+#database = 
 
 def search_user(email: str, db: list): # função que procura um usuário na base de dados baseado no email
     for user in db:

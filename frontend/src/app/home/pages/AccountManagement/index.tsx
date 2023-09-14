@@ -35,10 +35,8 @@ function Account_recovery() {
     async function handleSubmit(event) {
         event.preventDefault();
         
-        const res = await axios.get(`http://127.0.0.1:4000/users/${Number(id)}`);
-
-        const curr_passwd = res.data["passwd"]
-
+        const res = await axios.get(`http://localhost:4000/users/${Number(id)}`);
+        let curr_passwd = res.data["passwd"];
         
         if (new_password !== confirm_password) {
             setErrorMessage("As senhas não coincidem");
@@ -76,6 +74,7 @@ function Account_recovery() {
             <h2 className={styles.topBoxTest}>Gerenciamento de Conta</h2>
             <form onSubmit={handleSubmit}>
                 <div className="input-container"><input
+                    data-cy="senha-atual"
                     type="password"
                     placeholder="Sua senha atual"
                     className={styles.passwordInputField}
@@ -85,6 +84,7 @@ function Account_recovery() {
                     />
                 </div>
                 <div className="input-container"><input
+                    data-cy="nova-senha"
                     type="password"
                     placeholder="nova senha"
                     className={styles.passwordInputField}
@@ -94,6 +94,7 @@ function Account_recovery() {
                     />
                 </div>
                 <div className="input-container"><input
+                    data-cy="conf-senha"
                     type="password"
                     placeholder="confirmar senha"
                     className={styles.passwordInputField}
@@ -103,10 +104,10 @@ function Account_recovery() {
                     />
                 </div>
                 {error_message && <p className={styles.error}>{error_message}</p>}
-                {success_message && <p className={styles.success}>{success_message}</p>}
-                <button type ="submit" className={styles.confirmButton}>Confirmar</button>
+                {success_message && <p data-cy="success-message" className={styles.success}>{success_message}</p>}
+                <button data-cy="criar conta" type="submit" className={styles.confirmButton}>Confirmar</button>
             </form>
-            <div className={styles.accountRecoveryButtonsContainer}>
+            <div  className={styles.accountRecoveryButtonsContainer}>
                 <button data-cy="deletar conta" className={styles.textButton} onClick={handleDeleteClick}>Deletar Conta</button>
                 <button className={styles.textButton} onClick={handleGoBackClick}>Voltar</button>
             </div>
