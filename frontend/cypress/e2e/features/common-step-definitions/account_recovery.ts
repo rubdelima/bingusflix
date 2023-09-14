@@ -32,3 +32,12 @@ Then("o usuário recebe a mensagem de confirmação {string}", (message: string)
 // When: login.ts
 // When: login.ts
 // Then: login.ts
+
+// Scenario: confirmação de senha diferente da nova senha
+
+// Given: login.ts
+// When: login.ts
+// When: login.ts
+// When: login.ts
+// When: login.ts
+// When: login.ts
