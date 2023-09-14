@@ -80,7 +80,7 @@ function Nav() {
         <button className='buttons-nav'>Últimos Assistidos</button>
         <button className='buttons-nav'>Histórico</button>
         <div className='gender-click' onClick={handleGenderClick}>
-          <button className='buttons-nav'>Gêneros</button>
+          <button data-cy='Gêneros' type='submit' className='buttons-nav'>Gêneros</button>
         </div>
       </div>
       <div className='profile-click' onClick={handleProfileClick}>
@@ -111,7 +111,7 @@ function Nav() {
                   <span className='close' onClick={closeModal}>
                     X
                   </span>
-                  <button className='popup-button' onClick={handleActionClick}>Ação</button>
+                  <button data-cy='Ação' type='submit' className='popup-button' onClick={handleActionClick}>Ação</button>
                   <button className='popup-button' onClick={handleComedyClick}>Comédia</button>
                   <button className='popup-button' onClick={handleRomanceClick}>Romance</button>
                   <button className='popup-button' onClick={handleSuspenseClick}>Suspense</button>
