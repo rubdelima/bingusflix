@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Nav.css";
 
@@ -15,6 +15,10 @@ function Nav() {
 
   const handleProfiles = () => {
     navigate('/profiles')
+  }
+
+  const handleAccount = () => {
+    navigate('/account-management')
   }
 
   const handleProfileClick = () => {
@@ -97,9 +101,9 @@ function Nav() {
             <span className='close' onClick={closeModal}>
               X
             </span>
-            <button className='popup-button' >Conta</button>
-            <button className='popup-button' onClick={handleProfiles}>Perfis</button>
-            <button className='popup-button' onClick={handleLogout}>Logout</button>
+            <button className='profile-button' onClick={handleAccount}>Conta</button>
+            <button className='profile-button' onClick={handleProfiles}>Perfis</button>
+            <button className='profile-button' onClick={handleLogout}>Logout</button>
             <button className='popup-button' onClick={handleHistoryClick}>Histórico</button>
           </div>
         </div>

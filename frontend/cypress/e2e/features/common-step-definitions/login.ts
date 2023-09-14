@@ -16,7 +16,7 @@ When("preenche o campo de {string} com {string}", (field: string, value: string)
 });
 
 
-When("clica no botão {string}", (button: string) => {
+When("clica na opção {string}", (button: string) => {
     cy.getDataCy(button).click();
 });
 

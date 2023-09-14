@@ -1,8 +1,8 @@
+import styles from "./index.module.css";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { setToken, fetchToken } from '../../components/auth';
-import styles from './index.module.css'; 
 
 const API_URL = 'http://127.0.0.1:8000'; 
 

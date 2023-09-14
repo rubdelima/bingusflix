@@ -6,6 +6,6 @@ Feature: Gender Division
 Scenario: Acessar a página de um gênero
     Given o usuário de id "1" está logado
     And o usuário está na página "home-page"
-    When clica no botão "Gêneros"
-    And clica no botão "Ação"
+    When clica na opção "Gêneros"
+    And clica na opção "Ação"
     Then o usuário é direcionado para a "acao"
