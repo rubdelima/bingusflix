@@ -22,7 +22,7 @@ function Profiles() {
         const config = {headers: {Authorization: `Bearer ${token}`}};
 
         try {
-            const response = await axios.get('http://localhost:8000/profiles', config);
+            const response = await axios.get('http://127.0.0.1:8000/profiles', config);
             
             setProfileList(response.data.profiles);
         } catch(e) {
@@ -38,11 +38,11 @@ function Profiles() {
     const handleProfileClick = async (profile) => {
         const id = profileList[0].id_user
 
-        let get_response = await axios.get(`http://localhost:4000/users/${id}`);
+        let get_response = await axios.get(`http://127.0.0.1:4000/users/${id}`);
     
         get_response.data.active_profile = profile.id_profile
 
-        const put_response = await axios.put(`http://localhost:8000/users/${id}`, get_response.data)
+        const put_response = await axios.put(`http://127.0.0.1:8000/users/${id}`, get_response.data)
 
         navigate('/home-page');
     };

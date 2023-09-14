@@ -21,9 +21,9 @@ function ManageProfile() {
         const config = {headers: {Authorization: `Bearer ${token}`}};
 
         try {
-            const get_response = await axios.get(`http://localhost:4000/users/${Number(token)}`);
+            const get_response = await axios.get(`http://127.0.0.1:4000/users/${Number(token)}`);
             
-            const response = await axios.put(`http://localhost:8000/profiles/${get_response.data.active_profile}`, {
+            const response = await axios.put(`http://127.0.0.1:8000/profiles/${get_response.data.active_profile}`, {
                 nickname: nickname,
                 pg: age,
                 language: language

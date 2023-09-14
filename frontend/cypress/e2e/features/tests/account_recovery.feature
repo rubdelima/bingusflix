@@ -15,7 +15,7 @@ Scenario: usuário altera sua senha por meio da recuperação de conta
   When o usuário preenche o campo de "email" com "felipe@gmail.com"
   And preenche o campo de "nova-senha" com "hbo123"
   And preenche o campo de "confirmar-senha" com "hbo123"
-  And clica no botão "Confirmar"
+  And clica na opção "Confirmar"
   Then o usuário recebe a mensagem de confirmação "Sua senha foi alterada com sucesso!"
 
 
@@ -25,7 +25,7 @@ Scenario: e-mail inválido na recuperação de conta
   When o usuário preenche o campo de "email" com "frederick@gmail.com"
   And preenche o campo de "nova-senha" com "hbo123"
   And preenche o campo de "confirmar-senha" com "hbo123"
-  And clica no botão "Confirmar"
+  And clica na opção "Confirmar"
   Then o usuário recebe a mensagem de erro "Não foi possível alterar sua senha"
 
 Scenario: confirmação senha diferente da nova senha
@@ -34,5 +34,5 @@ Scenario: confirmação senha diferente da nova senha
   When o usuário preenche o campo de "email" com "felipe@gmail.com"
   And preenche o campo de "nova-senha" com "hbo123"
   And preenche o campo de "confirmar-senha" com "amazon123"
-  And clica no botão "Confirmar"
+  And clica na opção "Confirmar"
   Then o usuário recebe a mensagem de erro "As senha não coincidem"

@@ -8,6 +8,7 @@ import Subscribe from "./app/home/pages/Subscribe";
 import Login from "./app/home/pages/Login";
 import AccountRecovery from "./app/home/pages/AccountRecovery";
 import Profiles from "./app/home/pages/Profiles";
+import AccountManagement from "./app/home/pages/AccountManagement";
 import Comedia from "./app/home/pages/Comedia";
 import Acao from "./app/home/pages/Acao";
 import Ficcao from "./app/home/pages/Ficcao";
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/profiles",
     Component: Profiles,
+  },
+  {
+    path: "/account-management",
+    Component: AccountManagement,
   },
   {
     path: "/comedia",

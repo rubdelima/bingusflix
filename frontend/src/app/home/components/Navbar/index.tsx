@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, Typography, Button, ThemeProvider, Container } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography, Button, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 
@@ -31,7 +31,8 @@ export default function Navbar({ navTitle }) {
           >
             LOGIN
           </Button>
-          <Button 
+          <Button
+            data-cy="criar conta"
             size="large"
             variant="outlined"
             sx={{ color: 'white', borderColor: 'white' }}

@@ -4,21 +4,41 @@
       "name": "string",
       "surname": "string",
       "email": "felipe@gmail.com",
-      "passwd": "hbo123",
+      "passwd": "netflix123",
       "birthdate": "2023-08-13",
       "plan": true,
       "active_profile": 1,
       "id": 1
+    },
+    {
+      "name": "hugo",
+      "surname": "felix",
+      "email": "hggmarks@gmail.com",
+      "passwd": "cpvsabemais",
+      "birthdate": "2023-08-13",
+      "plan": true,
+      "active_profile": 1,
+      "id": 2
+    },
+    {
+      "name": "Hugo",
+      "surname": "felix",
+      "email": "hfm@email.com",
+      "passwd": "hfm123",
+      "birthdate": "2003-02-01",
+      "plan": false,
+      "active_profile": 1,
+      "id": 3
     }
   ],
   "profiles": [
     {
-      "nickname": "um",
-      "pg": 0,
-      "language": "string",
+      "nickname": "oii",
+      "pg": 14,
+      "language": "a",
       "id_profile": 1,
       "id_user": 1,
-      "id": 1
+      "id": 2
     }
   ],
   "watched": [
