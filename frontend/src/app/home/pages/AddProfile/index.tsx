@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 
-function ManageProfile() {
+function AddProfile() {
 
     const navigate = useNavigate();
 
@@ -21,9 +21,8 @@ function ManageProfile() {
         const config = {headers: {Authorization: `Bearer ${token}`}};
 
         try {
-            const get_response = await axios.get(`http://localhost:4000/users/${Number(token)}`);
-            
-            const response = await axios.put(`http://localhost:8000/profiles/${get_response.data.active_profile}`, {
+    
+            const response = await axios.post(`http://localhost:8000/profiles`, {
                 nickname: nickname,
                 pg: age,
                 language: language
@@ -31,7 +30,7 @@ function ManageProfile() {
 
             console.log(response.status);
             setErrorMessage("");
-            setSuccessMessage("Perfil alterado com sucesso!");
+            setSuccessMessage("Perfil criado com sucesso!");
         } catch (error) {
             console.error(error);
             setErrorMessage("Não foi possível alterar seu perfil");
@@ -43,36 +42,13 @@ function ManageProfile() {
         navigate('/home-page');
     }
 
-    const handleRemove = async () => {
-        const token = localStorage.getItem('token');
-        const config = {headers: {Authorization: `Bearer ${token}`}};
-
-        try {
-            var get_response = await axios.get(`http://localhost:4000/users/${Number(token)}`);
-
-            var profile_to_remove = get_response.data.active_profile;
-
-            get_response.data.active_profile = 1;
-
-            const delete_response = await axios.delete(`http://localhost:8000/profiles/${profile_to_remove}`, config);
-            
-            const put_response = await axios.put(`http://localhost:8000/users/${Number(token)}`, get_response.data);
-
-            console.log(delete_response.status);
-        } catch (e) {
-            console.log(e);
-        }
-
-        navigate('/profiles');
-    }
-
     return (
         <div className={styles.container}>
             <h1 className={styles.topText}
             onClick={() => handleTitleClick()}>BingusFlix</h1>
 
             <div className={styles.centralizedBox}>
-                <h2 className={styles.topBoxText}>Gerenciar Perfis</h2>
+                <h2 className={styles.topBoxText}>Adicionar Perfis</h2>
 
                 <div className={styles.formContainer}>
                     <form onSubmit={handleSubmit} className={styles.formRow}>
@@ -103,20 +79,18 @@ function ManageProfile() {
                             <button 
                             type="submit" 
                             className={styles.confirmButton}>
-                                Atualizar
+                                Criar
                             </button>
 
                         </div>
 
                     </form>
                 </div>
-                <button 
-                className={styles.removeButton}
-                onClick={handleRemove}>Remover Perfil</button>
+
 
             </div>
         </div>
     )
 }
 
-export default ManageProfile
+export default AddProfile
