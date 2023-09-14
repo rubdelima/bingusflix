@@ -1,7 +1,64 @@
-.Home {
+.History{
     background: rgb(35,4,67);
     background: linear-gradient(142deg, rgba(35,4,67,1) 15%, rgba(52,8,86,1) 30%, rgba(61,11,96,1) 45%, rgba(75,0,129,1) 60%, rgba(127,0,178,1) 75%, rgba(216,106,255,1) 90%);
 }
+
+.select-history-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20%;
+}
+
 * {
     margin: 0;
+}
+
+.history-button{
+    display: block;
+    margin-top: 10px;
+    margin-left: 100px;
+    padding: 5px 10px;
+    min-width: 150px;
+    border: none;
+    border-radius: 8px;
+    font-family: Anonymous Pro, monospace;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: white;
+    color: darkviolet;
+    cursor: pointer;
+}
+.history-button-selected{
+    display: block;
+    margin-top: 10px;
+    margin-left: 100px;
+    padding: 5px 10px;
+    min-width: 150px;
+    border: none;
+    border-radius: 8px;
+    font-family: Anonymous Pro, monospace;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: darkviolet;
+    color: white;
+    cursor: pointer;
+}
+
+.image-history {
+    max-height: 100px;
+    border-radius: 10px;
+}
+
+.history-row {
+    background-color: #857cbd;
+    margin-top: 4%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+    align-items: center;
+    color:  rgb(35,4,67);
 }

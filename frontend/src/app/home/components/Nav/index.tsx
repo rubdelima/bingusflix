@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Nav.css';
+import "./Nav.css";
 
 function Nav() {
   const [show, setShow] = useState(false);
@@ -25,6 +25,7 @@ function Nav() {
     setIsModalOpen(false);
     setIsModalOpenGender(false);
   };
+
 
   const handleGenderClick = () => {
     setIsModalOpenGender(true);
@@ -52,6 +53,10 @@ function Nav() {
 
   const handleLogoClick = () => {
     navigate('/home-page');
+  }
+
+  const handleHistoryClick = () => {
+    navigate('/history');
   }
 
   useEffect(() => {
@@ -95,6 +100,7 @@ function Nav() {
             <button className='popup-button' >Conta</button>
             <button className='popup-button' onClick={handleProfiles}>Perfis</button>
             <button className='popup-button' onClick={handleLogout}>Logout</button>
+            <button className='popup-button' onClick={handleHistoryClick}>Histórico</button>
           </div>
         </div>
       )}
