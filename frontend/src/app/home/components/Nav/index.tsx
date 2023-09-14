@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Nav.css';
+import "./Nav.css";
 
 function Nav() {
   const [show, setShow] = useState(false);
@@ -24,6 +24,14 @@ function Nav() {
     setIsModalOpen(false);
   };
 
+  const handleHistory = () =>{
+      navigate('/history');
+  }
+
+  const handleHomePage = () =>{
+    navigate('/home-page');
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', () => {
       setShow(window.scrollY > 100);
@@ -36,6 +44,7 @@ function Nav() {
         className='nav-logo'
         src='/imgs/bingusflix_logo.png'
         alt='BingusFlix'
+        onClick={handleHomePage}
       ></img>
       <div className='buttons-nav-container'>
         <button className='buttons-nav'>Em Alta</button>
@@ -61,6 +70,7 @@ function Nav() {
             <button className='profile-button' >Conta</button>
             <button className='profile-button' onClick={handleProfiles}>Perfis</button>
             <button className='profile-button' onClick={handleLogout}>Logout</button>
+            <button className='profile-button' onClick={handleHistory}>Histórico</button>
           </div>
         </div>
       )}

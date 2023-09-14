@@ -5,37 +5,43 @@ const categories = [
         name: "trending",
         title: "Em alta",
         path: `/trending/all/week?api_key=${API_KEY}&language=pt-BR`,
-        isLarge: true
+        isLarge: true,
+        tipo : 'all'
     },
     {
         name: "netflixOriginals",
         title: "Originais BingusFlix",
         path: `/discover/tv?api_key=${API_KEY}&with_networks=21&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : 'tv'
     },
     {
         name: "topRated",
         title: "Populares",
         path: `/movie/top_rated?api_key=${API_KEY}&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : 'movie'
     },
     {
         name: "comedy",
         title: "Comédias",
         path: `/discover/movie?api_key=${API_KEY}&with_genres=35&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : 'movie'
     },
     {
         name: "romances",
         title: "Romances",
         path: `/discover/tv?api_key=${API_KEY}&with_genres=10749&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : 'tv'
     },
     {
         name: "documentaries",
         title: "Documentarios",
         path: `/discover/tv?api_key=${API_KEY}&with_genres=99&language=pt-BR`,
-        isLarge: false
+        isLarge: false,
+        tipo : 'tv'
     }
 ];
 
@@ -91,5 +97,7 @@ export const getSeasonDetails = async (serie_id, season_id) => {
         console.log("error getSerieDetails: ", error);
     }
 }
+
+
 
 export default categories;

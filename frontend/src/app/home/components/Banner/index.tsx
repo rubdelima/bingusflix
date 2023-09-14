@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import categories, {getMovies, getMovie} from "../api.js";
+import categories, {getMovies, getMovie} from "../../api.js";
 import "./Banner.css";
 
 function Banner() {
