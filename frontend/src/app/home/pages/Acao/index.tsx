@@ -18,6 +18,7 @@ function Acao() {
             title={category.title}
             path={category.path}
             isLarge={category.isLarge}
+            tipo={category.tipo}
           />
         );
       })}

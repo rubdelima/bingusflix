@@ -39,9 +39,9 @@ function VideoInfo({ movie, onClose , tipo}) {
             const config = { headers: { Authorization: `Bearer ${token}`,},};
             if (video.media_type === "movie" || tipo === "movie"){
                 const newVideoData = {"video_type": "movie", "movie_id": video.id , "serie_id": null, "season": null, "episode": null};
-                const response = await axios.post('http://localhost:8000/history/register_access_video', newVideoData, config);
+                const response = await axios.post('http://127.0.0.1:8000/history/register_access_video', newVideoData, config);
             }else if (video.media_type === "tv"){
-                const response = await axios.get('http://localhost:8000/history/', config);
+                const response = await axios.get('http://127.0.0.1:8000/history/', config);
                 console.log("Get History : " ,response)
             }
         }catch(e){

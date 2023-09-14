@@ -62,7 +62,7 @@ function IndieRow({ videoArray, isLarge , tipo, serieId}) {
             const token = localStorage.getItem("token");
             const config = { headers: { Authorization: `Bearer ${token}`,},};
             const newVideoData = {"video_type": "tv", "movie_id": null , "serie_id": serieId, "season": movieInfo.season_number, "episode": movieInfo.episode_number};
-            const response = await axios.post('http://localhost:8000/history/register_access_video', newVideoData, config);
+            const response = await axios.post('http://127.0.0.1:8000/history/register_access_video', newVideoData, config);
         }catch(e){
             console.log('fetchVideo error: ', e);
         }

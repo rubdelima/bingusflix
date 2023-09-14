@@ -5,13 +5,15 @@ const categories = [
         name: "action_tv",
         title: "Séries de ação",
         path: `/discover/tv?api_key=${API_KEY}&with_genres=10759`,
-        isLarge: false
+        isLarge: false,
+        tipo: "tv"
     },
     {
         name: "action_movies",
         title: "Filmes de ação",
         path: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
-        isLarge: false
+        isLarge: false,
+        tipo: "movie"
     }
 ]
 

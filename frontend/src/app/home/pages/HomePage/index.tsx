@@ -28,7 +28,7 @@ function Home() {
     const getLastSeensRow = async () => {
       const token = localStorage.getItem("token");
       const config = { headers: { Authorization: `Bearer ${token}`,},};
-      const response = await axios.get('http://localhost:8000/history/videos/', config);
+      const response = await axios.get('http://127.0.0.1:8000/history/videos/', config);
       console.log("Historico: ", response);
       setHistoryTv(response.data.tv);
       setHistoryMovies(response.data.movie);

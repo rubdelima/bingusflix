@@ -24,8 +24,233 @@
   "watched": [
     {
       "id": 11,
-      "movie": [],
-      "tv": []
+      "movie": [
+        {
+          "video_type": "movie",
+          "video_values": {
+            "adult": false,
+            "backdrop_path": "/ctMserH8g2SeOAnCw5gFjdQF8mo.jpg",
+            "belongs_to_collection": null,
+            "budget": 145000000,
+            "genres": [
+              {
+                "id": 35,
+                "name": "Comédia"
+              },
+              {
+                "id": 12,
+                "name": "Aventura"
+              },
+              {
+                "id": 14,
+                "name": "Fantasia"
+              }
+            ],
+            "homepage": "",
+            "id": 346698,
+            "imdb_id": "tt1517268",
+            "original_language": "en",
+            "original_title": "Barbie",
+            "overview": "No mundo mágico das Barbies, \"Barbieland\", uma das bonecas começa a perceber que não se encaixa como as outras. Depois de ser expulsa, ela parte para uma aventura no \"mundo real\", onde descobre que a beleza está no interior de cada um.",
+            "popularity": 3661.8,
+            "poster_path": "/yRRuLt7sMBEQkHsd1S3KaaofZn7.jpg",
+            "production_companies": [
+              {
+                "id": 82968,
+                "logo_path": "/gRROMOG5bpF6TIDMbfaa5gnFFzl.png",
+                "name": "LuckyChap Entertainment",
+                "origin_country": "US"
+              },
+              {
+                "id": 437,
+                "logo_path": "/nu20mtwbEIhUNnQ5NXVhHsNknZj.png",
+                "name": "Heyday Films",
+                "origin_country": "GB"
+              },
+              {
+                "id": 181486,
+                "logo_path": null,
+                "name": "NB/GG Pictures",
+                "origin_country": "US"
+              },
+              {
+                "id": 6220,
+                "logo_path": "/cAj69EL1zSXmZH6STbMGZrunyMD.png",
+                "name": "Mattel",
+                "origin_country": "US"
+              }
+            ],
+            "production_countries": [
+              {
+                "iso_3166_1": "GB",
+                "name": "United Kingdom"
+              },
+              {
+                "iso_3166_1": "US",
+                "name": "United States of America"
+              }
+            ],
+            "release_date": "2023-07-19",
+            "revenue": 1404802725,
+            "runtime": 112,
+            "spoken_languages": [
+              {
+                "english_name": "English",
+                "iso_639_1": "en",
+                "name": "English"
+              }
+            ],
+            "status": "Released",
+            "tagline": "Ela é tudo. Ele é só o Ken.",
+            "title": "Barbie",
+            "video": false,
+            "vote_average": 7.337,
+            "vote_count": 4302
+          },
+          "watched_at": "2023-09-14 09:26:01.474948"
+        }
+      ],
+      "tv": [
+        {
+          "video_type": "tv",
+          "video_values": {
+            "air_date": "1999-11-17",
+            "crew": [
+              {
+                "job": "Writer",
+                "department": "Writing",
+                "credit_id": "637ffedc229ae21554266dc0",
+                "adult": false,
+                "gender": 1,
+                "id": 1079038,
+                "known_for_department": "Writing",
+                "name": "Michiru Shimada",
+                "original_name": "Michiru Shimada",
+                "popularity": 3.797,
+                "profile_path": "/zwkdRhuEKK9ro6DF4Ht1Dhy2kh5.jpg"
+              },
+              {
+                "job": "Director",
+                "department": "Directing",
+                "credit_id": "637ffee6514c4a008459df15",
+                "adult": false,
+                "gender": 2,
+                "id": 1682771,
+                "known_for_department": "Directing",
+                "name": "Tetsuharu Nakamura",
+                "original_name": "Tetsuharu Nakamura",
+                "popularity": 1.736,
+                "profile_path": null
+              },
+              {
+                "job": "Key Animation",
+                "department": "Visual Effects",
+                "credit_id": "637ffef760620a00bbb19726",
+                "adult": false,
+                "gender": 0,
+                "id": 3082551,
+                "known_for_department": "Visual Effects",
+                "name": "Tetsuya Saeki",
+                "original_name": "Tetsuya Saeki",
+                "popularity": 1.378,
+                "profile_path": null
+              },
+              {
+                "job": "Key Animation",
+                "department": "Visual Effects",
+                "credit_id": "637ffeffa410c8008cd2e7ba",
+                "adult": false,
+                "gender": 0,
+                "id": 2234461,
+                "known_for_department": "Visual Effects",
+                "name": "Yutaka Matsubara",
+                "original_name": "Yutaka Matsubara",
+                "popularity": 1.737,
+                "profile_path": null
+              },
+              {
+                "job": "Key Animation",
+                "department": "Visual Effects",
+                "credit_id": "637fff0aa4af8f007eec6e57",
+                "adult": false,
+                "gender": 0,
+                "id": 2790204,
+                "known_for_department": "Visual Effects",
+                "name": "Fujio Inose",
+                "original_name": "Fujio Inose",
+                "popularity": 3.067,
+                "profile_path": null
+              },
+              {
+                "job": "Key Animation",
+                "department": "Visual Effects",
+                "credit_id": "637fff196e938a008716bb88",
+                "adult": false,
+                "gender": 0,
+                "id": 3217375,
+                "known_for_department": "Visual Effects",
+                "name": "Hitoshi Inaba",
+                "original_name": "Hitoshi Inaba",
+                "popularity": 1.4,
+                "profile_path": null
+              },
+              {
+                "job": "Key Animation",
+                "department": "Visual Effects",
+                "credit_id": "637fff202a09bc007dc53630",
+                "adult": false,
+                "gender": 1,
+                "id": 2797991,
+                "known_for_department": "Visual Effects",
+                "name": "Shiho Tamai",
+                "original_name": "Shiho Tamai",
+                "popularity": 1.576,
+                "profile_path": null
+              }
+            ],
+            "episode_number": 2,
+            "guest_stars": [
+              {
+                "character": "Coby (voice)",
+                "credit_id": "5258eb54760ee34661899c27",
+                "order": 501,
+                "adult": false,
+                "gender": 1,
+                "id": 76396,
+                "known_for_department": "Acting",
+                "name": "Mika Doi",
+                "original_name": "Mika Doi",
+                "popularity": 10.487,
+                "profile_path": "/3bAVJYSPnKZFdF5DrlvT6iOJgHH.jpg"
+              },
+              {
+                "character": "",
+                "credit_id": "5258eb48760ee34661898379",
+                "order": 510,
+                "adult": false,
+                "gender": 1,
+                "id": 1244351,
+                "known_for_department": "Acting",
+                "name": "Machiko Toyoshima",
+                "original_name": "Machiko Toyoshima",
+                "popularity": 4.255,
+                "profile_path": "/kgLd4bMXwEFxeH3UAmqVjVkUDEY.jpg"
+              }
+            ],
+            "name": "O Grande Espadachim! O Caçador de Piratas, Roronoa Zoro!",
+            "overview": "Luffy e Coby chegam à base da Marinha onde Roronoa Zoro, o Caçador de Piratas, é prisioneiro do Capitão Morgan.",
+            "id": 852693,
+            "production_code": "",
+            "runtime": 25,
+            "season_number": 1,
+            "still_path": "/him2IAMOhTToCMGwCzBxHCD9cPf.jpg",
+            "vote_average": 7.8,
+            "vote_count": 11,
+            "tv_id": 37854
+          },
+          "watched_at": "2023-09-14 09:25:49.570894"
+        }
+      ]
     }
   ]
 }
