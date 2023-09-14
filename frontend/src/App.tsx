@@ -13,6 +13,7 @@ import Acao from "./app/home/pages/Acao";
 import Ficcao from "./app/home/pages/Ficcao";
 import Romance from "./app/home/pages/Romance";
 import Suspense from "./app/home/pages/Suspense";
+import ManageProfile from "./app/home/pages/ManageProfile";
 
 
 const router = createBrowserRouter([
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
   {
     path: "/suspense",
     Component: Suspense,
+  },
+  {
+    path: "/manage_profile",
+    Component: ManageProfile
   }
 ]);
 

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { fetchToken } from '../../components/auth';
+import React from 'react';
 
 function Account_recovery() {
 
@@ -33,13 +34,13 @@ function Account_recovery() {
         event.preventDefault();
     
         if (new_password !== confirm_password) {
-            setErrorMessage("As senhas não coincidem");
+            setErrorMessage("As senha não coincidem");
             setSuccessMessage("");
             return;
         }
         
         try {
-            const response = await axios.put('http://localhost:8000/account_recovery', {
+            const response = await axios.put('http://127.0.0.1:8000/account_recovery', {
                 email: email, 
                 new_password: new_password,
                 confirm_password: confirm_password
@@ -62,6 +63,7 @@ function Account_recovery() {
             <h2 className={styles.topBoxTest}>Recuperação de conta</h2>
             <form onSubmit={handleSubmit}>
                 <div className="input-container"><input
+                    data-cy="email"
                     type="email"
                     placeholder="exemplo@email.com"
                     className={styles.emailInputField}
@@ -71,6 +73,7 @@ function Account_recovery() {
                     />
                 </div>
                 <div className="input-container"><input
+                    data-cy="nova-senha"
                     type="password"
                     placeholder="nova senha"
                     className={styles.passwordInputField}
@@ -80,6 +83,7 @@ function Account_recovery() {
                     />
                 </div>
                 <div className="input-container"><input
+                    data-cy="confirmar-senha"
                     type="password"
                     placeholder="confirmar senha"
                     className={styles.passwordInputField}
@@ -88,9 +92,9 @@ function Account_recovery() {
                     required
                     />
                 </div>
-                {error_message && <p className={styles.error}>{error_message}</p>}
-                {success_message && <p className={styles.success}>{success_message}</p>}
-                <button type ="submit" className={styles.confirmButton}>Confirmar</button>
+                {error_message && <p data-cy="error-message" className={styles.error}>{error_message}</p>}
+                {success_message && <p data-cy="success-message" className={styles.success}>{success_message}</p>}
+                <button data-cy="Confirmar" type ="submit" className={styles.confirmButton}>Confirmar</button>
             </form>
             <div className={styles.accountRecoveryButtonsContainer}>
                 <button className={styles.textButton} onClick={handleRegisterClick}>Cadastre-se</button>

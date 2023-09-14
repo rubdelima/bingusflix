@@ -1,4 +1,5 @@
 import styles from "./index.module.css";
+import React from 'react';
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -35,12 +36,12 @@ function Login() {
         formData.append('password', password);
 
         try {
-            const response = await axios.post('http://localhost:8000/login', formData);
+            const response = await axios.post('http://127.0.0.1:8000/login', formData);
             setErrorMessage("");
-            setToken(response.data.token);
+            setToken(response.data.access_token);
             navigate('/home-page');
         } catch (error) {
-            console.error(error);
+            console.log(error);
             setErrorMessage("Usuário ou senha incorretos");
 }
     }
@@ -53,6 +54,7 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <div className={styles.inputContainer}>
                         <input
+                            data-cy='email'
                             type="email"
                             placeholder="exemplo@email.com"
                             className={styles.emailInputField}
@@ -64,6 +66,7 @@ function Login() {
                     </div>
                     <div className={styles.inputContainer}>
                         <input
+                            data-cy='senha'
                             type="password"
                             placeholder="senha"
                             className={styles.passwordInputField}
@@ -73,12 +76,12 @@ function Login() {
                             required
                         />
                     </div>
-                    {error_message && <p className={styles.error}>{error_message}</p>}
-                    <button type="submit" className={styles.loginButton}>Entrar</button>
+                    {error_message  && <p data-cy="error-message" className={styles.error}>{error_message}</p>}
+                    <button data-cy="Entrar" type="submit" className={styles.loginButton}>Entrar</button>
                 </form>
                 <div className={styles.loginButtonsContainer}>
                     <button className={styles.textButton} onClick={handleRegisterClick}>Cadastre-se</button>
-                    <button className={styles.textButton} onClick={handleForgotPasswordClick}>Esqueceu a senha?</button>
+                    <button data-cy="Esqueceu sua senha?" className={styles.textButton} onClick={handleForgotPasswordClick}>Esqueceu a senha?</button>
                 </div>
             </div>
         </div>
